@@ -1,1 +1,42 @@
-<h1>Página de Login</h1>
+<div class="page">
+  <form class="form-login">
+    <div class="logo">
+      <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
+    </div>
+    <div>
+      <input
+        type="email"
+        id="email"
+        [ngClass]="{ error: errorFields.includes('email') }"
+        name="email"
+        placeholder="E-mail"
+        autofocus="true"
+        [(ngModel)]="user.email"
+        (keyup.enter)="onEnterPressed()"
+      />
+    </div>
+    <div>
+      <input
+        type="password"
+        id="password"
+        [ngClass]="{ error: errorFields.includes('password') }"
+        name="password"
+        placeholder="Senha"
+        autofocus="true"
+        [(ngModel)]="user.password"
+        (keyup.enter)="onEnterPressed()"
+      />
+    </div>
+    <div class="keep-logged" (click)="toggleCheckbox()">
+      <input
+        type="checkbox"
+        id="keepLogged"
+        name="keepLogged"
+        [(ngModel)]="user.keepLogged"
+      />Mantenha-me logado
+    </div>
+    <button type="button" class="btn-entrar" (click)="onLoginClick()">
+      Entrar
+    </button>
+  </form>
+</div>
