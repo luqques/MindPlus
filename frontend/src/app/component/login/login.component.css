@@ -5,23 +5,23 @@ div {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form {
+  }
+  
+  form {
     display: flex;
     flex-direction: column;
-}
-
-label,
-input {
+  }
+  
+  label, input {
     margin-bottom: 10px;
-}
-
-button {
+  }
+  
+  button {
     padding: 10px;
     background-color: #007BFF;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+  }
+  
