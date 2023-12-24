@@ -1,0 +1,42 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #5790AB;
+    padding: 1em;
+}
+
+.logo, .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    margin-right: 0.6em;
+}
+
+.logo h2 {
+    transition: .4s;
+}
+
+.logo:hover > h2 {
+    color: #072D44;
+}
+
+.links li {
+    margin-right: 1em;
+    list-style: none;
+}
+
+.links a {
+    padding: 33px 3em;
+}
+
+#link-colaboradores a {
+    /* color: #072D44; */
+}
+
+#link-colaboradores a:hover {
+    background-color: #9CCDDB;
+}

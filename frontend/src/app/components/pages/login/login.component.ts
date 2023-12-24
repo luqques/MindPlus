@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  username: string = '';
-  password: string = '';
+  @Input() email: string = '';
+  @Input() password: string = '';
+  @Input() keepLoggedIn: boolean = false;
 
   constructor() {}
 
