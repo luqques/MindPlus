@@ -6,7 +6,7 @@ namespace MindPlus.API.Infrastructure
 {
     public class Connection
     {
-        protected string connectionString = "Server=localhost, Database=mindplus, User=root, Password=root";
+        protected string connectionString = "Server=127.0.0.1;Port=3306;Database=mindplus;User=root;Password=root";
 
         protected MySqlConnection GetConnection()
         {

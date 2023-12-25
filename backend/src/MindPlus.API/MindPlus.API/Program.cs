@@ -48,6 +48,9 @@ builder.Services.AddSwaggerGen(c =>
             new List<string>() { }
         }
     });
+
+    c.EnableAnnotations();
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MindPlus API", Version = "v1" });
 });
 
 builder.Services.AddAuthentication(x =>

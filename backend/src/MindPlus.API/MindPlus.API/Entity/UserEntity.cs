@@ -8,7 +8,7 @@
         public string? Senha { get; set; }
         public string? Telefone { get; set; }
         public string? Endereco { get; set; }
-        public string? Empresa { get; set; }
+        public int EmpresaId { get; set; }
         public string? Ativo { get; set; }
         public string? Role { get; set; }
     }

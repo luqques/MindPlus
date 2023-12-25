@@ -19,15 +19,45 @@ namespace MindPlus.API.Controllers
             _userRepository = userRepository;
         }
 
+
         /// <summary>
-        /// Visualizar todos os usuários. (Requer autenticação como 'colaborador')
+        /// Autenticar um usuário.
+        /// </summary>
+        [HttpPost]
+        [Route("login")]
+        [SwaggerOperation(Summary = "Autenticar um usuário", Description = "Autentica um usuário com base nas credenciais fornecidas.")]
+        public async Task<IActionResult> LogIn(LoginDTO user)
+        {
+            try
+            {
+                return Ok(await _userRepository.LogIn(user));
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized("Usuario ou senha inválidos.");
+            }
+        }
+
+        /// <summary>
+        /// Visualizar todos os usuários.
         /// </summary>
         [HttpGet]
-        [Authorize(Roles = "colaborador")]
-        [SwaggerOperation(Summary = "Visualizar todos os usuários", Description = "Requer autenticação como 'colaborador'.")]
+        [Authorize]
+        [SwaggerOperation(Summary = "Visualizar todos os usuários", Description = "Lista todos os usuários do sistema.")]
         public async Task<IActionResult> VisualizarUsuarios()
         {
             return Ok(await _userRepository.VisualizarUsuarios());
+        }
+
+        /// <summary>
+        /// Visualizar todos os usuários.
+        /// </summary>
+        [HttpGet("{id:int}")]
+        [Authorize]
+        [SwaggerOperation(Summary = "Visualizar usuário", Description = "Visualiza um usuário de acordo com o Id passado por parâmetro.")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            return Ok(await _userRepository.GetById(id));
         }
 
         /// <summary>
@@ -64,24 +94,6 @@ namespace MindPlus.API.Controllers
         {
             await _userRepository.RemoverUsuario(id);
             return Ok("Usuário removido com sucesso.");
-        }
-
-        /// <summary>
-        /// Autenticar um usuário.
-        /// </summary>
-        [HttpPost]
-        [Route("login")]
-        [SwaggerOperation(Summary = "Autenticar um usuário", Description = "Autentica um usuário com base nas credenciais fornecidas.")]
-        public async Task<IActionResult> LogIn(LoginDTO user)
-        {
-            try
-            {
-                return Ok(await _userRepository.LogIn(user));
-            }
-            catch (Exception ex)
-            {
-                return Unauthorized("Usuario ou senha inválidos.");
-            }
         }
     }
 }

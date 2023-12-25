@@ -9,6 +9,7 @@ namespace MindPlus.API.Contracts.Repository
         Task AtualizarUsuario(UserEntity user);
         Task RemoverUsuario(int id);
         Task<IEnumerable<UserEntity>> VisualizarUsuarios();
+        Task<UserEntity> GetById(int id);
         Task<UserTokenDTO> LogIn(LoginDTO user);
     }
 }
