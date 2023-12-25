@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserLogin as UserLogin } from 'src/app/interfaces/UserLogin';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,49 +8,54 @@ import { UserLogin as UserLogin } from 'src/app/interfaces/UserLogin';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: UserLogin = {
-    email: '',
-    password: '',
-    keepLogged: false,
-  };
+  @Output() onSubmit = new EventEmitter<UserLogin>();
+  @Input() userLoginData: UserLogin | null = null;
+  @Input() btnText!: string;
+
+  userLoginForm!: FormGroup;
+  keepLogged: boolean = false;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.userLoginData) {
+      console.log(this.userLoginData);
+      this.userLoginForm = new FormGroup({
+        email: new FormControl(this.userLoginData?.email, [
+          Validators.required,
+        ]),
+        password: new FormControl(this.userLoginData?.password, [
+          Validators.required,
+        ]),
+        keepLogged: new FormControl(this.userLoginData?.keepLogged),
+      });
+    } else {
+      this.userLoginForm = new FormGroup({
+        email: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required]),
+        keepLogged: new FormControl(''),
+      });
+    }
+  }
+
+  get email() {
+    return this.userLoginForm.get('email')!;
+  }
+
+  get password() {
+    return this.userLoginForm.get('password')!;
+  }
+
+  submit() {
+    if (this.userLoginForm.invalid) {
+      return;
+    }
+    console.log(this.userLoginForm.value);
+    this.onSubmit.emit(this.userLoginForm.value);
+  }
 
   toggleCheckbox() {
-    this.user.keepLogged = !this.user.keepLogged;
-  }
-
-  errorFields: string[] = [];
-  isFormValid(): boolean {
-    this.errorFields = [];
-
-    if (this.user.email.trim() === '') {
-      this.errorFields.push('email');
-    }
-
-    if (this.user.password.trim() === '') {
-      this.errorFields.push('password');
-    }
-
-    return this.errorFields.length === 0;
-  }
-
-  onLoginClick(): void {
-    if (this.isFormValid()) {
-      console.log('Entrou!');
-      //TODO: enviar dados de login para a API e verificar se email e senha estão corretos.
-      //TODO: chamar tela 'home'.
-    } else {
-      const errorMessage = 'Preencha todos os campos!';
-      console.error(errorMessage);
-    }
-  }
-
-  onEnterPressed(): void {
-    if (this.isFormValid()) {
-      this.onLoginClick();
-    }
+    const keepLoggedControl = this.userLoginForm.get('keepLogged');
+    keepLoggedControl!.setValue(!keepLoggedControl!.value);
   }
 }
