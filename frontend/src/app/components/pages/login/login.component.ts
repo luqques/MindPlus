@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UserLogin as UserLogin } from 'src/app/interfaces/UserLogin';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,54 +7,55 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  @Output() onSubmit = new EventEmitter<UserLogin>();
-  @Input() userLoginData: UserLogin | null = null;
-  @Input() btnText!: string;
+  loginForm: FormGroup;
 
-  userLoginForm!: FormGroup;
-  keepLogged: boolean = false;
-
-  constructor() {}
-
-  ngOnInit(): void {
-    if (this.userLoginData) {
-      console.log(this.userLoginData);
-      this.userLoginForm = new FormGroup({
-        email: new FormControl(this.userLoginData?.email, [
-          Validators.required,
-        ]),
-        password: new FormControl(this.userLoginData?.password, [
-          Validators.required,
-        ]),
-        keepLogged: new FormControl(this.userLoginData?.keepLogged),
-      });
-    } else {
-      this.userLoginForm = new FormGroup({
-        email: new FormControl('', [Validators.required]),
-        password: new FormControl('', [Validators.required]),
-        keepLogged: new FormControl(''),
-      });
-    }
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      keepLogged: [false],
+    });
   }
 
-  get email() {
-    return this.userLoginForm.get('email')!;
+  ngOnInit(): void {}
+
+  isEmailInvalid() {
+    const emailControl = this.loginForm.get('email');
+    return (
+      emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)
+    );
   }
 
-  get password() {
-    return this.userLoginForm.get('password')!;
-  }
-
-  submit() {
-    if (this.userLoginForm.invalid) {
-      return;
-    }
-    console.log(this.userLoginForm.value);
-    this.onSubmit.emit(this.userLoginForm.value);
+  isPasswordInvalid() {
+    const passwordControl = this.loginForm.get('password');
+    return (
+      passwordControl?.invalid &&
+      (passwordControl?.dirty || passwordControl?.touched)
+    );
   }
 
   toggleCheckbox() {
-    const keepLoggedControl = this.userLoginForm.get('keepLogged');
-    keepLoggedControl!.setValue(!keepLoggedControl!.value);
+    const keepLoggedControl = this.loginForm.get('keepLogged');
+    if (keepLoggedControl) {
+      keepLoggedControl.setValue(!keepLoggedControl.value);
+    }
+  }
+
+  onSubmit() {
+    const emailControl = this.loginForm.get('email');
+    const passwordControl = this.loginForm.get('password');
+
+    if (emailControl?.valid && passwordControl?.valid) {
+      console.log('Formulário enviado!', this.loginForm.value);
+    } else {
+      if (!emailControl?.value) {
+        emailControl?.setErrors({ required: true });
+      }
+      if (!passwordControl?.value) {
+        passwordControl?.setErrors({ required: true });
+      }
+
+      console.log('Preencha todos os campos corretamente!');
+    }
   }
 }

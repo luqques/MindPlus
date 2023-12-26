@@ -1,51 +1,31 @@
 <div class="page">
-  <form
-    class="form-login"
-    (ngSubmit)="submit()"
-    [formGroup]="userLoginForm"
-    #formDir="ngForm"
-  >
+  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
-    <div
-      [ngClass]="{
-        'validation-error': userLoginForm.invalid && userLoginForm.touched
-      }"
-    >
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="E-mail"
-        autofocus="true"
-        formControlName="email"
-        required
-        autocomplete="on"
-        (keydown.enter)="submit()"
-      />
-    </div>
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
+      placeholder="E-mail"
+      [ngClass]="{ 'validation-error': isEmailInvalid() }"
+    />
     <div>
       <input
         type="password"
         id="password"
-        name="password"
-        placeholder="Senha"
-        autofocus="true"
         formControlName="password"
-        required
-        autocomplete="on"
-        (keydown.enter)="submit()"
+        placeholder="Senha"
+        [ngClass]="{ 'validation-error': isPasswordInvalid() }"
       />
     </div>
     <div class="keep-logged" (click)="toggleCheckbox()">
       <input
         type="checkbox"
         id="keepLogged"
-        name="keepLogged"
         formControlName="keepLogged"
       />Mantenha-me logado
     </div>
-    <button type="button" class="btn-entrar" (click)="submit()">Entrar</button>
+    <button type="submit" class="btn-entrar">Entrar</button>
   </form>
 </div>
