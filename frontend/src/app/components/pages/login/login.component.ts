@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserLogin } from 'src/app/interfaces/UserLogin';
+import { UserLoginService } from 'src/app/services/user-login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  @Output() onSubmit = new EventEmitter<UserLogin>();
+
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private userLoginService: UserLoginService
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      keepLogged: [false],
     });
   }
 
@@ -34,19 +40,18 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  keepLogged: boolean = false;
   toggleCheckbox() {
-    const keepLoggedControl = this.loginForm.get('keepLogged');
-    if (keepLoggedControl) {
-      keepLoggedControl.setValue(!keepLoggedControl.value);
-    }
+    this.keepLogged = !this.keepLogged;
   }
 
-  onSubmit() {
+  submit() {
     const emailControl = this.loginForm.get('email');
     const passwordControl = this.loginForm.get('password');
 
     if (emailControl?.valid && passwordControl?.valid) {
       console.log('Formulário enviado!', this.loginForm.value);
+      this.api(this.loginForm.value);
     } else {
       if (!emailControl?.value) {
         emailControl?.setErrors({ required: true });
@@ -57,5 +62,15 @@ export class LoginComponent implements OnInit {
 
       console.log('Preencha todos os campos corretamente!');
     }
+  }
+
+  async api(LoginComponent: { email: string; password: string }) {
+    console.log('deu bommmm');
+    const formData = new FormData();
+
+    formData.append('email', LoginComponent.email);
+    formData.append('password', LoginComponent.password);
+
+    await this.userLoginService.autenticarLogin(formData).subscribe();
   }
 }

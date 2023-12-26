@@ -1,5 +1,5 @@
 <div class="page">
-  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="submit()">
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
@@ -7,6 +7,7 @@
       type="email"
       id="email"
       formControlName="email"
+      autocomplete="on"
       placeholder="E-mail"
       [ngClass]="{ 'validation-error': isEmailInvalid() }"
     />
@@ -15,6 +16,7 @@
         type="password"
         id="password"
         formControlName="password"
+        autocomplete="on"
         placeholder="Senha"
         [ngClass]="{ 'validation-error': isPasswordInvalid() }"
       />
@@ -23,7 +25,8 @@
       <input
         type="checkbox"
         id="keepLogged"
-        formControlName="keepLogged"
+        autocomplete="on"
+        [checked]="keepLogged"
       />Mantenha-me logado
     </div>
     <button type="submit" class="btn-entrar">Entrar</button>
