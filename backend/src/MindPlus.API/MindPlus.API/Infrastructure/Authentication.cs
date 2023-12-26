@@ -1,10 +1,10 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using MindPlus.API.Entity;
+using MindPlus.Api.Entity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace MindPlus.API.Infrastructure
+namespace MindPlus.Api.Infrastructure
 {
     public class Authentication
     {

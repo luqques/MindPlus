@@ -1,4 +1,4 @@
-﻿namespace MindPlus.API.Entity
+﻿namespace MindPlus.Api.Entity
 {
     public class UserEntity
     {

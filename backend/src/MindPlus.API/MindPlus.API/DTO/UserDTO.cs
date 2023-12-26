@@ -1,4 +1,4 @@
-﻿namespace MindPlus.API.DTO
+﻿namespace MindPlus.Api.DTO
 {
     public class UserDTO
     {

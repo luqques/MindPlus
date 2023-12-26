@@ -1,6 +1,6 @@
-﻿using MindPlus.API.Entity;
+﻿using MindPlus.Api.Entity;
 
-namespace MindPlus.API.DTO
+namespace MindPlus.Api.DTO
 {
     public class UserTokenDTO
     {

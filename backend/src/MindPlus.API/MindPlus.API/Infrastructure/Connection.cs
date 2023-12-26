@@ -2,7 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices.ObjectiveC;
 
-namespace MindPlus.API.Infrastructure
+namespace MindPlus.Api.Infrastructure
 {
     public class Connection
     {

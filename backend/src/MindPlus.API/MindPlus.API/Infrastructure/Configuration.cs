@@ -1,4 +1,4 @@
-﻿namespace MindPlus.API.Infrastructure
+﻿namespace MindPlus.Api.Infrastructure
 {
     public class Configuration
     {

@@ -1,7 +1,7 @@
-﻿using MindPlus.API.DTO;
-using MindPlus.API.Entity;
+﻿using MindPlus.Api.DTO;
+using MindPlus.Api.Entity;
 
-namespace MindPlus.API.Contracts.Repository
+namespace MindPlus.Api.Contracts.Repository
 {
     public interface IUserRepository
     {
