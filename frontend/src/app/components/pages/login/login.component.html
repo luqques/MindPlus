@@ -1,33 +1,20 @@
 <div class="page">
-  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="submit()">
+  <form class="form-login">
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
-    <input
-      type="email"
-      id="email"
-      formControlName="email"
-      autocomplete="on"
-      placeholder="E-mail"
-      [ngClass]="{ 'validation-error': isEmailInvalid() }"
-    />
+    <input type="email" id="email" autocomplete="on" placeholder="E-mail" />
     <div>
       <input
         type="password"
         id="password"
-        formControlName="password"
         autocomplete="on"
         placeholder="Senha"
-        [ngClass]="{ 'validation-error': isPasswordInvalid() }"
       />
     </div>
-    <div class="keep-logged" (click)="toggleCheckbox()">
-      <input
-        type="checkbox"
-        id="keepLogged"
-        autocomplete="on"
-        [checked]="keepLogged"
-      />Mantenha-me logado
+    <div class="keep-logged">
+      <input type="checkbox" id="keepLogged" autocomplete="on" />Mantenha-me
+      logado
     </div>
     <button type="submit" class="btn-entrar">Entrar</button>
   </form>
