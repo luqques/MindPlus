@@ -3,6 +3,9 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  NgModel,
+  NgModelGroup,
+  NgForm,
   Validators,
 } from '@angular/forms';
 import { UserLogin } from 'src/app/interfaces/UserLogin';
@@ -16,12 +19,13 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
-  usuario: UserLogin = {
-    email: 'teste',
-    password: 'teste',
+  user: UserLogin = {
+    email: '',
+    password: '',
   };
 
-  onSubmit() {
-    console.log('Dados do login: ', this.usuario);
+  onSubmit(f: NgForm) {
+    this.user = f.value
+    console.log('Dados do login: ', this.user);
   }
 }
