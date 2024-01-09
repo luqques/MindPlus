@@ -1,15 +1,22 @@
 <div class="page">
-  <form class="form-login">
+  <form class="form-login" (ngSubmit)="onSubmit()">
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
-    <input type="email" id="email" autocomplete="on" placeholder="E-mail" />
+    <input
+      type="email"
+      id="email"
+      autocomplete="on"
+      placeholder="E-mail"
+      [(ngModel)]="usuario.email"
+    />
     <div>
       <input
         type="password"
         id="password"
         autocomplete="on"
         placeholder="Senha"
+        [(ngModel)]="usuario.password"
       />
     </div>
     <div class="keep-logged">

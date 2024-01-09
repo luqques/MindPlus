@@ -1,5 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { UserLogin } from 'src/app/interfaces/UserLogin';
 import { UserLoginService } from 'src/app/services/user-login.service';
 
@@ -10,4 +15,13 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 })
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
+
+  usuario: UserLogin = {
+    email: 'teste',
+    password: 'teste',
+  };
+
+  onSubmit() {
+    console.log('Dados do login: ', this.usuario);
+  }
 }
