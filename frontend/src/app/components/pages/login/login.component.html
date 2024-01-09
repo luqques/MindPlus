@@ -11,7 +11,7 @@
       placeholder="E-mail"
       ngModel required #email="ngModel"
     />
-    <div *ngIf="formSubmitted && email.invalid && (email.dirty || email.touched || formSubmitted)">
+    <div *ngIf="email.invalid && (email.dirty || email.touched || formSubmitted)">
       <div *ngIf="email.hasError('required')" class="invalid-message">O e-mail é obrigatório.</div>
     </div>
     <div>
