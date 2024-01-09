@@ -24,8 +24,12 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  onSubmit(f: NgForm) {
-    this.user = f.value
-    console.log('Dados do login: ', this.user);
+  onSubmit(userLoginForm: NgForm) {
+    this.user = userLoginForm.value
+    if(userLoginForm.valid){
+      console.log('Dados do login: ', this.user);
+    } else{
+      console.log('Inválido')
+    }
   }
 }

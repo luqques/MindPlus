@@ -1,5 +1,5 @@
 <div class="page">
-  <form class="form-login" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form class="form-login" #userLoginForm="ngForm" (ngSubmit)="onSubmit(userLoginForm)">
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
@@ -11,6 +11,9 @@
       placeholder="E-mail"
       ngModel required #email="ngModel"
     />
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.hasError('required')">O e-mail é obrigatório.</div>
+    </div>
     <div>
       <input
         name="password"
@@ -20,6 +23,9 @@
         placeholder="Senha"
         ngModel required #password="ngModel"
       />
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.hasError('required')">A senha é obrigatória.</div>
+      </div>
     </div>
     <div class="keep-logged">
       <input type="checkbox" id="keepLogged" autocomplete="on" />Mantenha-me
