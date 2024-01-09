@@ -33,21 +33,28 @@
 .form-login input[type="email"], input[type="password"] {
     width: 100%;
     height: 40px;
-    margin: 10px 0;
+    margin: 10px 0 0px 0;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     transition: all linear 160ms;
     outline: none;
-}
-
-.validation-error {
-    border: 1px solid #e77373;
-    background-color: #f0b2b2;
+    z-index: 1;
 }
 
 .form-login input:focus {
     border: 1px solid #064469;
+}
+
+.invalid-message {
+    height: 22px;
+    width: 100%;
+    margin-top: -4px;
+    padding: 7px 3px 3px 3px;
+    background-color: rgb(231, 179, 179);
+    font-size: 10px;
+    border-bottom-left-radius: 5px; 
+    border-bottom-right-radius: 5px;
 }
 
 .keep-logged {

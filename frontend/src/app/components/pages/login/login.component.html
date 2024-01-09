@@ -11,8 +11,8 @@
       placeholder="E-mail"
       ngModel required #email="ngModel"
     />
-    <div *ngIf="email.invalid && (email.dirty || email.touched)">
-      <div *ngIf="email.hasError('required')">O e-mail é obrigatório.</div>
+    <div *ngIf="formSubmitted && email.invalid && (email.dirty || email.touched || formSubmitted)">
+      <div *ngIf="email.hasError('required')" class="invalid-message">O e-mail é obrigatório.</div>
     </div>
     <div>
       <input
@@ -23,14 +23,14 @@
         placeholder="Senha"
         ngModel required #password="ngModel"
       />
-      <div *ngIf="password.invalid && (password.dirty || password.touched)">
-        <div *ngIf="password.hasError('required')">A senha é obrigatória.</div>
+      <div *ngIf="password.invalid && (password.dirty || password.touched || formSubmitted)">
+        <div *ngIf="password.hasError('required')" class="invalid-message">A senha é obrigatória.</div>
       </div>
     </div>
-    <div class="keep-logged">
-      <input type="checkbox" id="keepLogged" autocomplete="on" />Mantenha-me
+    <div class="keep-logged" (click)="toggleCheckbox()">
+      <input name="keepLogged" type="checkbox" id="keepLogged" autocomplete="on" [checked]="keepLogged"/>Mantenha-me
       logado
     </div>
-    <button type="submit" class="btn-entrar">Entrar</button>
+    <button name="submit" type="submit" class="btn-entrar">Entrar</button>
   </form>
 </div>

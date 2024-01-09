@@ -24,12 +24,21 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+  keepLogged: boolean = false;
+  toggleCheckbox() {
+    this.keepLogged = !this.keepLogged;
+  }
+
+  formSubmitted: boolean = false;
   onSubmit(userLoginForm: NgForm) {
     this.user = userLoginForm.value
+    this.formSubmitted = true;
     if(userLoginForm.valid){
       console.log('Dados do login: ', this.user);
     } else{
       console.log('Inválido')
     }
   }
+
+  // TODO: chamar a API e gravar os dados no banco.
 }
