@@ -1,34 +1,36 @@
 <div class="page">
-  <form class="form-login" [formGroup]="loginForm" (ngSubmit)="submit()">
+  <form class="form-login" #userLoginForm="ngForm" (ngSubmit)="onSubmit(userLoginForm)">
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
     <input
+      name="email"
       type="email"
       id="email"
-      formControlName="email"
       autocomplete="on"
       placeholder="E-mail"
-      [ngClass]="{ 'validation-error': isEmailInvalid() }"
+      ngModel required #email="ngModel"
     />
+    <div *ngIf="formSubmitted && email.invalid && (email.dirty || email.touched || formSubmitted)">
+      <div *ngIf="email.hasError('required')" class="invalid-message">O e-mail é obrigatório.</div>
+    </div>
     <div>
       <input
+        name="password"
         type="password"
         id="password"
-        formControlName="password"
         autocomplete="on"
         placeholder="Senha"
-        [ngClass]="{ 'validation-error': isPasswordInvalid() }"
+        ngModel required #password="ngModel"
       />
+      <div *ngIf="password.invalid && (password.dirty || password.touched || formSubmitted)">
+        <div *ngIf="password.hasError('required')" class="invalid-message">A senha é obrigatória.</div>
+      </div>
     </div>
     <div class="keep-logged" (click)="toggleCheckbox()">
-      <input
-        type="checkbox"
-        id="keepLogged"
-        autocomplete="on"
-        [checked]="keepLogged"
-      />Mantenha-me logado
+      <input name="keepLogged" type="checkbox" id="keepLogged" autocomplete="on" [checked]="keepLogged"/>Mantenha-me
+      logado
     </div>
-    <button type="submit" class="btn-entrar">Entrar</button>
+    <button name="submit" type="submit" class="btn-entrar">Entrar</button>
   </form>
 </div>
