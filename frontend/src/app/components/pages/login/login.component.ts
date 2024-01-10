@@ -29,14 +29,19 @@ export class LoginComponent implements OnInit {
     this.keepLogged = !this.keepLogged;
   }
 
+  userLoginService!: UserLoginService;
   formSubmitted: boolean = false;
   onSubmit(userLoginForm: NgForm) {
-    this.user = userLoginForm.value
+    this.user = userLoginForm.value;
+
     this.formSubmitted = true;
-    if(userLoginForm.valid){
+
+    if (userLoginForm.valid) {
       console.log('Dados do login: ', this.user);
-    } else{
-      console.log('Inválido')
+
+      this.userLoginService.autenticarLogin(this.user);
+    } else {
+      console.log('Inválido');
     }
   }
 
