@@ -1,15 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  NgModel,
-  NgModelGroup,
-  NgForm,
-  Validators,
-} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserLogin } from 'src/app/interfaces/UserLogin';
 import { UserLoginService } from 'src/app/services/user-login.service';
+import { Response } from 'src/app/interfaces/Response';
 
 @Component({
   selector: 'app-login',
@@ -38,14 +31,18 @@ export class LoginComponent implements OnInit {
     this.formSubmitted = true;
 
     if (userLoginForm.valid) {
-      console.log('Dados do login: ', this.user);
+      this.userLoginService.autenticarLogin(this.user).subscribe({
+        next: (retorno) => {
+          console.log('Login autenticado!');
+          console.log('Retorno da API: ', retorno);
 
-      try {
-        await this.userLoginService.autenticarLogin(this.user);
-        console.log('Login bem sucedido!');
-      } catch (error) {
-        console.error('Erro ao autenticar: ', error);
-      }
+          //TODO: Atribuir o valor "token" do retorno para uma variável e utilizar para autenticação de outras APIs.
+          //Pode ser usado a interface "Reponse", é interessante ver o curso no Youtube onde é usado isso.
+        },
+        error: (error) => {
+          console.error('Erro ao autenticar', error);
+        },
+      });
     } else {
       console.log('Todos os campos devem ser preenchidos.');
     }
