@@ -4,7 +4,7 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, ObservableInput, catchError, throwError } from 'rxjs';
 
 import { UserLogin } from '../interfaces/UserLogin';
 
@@ -27,7 +27,7 @@ export class UserLoginService {
   };
 
   //TODO: usar este handleError futuramente
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse): ObservableInput<any> {
     if (error.status === 0) {
       console.error('Ocorreu um erro:', error.error);
     } else {
@@ -48,9 +48,8 @@ export class UserLoginService {
   }
 
   autenticarLogin(userLogin: UserLogin): Observable<UserLogin> {
-    return this.http.post<UserLogin>(this.apiUrl, userLogin, this.httpOptions);
-    // .pipe(
-    //   catchError(this.handleError('autenticarLogin', userLogin))
-    // );
+    return this.http
+      .post<UserLogin>(this.apiUrl, userLogin, this.httpOptions)
+      .pipe(catchError((error: HttpErrorResponse) => this.handleError(error)));
   }
 }
