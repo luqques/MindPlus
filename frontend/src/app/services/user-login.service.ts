@@ -26,7 +26,7 @@ export class UserLoginService {
     }),
   };
 
-  autenticarLogin(userLogin: UserLogin): Observable<UserLogin> {
-    return this.http.post<UserLogin>(this.apiUrl, userLogin, this.httpOptions);
+  autenticarLogin(payload: any): Observable<UserLogin> {
+    return this.http.post<UserLogin>(this.apiUrl, payload, this.httpOptions);
   }
 }

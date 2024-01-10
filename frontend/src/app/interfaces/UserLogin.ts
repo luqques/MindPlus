@@ -1,4 +1,4 @@
 export interface UserLogin {
-  email: string;
-  senha: string;
+  token: string,
+  data: any,
 }
