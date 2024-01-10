@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         console.error('Erro ao autenticar: ', error);
       }
     } else {
-      console.log('Devem ser preenchidos todos os campos.');
+      console.log('Todos os campos devem ser preenchidos.');
     }
   }
 }
