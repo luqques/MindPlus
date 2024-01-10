@@ -32,17 +32,9 @@ export class LoginComponent implements OnInit {
       this.userLoginService.autenticarLogin(userLoginForm.value).subscribe((response: Response<UserLogin>) => {
           console.log('Login autenticado!');
           console.log('Retorno da API: ', response);
-
+          
           const token = response.data.token;
           console.log('Token: ', token);
-          //TODO: Atribuir o valor "token" do retorno para uma variável e utilizar para autenticação de outras APIs.
-          //Pode ser usado a interface "Reponse", é interessante ver o curso no Youtube onde é usado isso.
-          
-          // console.log(retorno["token"]);
-
-          let dataJson = JSON.parse(JSON.stringify(response))
-
-          console.log(dataJson.token);
         },
         (error) => {
           console.error('Erro ao autenticar', error);
