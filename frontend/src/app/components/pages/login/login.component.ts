@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private userLoginService: UserLoginService) {}
 
   user: UserLogin = {
-    email: '',
-    senha: '',
+    token: '',
+    data: null,
   };
 
   keepLogged: boolean = false;
@@ -26,23 +26,20 @@ export class LoginComponent implements OnInit {
 
   formSubmitted: boolean = false;
   async onSubmit(userLoginForm: NgForm) {
-    this.user = userLoginForm.value;
-
     this.formSubmitted = true;
 
     if (userLoginForm.valid) {
-      this.userLoginService.autenticarLogin(this.user).subscribe({
-        next: (retorno) => {
+      this.userLoginService.autenticarLogin(userLoginForm.value).subscribe((response: Response<UserLogin>) => {
           console.log('Login autenticado!');
-          console.log('Retorno da API: ', retorno);
-
-          //TODO: Atribuir o valor "token" do retorno para uma variável e utilizar para autenticação de outras APIs.
-          //Pode ser usado a interface "Reponse", é interessante ver o curso no Youtube onde é usado isso.
+          console.log('Retorno da API: ', response);
+          
+          const token = response.data.token;
+          console.log('Token: ', token);
         },
-        error: (error) => {
+        (error) => {
           console.error('Erro ao autenticar', error);
         },
-      });
+      );
     } else {
       console.log('Todos os campos devem ser preenchidos.');
     }
