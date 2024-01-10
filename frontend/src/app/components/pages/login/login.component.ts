@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { UserLogin as UserLogin } from 'src/app/interfaces/UserLogin';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserLogin } from 'src/app/interfaces/UserLogin';
+import { UserLoginService } from 'src/app/services/user-login.service';
+import { Response } from 'src/app/interfaces/Response';
 
 @Component({
   selector: 'app-login',
@@ -7,49 +10,41 @@ import { UserLogin as UserLogin } from 'src/app/interfaces/UserLogin';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: UserLogin = {
-    email: '',
-    password: '',
-    keepLogged: false,
-  };
-
-  constructor() {}
-
   ngOnInit(): void {}
 
+  constructor(private userLoginService: UserLoginService) {}
+
+  user: UserLogin = {
+    email: '',
+    senha: '',
+  };
+
+  keepLogged: boolean = false;
   toggleCheckbox() {
-    this.user.keepLogged = !this.user.keepLogged;
+    this.keepLogged = !this.keepLogged;
   }
 
-  errorFields: string[] = [];
-  isFormValid(): boolean {
-    this.errorFields = [];
+  formSubmitted: boolean = false;
+  async onSubmit(userLoginForm: NgForm) {
+    this.user = userLoginForm.value;
 
-    if (this.user.email.trim() === '') {
-      this.errorFields.push('email');
-    }
+    this.formSubmitted = true;
 
-    if (this.user.password.trim() === '') {
-      this.errorFields.push('password');
-    }
+    if (userLoginForm.valid) {
+      this.userLoginService.autenticarLogin(this.user).subscribe({
+        next: (retorno) => {
+          console.log('Login autenticado!');
+          console.log('Retorno da API: ', retorno);
 
-    return this.errorFields.length === 0;
-  }
-
-  onLoginClick(): void {
-    if (this.isFormValid()) {
-      console.log('Entrou!');
-      //TODO: enviar dados de login para a API e verificar se email e senha estão corretos.
-      //TODO: chamar tela 'home'.
+          //TODO: Atribuir o valor "token" do retorno para uma variável e utilizar para autenticação de outras APIs.
+          //Pode ser usado a interface "Reponse", é interessante ver o curso no Youtube onde é usado isso.
+        },
+        error: (error) => {
+          console.error('Erro ao autenticar', error);
+        },
+      });
     } else {
-      const errorMessage = 'Preencha todos os campos!';
-      console.error(errorMessage);
-    }
-  }
-
-  onEnterPressed(): void {
-    if (this.isFormValid()) {
-      this.onLoginClick();
+      console.log('Todos os campos devem ser preenchidos.');
     }
   }
 }

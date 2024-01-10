@@ -19,5 +19,5 @@ export class AppComponent {
     return currentRoute.includes('/login');
   }
 
-  title = 'frontend';
+  title = 'MindPlus';
 }

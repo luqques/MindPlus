@@ -1,42 +1,57 @@
 <div class="page">
-  <form class="form-login">
+  <form
+    class="form-login"
+    #userLoginForm="ngForm"
+    (ngSubmit)="onSubmit(userLoginForm)"
+  >
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
-    <div>
-      <input
-        type="email"
-        id="email"
-        [ngClass]="{ error: errorFields.includes('email') }"
-        name="email"
-        placeholder="E-mail"
-        autofocus="true"
-        [(ngModel)]="user.email"
-        (keyup.enter)="onEnterPressed()"
-      />
+    <input
+      name="email"
+      type="email"
+      id="email"
+      autocomplete="on"
+      placeholder="E-mail"
+      ngModel
+      required
+      #email="ngModel"
+    />
+    <div
+      *ngIf="email.invalid && (email.dirty || email.touched || formSubmitted)"
+    >
+      <div *ngIf="email.hasError('required')" class="invalid-message">
+        O e-mail é obrigatório.
+      </div>
     </div>
     <div>
       <input
-        type="password"
-        id="password"
-        [ngClass]="{ error: errorFields.includes('password') }"
-        name="password"
+        name="senha"
+        type="senha"
+        id="senha"
+        autocomplete="on"
         placeholder="Senha"
-        autofocus="true"
-        [(ngModel)]="user.password"
-        (keyup.enter)="onEnterPressed()"
+        ngModel
+        required
+        #senha="ngModel"
       />
+      <div
+        *ngIf="senha.invalid && (senha.dirty || senha.touched || formSubmitted)"
+      >
+        <div *ngIf="senha.hasError('required')" class="invalid-message">
+          A senha é obrigatória.
+        </div>
+      </div>
     </div>
     <div class="keep-logged" (click)="toggleCheckbox()">
       <input
+        name="keepLogged"
         type="checkbox"
         id="keepLogged"
-        name="keepLogged"
-        [(ngModel)]="user.keepLogged"
+        autocomplete="on"
+        [checked]="keepLogged"
       />Mantenha-me logado
     </div>
-    <button type="button" class="btn-entrar" (click)="onLoginClick()">
-      Entrar
-    </button>
+    <button name="submit" type="submit" class="btn-entrar">Entrar</button>
   </form>
 </div>
