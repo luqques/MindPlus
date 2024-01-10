@@ -19,9 +19,11 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
+  constructor(private userLoginService: UserLoginService) {}
+
   user: UserLogin = {
     email: '',
-    password: '',
+    senha: '',
   };
 
   keepLogged: boolean = false;
@@ -29,9 +31,8 @@ export class LoginComponent implements OnInit {
     this.keepLogged = !this.keepLogged;
   }
 
-  userLoginService!: UserLoginService;
   formSubmitted: boolean = false;
-  onSubmit(userLoginForm: NgForm) {
+  async onSubmit(userLoginForm: NgForm) {
     this.user = userLoginForm.value;
 
     this.formSubmitted = true;
@@ -39,11 +40,14 @@ export class LoginComponent implements OnInit {
     if (userLoginForm.valid) {
       console.log('Dados do login: ', this.user);
 
-      this.userLoginService.autenticarLogin(this.user);
+      try {
+        await this.userLoginService.autenticarLogin(this.user);
+        console.log('Login bem sucedido!');
+      } catch (error) {
+        console.error('Erro ao autenticar: ', error);
+      }
     } else {
-      console.log('Inválido');
+      console.log('Devem ser preenchidos todos os campos.');
     }
   }
-
-  // TODO: chamar a API e gravar os dados no banco.
 }

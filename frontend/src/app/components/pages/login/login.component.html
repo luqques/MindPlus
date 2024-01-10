@@ -1,5 +1,9 @@
 <div class="page">
-  <form class="form-login" #userLoginForm="ngForm" (ngSubmit)="onSubmit(userLoginForm)">
+  <form
+    class="form-login"
+    #userLoginForm="ngForm"
+    (ngSubmit)="onSubmit(userLoginForm)"
+  >
     <div class="logo">
       <img src="../../../../assets/images/logo.png" alt="Logo MindPlus" />
     </div>
@@ -9,27 +13,44 @@
       id="email"
       autocomplete="on"
       placeholder="E-mail"
-      ngModel required #email="ngModel"
+      ngModel
+      required
+      #email="ngModel"
     />
-    <div *ngIf="email.invalid && (email.dirty || email.touched || formSubmitted)">
-      <div *ngIf="email.hasError('required')" class="invalid-message">O e-mail é obrigatório.</div>
+    <div
+      *ngIf="email.invalid && (email.dirty || email.touched || formSubmitted)"
+    >
+      <div *ngIf="email.hasError('required')" class="invalid-message">
+        O e-mail é obrigatório.
+      </div>
     </div>
     <div>
       <input
-        name="password"
-        type="password"
-        id="password"
+        name="senha"
+        type="senha"
+        id="senha"
         autocomplete="on"
         placeholder="Senha"
-        ngModel required #password="ngModel"
+        ngModel
+        required
+        #senha="ngModel"
       />
-      <div *ngIf="password.invalid && (password.dirty || password.touched || formSubmitted)">
-        <div *ngIf="password.hasError('required')" class="invalid-message">A senha é obrigatória.</div>
+      <div
+        *ngIf="senha.invalid && (senha.dirty || senha.touched || formSubmitted)"
+      >
+        <div *ngIf="senha.hasError('required')" class="invalid-message">
+          A senha é obrigatória.
+        </div>
       </div>
     </div>
     <div class="keep-logged" (click)="toggleCheckbox()">
-      <input name="keepLogged" type="checkbox" id="keepLogged" autocomplete="on" [checked]="keepLogged"/>Mantenha-me
-      logado
+      <input
+        name="keepLogged"
+        type="checkbox"
+        id="keepLogged"
+        autocomplete="on"
+        [checked]="keepLogged"
+      />Mantenha-me logado
     </div>
     <button name="submit" type="submit" class="btn-entrar">Entrar</button>
   </form>

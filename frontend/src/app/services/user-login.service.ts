@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, catchError } from 'rxjs';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 
 import { UserLogin } from '../interfaces/UserLogin';
 
@@ -10,12 +14,43 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserLoginService {
+  constructor(private http: HttpClient) {}
+
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}user/login`;
 
-  constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Authorization: 'my-auth-token'
+    }),
+  };
+
+  //TODO: usar este handleError futuramente
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('Ocorreu um erro:', error.error);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: `,
+        error.error
+      );
+    }
+    return throwError(
+      () => new Error('Algo deu errado, tente novamente mais tarde.')
+    );
+  }
+
+  getConfig() {
+    return this.http
+      .get<UserLogin>(this.apiUrl)
+      .pipe(catchError(this.handleError));
+  }
 
   autenticarLogin(userLogin: UserLogin): Observable<UserLogin> {
-    return this.http.post<UserLogin>(this.apiUrl, userLogin);
+    return this.http.post<UserLogin>(this.apiUrl, userLogin, this.httpOptions);
+    // .pipe(
+    //   catchError(this.handleError('autenticarLogin', userLogin))
+    // );
   }
 }
