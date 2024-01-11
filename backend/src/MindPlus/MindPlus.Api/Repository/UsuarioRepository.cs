@@ -6,9 +6,9 @@ using MindPlus.Api.Infrastructure;
 
 namespace MindPlus.Api.Repository
 {
-    public class UserRepository : Connection, IUserRepository
+    public class UsuarioRepository : Connection, IUsuarioRepository
     {
-        public async Task AtualizarUsuario(UserEntity user)
+        public async Task AtualizarUsuario(UsuarioEntity user)
         {
             string sql = @"
                     UPDATE USER
@@ -24,7 +24,7 @@ namespace MindPlus.Api.Repository
             await Execute(sql, user);
         }
 
-        public async Task CadastrarUsuario(UserDTO user)
+        public async Task CadastrarUsuario(UsuarioDTO user)
         {
             string sql = @"
                     INSERT INTO USER (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Role)
@@ -33,17 +33,17 @@ namespace MindPlus.Api.Repository
             await Execute(sql, user);
         }
 
-        public async Task<UserEntity> GetById(int id)
+        public async Task<UsuarioEntity> GetById(int id)
         {
             string sql = @"SELECT * FROM USER WHERE Id = @Id";
-            return await GetConnection().QueryFirstAsync<UserEntity>(sql, new { id });
+            return await GetConnection().QueryFirstAsync<UsuarioEntity>(sql, new { id });
         }
 
-        public async Task<UserTokenDTO> LogIn(LoginDTO user)
+        public async Task<UsuarioTokenDTO> LogIn(LoginDTO user)
         {
             string sql = "SELECT * FROM USER WHERE Email = @Email AND Senha = @Senha AND Ativo = 'S'";
-            UserEntity colaboradorLogin = await GetConnection().QueryFirstAsync<UserEntity>(sql, user);
-            return new UserTokenDTO
+            UsuarioEntity colaboradorLogin = await GetConnection().QueryFirstAsync<UsuarioEntity>(sql, user);
+            return new UsuarioTokenDTO
             {
                 Token = Authentication.GenerateToken(colaboradorLogin),
                 User = colaboradorLogin
@@ -59,10 +59,10 @@ namespace MindPlus.Api.Repository
             await Execute(sql, new { id });
         }
 
-        public async Task<IEnumerable<UserEntity>> VisualizarUsuarios()
+        public async Task<IEnumerable<UsuarioEntity>> VisualizarUsuarios()
         {
             string sql = @"SELECT * FROM USER";
-            return await GetConnection().QueryAsync<UserEntity>(sql);
+            return await GetConnection().QueryAsync<UsuarioEntity>(sql);
         }
     }
 }

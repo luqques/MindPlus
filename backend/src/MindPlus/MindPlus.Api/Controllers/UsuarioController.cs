@@ -10,11 +10,11 @@ namespace MindPlus.Api.Controllers
 {
     [ApiController]
     [Route("user")]
-    public class UserController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUsuarioRepository _userRepository;
 
-        public UserController(IUserRepository userRepository)
+        public UsuarioController(IUsuarioRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -66,7 +66,7 @@ namespace MindPlus.Api.Controllers
         [HttpPost]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Cadastrar um novo usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> CadastrarUsuario(UserDTO user)
+        public async Task<IActionResult> CadastrarUsuario(UsuarioDTO user)
         {
             await _userRepository.CadastrarUsuario(user);
             return Ok("Colaborador cadastrado com sucesso!");
@@ -78,7 +78,7 @@ namespace MindPlus.Api.Controllers
         [HttpPut]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Atualizar informações de um usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> AtualizarUsuario(UserEntity user)
+        public async Task<IActionResult> AtualizarUsuario(UsuarioEntity user)
         {
             await _userRepository.AtualizarUsuario(user);
             return Ok("Usuário atualizado com sucesso!");

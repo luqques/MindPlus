@@ -2,9 +2,9 @@
 
 namespace MindPlus.Api.DTO
 {
-    public class UserTokenDTO
+    public class UsuarioTokenDTO
     {
         public string Token { get; set; }
-        public UserEntity User { get; set; }
+        public UsuarioEntity User { get; set; }
     }
 }

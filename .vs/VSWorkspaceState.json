@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend",
+    "\\backend\\src",
+    "\\backend\\src\\MindPlus.API"
   ],
-  "SelectedNode": "\\MindPlus.API.sln",
+  "SelectedNode": "\\backend\\src\\MindPlus.API\\MindPlus.Api.sln",
   "PreviewInSolutionExplorer": false
 }

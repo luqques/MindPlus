@@ -1,6 +1,6 @@
 ﻿namespace MindPlus.Api.Entity
 {
-    public class UserEntity
+    public class UsuarioEntity
     {
         public int Id { get; set; }
         public string? Nome { get; set; }

@@ -8,7 +8,7 @@ namespace MindPlus.Api.Infrastructure
 {
     public class Authentication
     {
-        public static string GenerateToken(UserEntity user)
+        public static string GenerateToken(UsuarioEntity user)
         {
             var key = Encoding.ASCII.GetBytes(Configuration.JWTSecret);
             var tokenDescriptor = new SecurityTokenDescriptor
