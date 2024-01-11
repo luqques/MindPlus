@@ -9,14 +9,14 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace MindPlus.Api.Controllers
 {
     [ApiController]
-    [Route("user")]
+    [Route("usuario")]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioRepository _userRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public UsuarioController(IUsuarioRepository userRepository)
+        public UsuarioController(IUsuarioRepository usuarioRepository)
         {
-            _userRepository = userRepository;
+            _usuarioRepository = usuarioRepository;
         }
 
 
@@ -26,11 +26,11 @@ namespace MindPlus.Api.Controllers
         [HttpPost]
         [Route("login")]
         [SwaggerOperation(Summary = "Autenticar um usuário", Description = "Autentica um usuário com base nas credenciais fornecidas.")]
-        public async Task<IActionResult> LogIn(LoginDTO user)
+        public async Task<IActionResult> LogIn(LoginDTO usuario)
         {
             try
             {
-                return Ok(await _userRepository.LogIn(user));
+                return Ok(await _usuarioRepository.LogIn(usuario));
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace MindPlus.Api.Controllers
         [SwaggerOperation(Summary = "Visualizar todos os usuários", Description = "Lista todos os usuários do sistema.")]
         public async Task<IActionResult> VisualizarUsuarios()
         {
-            return Ok(await _userRepository.VisualizarUsuarios());
+            return Ok(await _usuarioRepository.VisualizarUsuarios());
         }
 
         /// <summary>
@@ -55,9 +55,9 @@ namespace MindPlus.Api.Controllers
         [HttpGet("{id:int}")]
         [Authorize]
         [SwaggerOperation(Summary = "Visualizar usuário", Description = "Visualiza um usuário de acordo com o Id passado por parâmetro.")]
-        public async Task<IActionResult> GetUserById(int id)
+        public async Task<IActionResult> ObterUsuarioPorId(int id)
         {
-            return Ok(await _userRepository.GetById(id));
+            return Ok(await _usuarioRepository.ObterPorId(id));
         }
 
         /// <summary>
@@ -66,9 +66,9 @@ namespace MindPlus.Api.Controllers
         [HttpPost]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Cadastrar um novo usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> CadastrarUsuario(UsuarioDTO user)
+        public async Task<IActionResult> CadastrarUsuario(UsuarioDTO usuario)
         {
-            await _userRepository.CadastrarUsuario(user);
+            await _usuarioRepository.CadastrarUsuario(usuario);
             return Ok("Colaborador cadastrado com sucesso!");
         }
 
@@ -78,9 +78,9 @@ namespace MindPlus.Api.Controllers
         [HttpPut]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Atualizar informações de um usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> AtualizarUsuario(UsuarioEntity user)
+        public async Task<IActionResult> AtualizarUsuario(UsuarioEntity usuario)
         {
-            await _userRepository.AtualizarUsuario(user);
+            await _usuarioRepository.AtualizarUsuario(usuario);
             return Ok("Usuário atualizado com sucesso!");
         }
 
@@ -92,7 +92,7 @@ namespace MindPlus.Api.Controllers
         [SwaggerOperation(Summary = "Remover um usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> RemoverUsuario(int id)
         {
-            await _userRepository.RemoverUsuario(id);
+            await _usuarioRepository.RemoverUsuario(id);
             return Ok("Usuário removido com sucesso.");
         }
     }
