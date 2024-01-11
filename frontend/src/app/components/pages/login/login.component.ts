@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserLogin } from 'src/app/interfaces/UserLogin';
-import { UserLoginService } from 'src/app/services/user-login.service';
+import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
+import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
 import { Response } from 'src/app/interfaces/Response';
 
 @Component({
@@ -12,9 +12,9 @@ import { Response } from 'src/app/interfaces/Response';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
-  constructor(private userLoginService: UserLoginService) {}
+  constructor(private usuarioLoginService: UsuarioLoginService) {}
 
-  user: UserLogin = {
+  usuario: UsuarioLogin = {
     token: '',
     data: null,
   };
@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   formSubmitted: boolean = false;
-  async onSubmit(userLoginForm: NgForm) {
+  async onSubmit(usuarioLoginForm: NgForm) {
     this.formSubmitted = true;
 
-    if (userLoginForm.valid) {
-      this.userLoginService.autenticarLogin(userLoginForm.value).subscribe((response: Response<UserLogin>) => {
+    if (usuarioLoginForm.valid) {
+      this.usuarioLoginService.autenticarLogin(usuarioLoginForm.value).subscribe((response: Response<UsuarioLogin>) => {
           console.log('Login autenticado!');
           console.log('Retorno da API: ', response);
           

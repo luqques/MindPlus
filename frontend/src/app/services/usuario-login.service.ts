@@ -6,18 +6,18 @@ import {
 } from '@angular/common/http';
 import { Observable, ObservableInput, catchError, throwError } from 'rxjs';
 
-import { UserLogin } from '../interfaces/UserLogin';
+import { UsuarioLogin } from '../interfaces/UsuarioLogin';
 
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserLoginService {
+export class UsuarioLoginService {
   constructor(private http: HttpClient) {}
 
   private baseApiUrl = environment.baseApiUrl;
-  private apiUrl = `${this.baseApiUrl}user/login`;
+  private apiUrl = `${this.baseApiUrl}usuario/login`;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -26,7 +26,7 @@ export class UserLoginService {
     }),
   };
 
-  autenticarLogin(payload: any): Observable<UserLogin> {
-    return this.http.post<UserLogin>(this.apiUrl, payload, this.httpOptions);
+  autenticarLogin(payload: any): Observable<UsuarioLogin> {
+    return this.http.post<UsuarioLogin>(this.apiUrl, payload, this.httpOptions);
   }
 }
