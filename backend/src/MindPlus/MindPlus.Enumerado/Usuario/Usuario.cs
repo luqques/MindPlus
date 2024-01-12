@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindPlus.Usuario
+namespace MindPlus.Enumerado.Usuario
 {
     public class Usuario
     {

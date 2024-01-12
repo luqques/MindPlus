@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindPlus.Enumerado.Usuario
+namespace MindPlus.Enumerado.Empresa
 {
-    internal class Empresa
+    public class Empresa
     {
     }
 }
