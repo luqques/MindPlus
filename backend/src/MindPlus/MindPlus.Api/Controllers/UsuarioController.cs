@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.DTO;
+using MindPlus.Api.Dto;
 using MindPlus.Api.Entity;
 using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;
@@ -26,7 +26,7 @@ namespace MindPlus.Api.Controllers
         [HttpPost]
         [Route("login")]
         [SwaggerOperation(Summary = "Autenticar um usuário", Description = "Autentica um usuário com base nas credenciais fornecidas.")]
-        public async Task<IActionResult> LogIn(LoginDTO usuario)
+        public async Task<IActionResult> LogIn(LoginDto usuario)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace MindPlus.Api.Controllers
         [HttpPost]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Cadastrar um novo usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> CadastrarUsuario(UsuarioDTO usuario)
+        public async Task<IActionResult> CadastrarUsuario(UsuarioDto usuario)
         {
             await _usuarioRepository.CadastrarUsuario(usuario);
             return Ok("Colaborador cadastrado com sucesso!");

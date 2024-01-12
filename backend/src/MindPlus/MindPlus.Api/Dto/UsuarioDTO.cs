@@ -1,6 +1,6 @@
-﻿namespace MindPlus.Api.DTO
+﻿namespace MindPlus.Api.Dto
 {
-    public class UsuarioDTO
+    public class UsuarioDto
     {
         public string Nome { get; set; }
         public string Email { get; set; }

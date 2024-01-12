@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.DTO;
+using MindPlus.Api.Dto;
 using MindPlus.Api.Entity;
 using MindPlus.Api.Infrastructure;
 
@@ -24,7 +24,7 @@ namespace MindPlus.Api.Repository
             await Execute(sql, usuario);
         }
 
-        public async Task CadastrarUsuario(UsuarioDTO usuario)
+        public async Task CadastrarUsuario(UsuarioDto usuario)
         {
             string sql = @"
                     INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Funcao)
@@ -39,11 +39,11 @@ namespace MindPlus.Api.Repository
             return await GetConnection().QueryFirstAsync<UsuarioEntity>(sql, new { id });
         }
 
-        public async Task<UsuarioTokenDTO> LogIn(LoginDTO usuario)
+        public async Task<UsuarioTokenDto> LogIn(LoginDto usuario)
         {
             string sql = "SELECT * FROM USUARIO WHERE Email = @Email AND Senha = @Senha AND Ativo = 'S'";
             UsuarioEntity colaboradorLogin = await GetConnection().QueryFirstAsync<UsuarioEntity>(sql, usuario);
-            return new UsuarioTokenDTO
+            return new UsuarioTokenDto
             {
                 Token = Authentication.GenerateToken(colaboradorLogin),
                 Usuario = colaboradorLogin
