@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindPlus.Empresa
+namespace MindPlus.Empresa.Entity
 {
-    public class Empresa
+    public class EmpresaEntity
     {
         public int Id { get; set; }
         public string RazaoSocial { get; set; }
-        public string? NomeFantasia { get; set; }
+        public string NomeFantasia { get; set; }
         public string Cnpj { get; set; }
 
-        public Empresa(int id,
+        public EmpresaEntity(int id,
                        string razaoSocial,
                        string nomeFantasia,
                        string cnpj)

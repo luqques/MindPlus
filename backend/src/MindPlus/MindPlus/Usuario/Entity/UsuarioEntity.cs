@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics.Contracts;
+using MindPlus.Empresa.Entity;
 using static MindPlus.Enumerado.Usuario.Usuario;
 
-namespace MindPlus.Usuario
+namespace MindPlus.Usuario.Entity
 {
-    public class Usuario
+    public class UsuarioEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -12,19 +13,19 @@ namespace MindPlus.Usuario
         public string Cpf { get; set; }
         public string? Telefone { get; set; }
         public string? Endereco { get; set; }
-        public Empresa.Empresa Empresa { get; set; }
+        public EmpresaEntity Empresa { get; set; }
         public StatusAtivoInativo Status { get; set; }
         public FuncaoUsuario Funcao { get; set; }
 
 
-        public Usuario(int id,
-                       string nome, 
-                       string email, 
-                       string senha, 
+        public UsuarioEntity(int id,
+                       string nome,
+                       string email,
+                       string senha,
                        string cpf,
-                       string telefone, 
+                       string telefone,
                        string endereco,
-                       Empresa.Empresa empresa,
+                       EmpresaEntity empresa,
                        StatusAtivoInativo status,
                        FuncaoUsuario funcao)
         {

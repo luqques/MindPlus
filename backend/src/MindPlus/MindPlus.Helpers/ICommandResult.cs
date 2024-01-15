@@ -1,4 +1,4 @@
-﻿namespace Ailos.Foundation.Core.Messaging.Commands
+﻿namespace MindPlus.Helpers
 {
     public interface ICommandResult
     {

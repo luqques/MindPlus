@@ -8,7 +8,11 @@ namespace MindPlus.Enumerado.Usuario
 {
     public class Usuario
     {
-        public enum StatusAtivoInativo { S, N }
+        public enum StatusAtivoInativo
+        {
+            Ativo = 'S',
+            Inativo = 'N'
+        }
         public enum FuncaoUsuario { Admin, Colaborador }
     }
 }

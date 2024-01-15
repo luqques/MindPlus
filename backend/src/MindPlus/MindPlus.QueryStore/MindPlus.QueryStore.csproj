@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Empresa\" />
+    <Folder Include="Usuario\" />
+  </ItemGroup>
+
 </Project>
