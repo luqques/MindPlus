@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
     this.formSubmitted = true;
 
     if (usuarioLoginForm.valid) {
-      this.usuarioLoginService.autenticarLogin(usuarioLoginForm.value).subscribe((response: Response<UsuarioLogin>) => {
+      this.usuarioLoginService.autenticarLogin(usuarioLoginForm.value).subscribe((response: UsuarioLogin) => {
           console.log('Login autenticado!');
           console.log('Retorno da API: ', response);
           
-          const token = response.data.token;
+          const token = response.token;
           console.log('Token: ', token);
         },
-        (error) => {
+        (error: any) => {
           console.error('Erro ao autenticar', error);
         },
       );
