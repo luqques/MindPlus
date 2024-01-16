@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.Dto;
+using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
 using MindPlus.Api.Infrastructure;
 

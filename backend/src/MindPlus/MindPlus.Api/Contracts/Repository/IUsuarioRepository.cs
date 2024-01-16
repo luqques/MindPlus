@@ -1,4 +1,4 @@
-﻿using MindPlus.Api.Dto;
+﻿using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
 
 namespace MindPlus.Api.Contracts.Repository

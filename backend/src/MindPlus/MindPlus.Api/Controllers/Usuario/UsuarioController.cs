@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.Dto;
+using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
 using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace MindPlus.Api.Controllers
+namespace MindPlus.Api.Controllers.Usuario
 {
     [ApiController]
     [Route("usuario")]
