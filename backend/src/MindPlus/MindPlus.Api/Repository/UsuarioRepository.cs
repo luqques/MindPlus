@@ -18,6 +18,7 @@ namespace MindPlus.Api.Repository
                             Telefone = @Telefone,
                             Endereco = @Endereco,
                             EmpresaId = @EmpresaId,
+                            Status = @Status
                             Funcao = @Funcao
                         WHERE Id = @Id
             ";
@@ -27,8 +28,8 @@ namespace MindPlus.Api.Repository
         public async Task CadastrarUsuario(UsuarioDto usuario)
         {
             string sql = @"
-                    INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Funcao)
-                        VALUE (@Nome, @Email, @Senha, @Telefone, @Endereco, @EmpresaId, @Funcao)
+                    INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Status, Funcao)
+                        VALUE (@Nome, @Email, @Senha, @Telefone, @Endereco, @EmpresaId, @Status, @Funcao)
             ";
             await Execute(sql, usuario);
         }
@@ -41,7 +42,7 @@ namespace MindPlus.Api.Repository
 
         public async Task<UsuarioTokenDto> LogIn(LoginDto usuario)
         {
-            string sql = "SELECT * FROM USUARIO WHERE Email = @Email AND Senha = @Senha AND Ativo = 'S'";
+            string sql = "SELECT * FROM USUARIO WHERE Email = @Email AND Senha = @Senha AND Status = 'ativo'";
             UsuarioEntity colaboradorLogin = await GetConnection().QueryFirstAsync<UsuarioEntity>(sql, usuario);
             return new UsuarioTokenDto
             {
@@ -54,7 +55,7 @@ namespace MindPlus.Api.Repository
         {
             string sql = @"
                     UPDATE USUARIO 
-                        SET Ativo = 'N'
+                        SET Status = 'inativo'
                         WHERE Id = @id";
             await Execute(sql, new { id });
         }
