@@ -2,7 +2,8 @@ nav {
     display: flex;
     justify-content: space-between;
     background-color: #5790AB;
-    padding: 1em;
+    padding: 0 1em 0 1em;
+    height: 100px;
 }
 
 .logo, .links {
@@ -25,14 +26,13 @@ nav {
 }
 
 .links li {
-    margin-right: 1em;
     list-style: none;
 }
 
 .links li a:hover {
-    background-color: #9CCDDB;
+    color: #072D44;
 }
 
 .links a {
-    padding: 33px 3em;
+    padding: 0 3em 0 3em;
 }
