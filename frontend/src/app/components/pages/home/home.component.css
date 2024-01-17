@@ -1,6 +1,6 @@
 .homepage {
     height: 100%;
-    background-color: rgba(171, 224, 251, 0.854);
+    background-color:aliceblue;
 }
 
 .homepage-frase {
@@ -60,14 +60,14 @@
         margin-right: 50px;
         margin-left: 50px;
         width: 300px;
-        height: 600px;
         border-radius: 4px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         background-color: #fff;
 
         img {
-            width: 150px;
+            width: 100%;
             height: 200px;
+            padding: 10px
         }
 
         h2 {

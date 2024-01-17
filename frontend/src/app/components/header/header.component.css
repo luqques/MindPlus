@@ -10,6 +10,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 
 .logo img {
@@ -19,10 +20,12 @@ nav {
 
 .logo h2 {
     transition: .4s;
+    color: white;
+
 }
 
 .logo:hover > h2 {
-    color: #072D44;
+    color: #fbfbfb;
 }
 
 .links li {
@@ -35,4 +38,5 @@ nav {
 
 .links a {
     padding: 0 3em 0 3em;
+    color: white;
 }
