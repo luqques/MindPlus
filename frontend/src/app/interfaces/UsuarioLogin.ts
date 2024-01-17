@@ -1,4 +1,12 @@
 export interface UsuarioLogin {
   token: string,
-  data: any,
+  usuario:"id",
+          "nome",
+          "email",
+          "senha",
+          "telefone",
+          "endereco",
+          "empresaId",
+          "status",
+          "funcao",
 }

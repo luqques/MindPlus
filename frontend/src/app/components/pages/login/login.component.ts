@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           
           const token = response.token;
           const usuario = response.data;
-          console.log(usuario);
+          console.log('Dados do usuário:', usuario);
 
           if (token) {
             console.log('Token: ', token);
@@ -46,10 +46,12 @@ export class LoginComponent implements OnInit {
           }
         },
         (error: any) => {
-          console.error('Erro ao autenticar', error);
+          alert('E-mail ou senha incorretos.');
+          console.error('Erro ao autenticar.', error);
         },
       );
     } else {
+      alert('Todos os campos devem ser preenchidos.')
       console.log('Todos os campos devem ser preenchidos.');
     }
   }
