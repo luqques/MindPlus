@@ -29,14 +29,10 @@ nav {
     list-style: none;
 }
 
+.links li a:hover {
+    background-color: #9CCDDB;
+}
+
 .links a {
     padding: 33px 3em;
-}
-
-#link-colaboradores a {
-    /* color: #072D44; */
-}
-
-#link-colaboradores a:hover {
-    background-color: #9CCDDB;
 }
