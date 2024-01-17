@@ -1,1 +1,25 @@
-<h1>Página inicial</h1>
+<div class="homepage">
+    <div class="homepage-frase">
+      <div class="homepage-square">
+        <div class="frase">
+          <img [src]="quote.imageSrc" alt="aspas" />
+          <h2>{{ quote.text }}</h2>
+        </div>
+        <div>
+          <h4>{{ quote.author }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Como está se sentindo?</h1>
+      <div class="grid">
+        <div class="card" *ngFor="let card of cards">
+          <img [src]="card.src" />
+          <h2>{{ card.title }}</h2>
+          <p>{{ card.description }}</p>
+          <button type="button">{{ card.actionText }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

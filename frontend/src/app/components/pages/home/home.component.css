@@ -1,0 +1,207 @@
+.homepage {
+    height: 100%;
+    background-color: rgba(171, 224, 251, 0.854);
+}
+
+.homepage-frase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.homepage-square {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 700px;
+    height: 100px;
+    padding: 100px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(126, 173, 235);
+
+
+    .frase {
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    img {
+        width: 30px;
+        height: 20px;
+    }
+
+    h2 {
+        font-size: 30px;
+        text-align: center;
+        color: #fff;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 50px;
+        margin-left: 50px;
+        width: 300px;
+        height: 600px;
+        border-radius: 4px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: #fff;
+
+        img {
+            width: 150px;
+            height: 200px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            height: 30px;
+            text-align: center;
+        }
+
+        p {
+            height: 150px;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        button {
+            text-align: center;
+            border: none;
+            height: 30px;
+            width: 200px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #0856bcc5;
+            border-radius: 8px;
+            cursor: pointer;
+
+            button :hover {
+                background-color: #004aad;
+                color: white;
+            }
+        }
+    }
+}
+
+.container {
+    border-radius: 4px;
+    padding-bottom: 100px;
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 80px;
+        color: #004aad;
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+.card {
+    h2 {
+        color: #004aad;
+        font-family: Georgia, "Times New Roman", Times, serif;
+    }
+}
+
+@media (max-width: 430px) {
+    .homepage-frase {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 30vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url("https://images.pexels.com/photos/8822081/pexels-photo-8822081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    }
+
+    .homepage-square {
+        width: 400px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 7px;
+        padding: 10px;
+        box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+        gap: 5px;
+
+        h2 {
+            font-size: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h4 {
+            font-size: 10px;
+        }
+    }
+
+    .grid {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            border-style: none;
+            height: 350px;
+            width: 350px;
+            margin-bottom: 50px;
+            background-color: #004badcf;
+            border-radius: 20px;
+
+            img {
+                display: none;
+            }
+
+            h2 {
+                margin-bottom: 20px;
+                text-align: center;
+                color: #fff;
+            }
+
+            p {
+                text-align: left;
+                font-size: 18px;
+                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+                    sans-serif;
+                padding-left: 50px;
+                padding-right: 50px;
+                color: #fff;
+            }
+
+            button {
+                text-align: left;
+                font-size: 16px;
+                color: #fff;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
+    }
+}
