@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
 import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
 import { Response } from 'src/app/interfaces/Response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { Response } from 'src/app/interfaces/Response';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
-  constructor(private usuarioLoginService: UsuarioLoginService) {}
+  constructor(private usuarioLoginService: UsuarioLoginService, private router: Router) {}
 
   usuario: UsuarioLogin = {
     token: '',
@@ -34,7 +35,15 @@ export class LoginComponent implements OnInit {
           console.log('Retorno da API: ', response);
           
           const token = response.token;
-          console.log('Token: ', token);
+          const usuario = response.data;
+          console.log(usuario);
+
+          if (token) {
+            console.log('Token: ', token);
+            this.router.navigate(['/']);
+          } else {
+            console.error('Objeto de resposta inválido:', response);
+          }
         },
         (error: any) => {
           console.error('Erro ao autenticar', error);
