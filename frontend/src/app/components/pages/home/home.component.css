@@ -4,27 +4,25 @@
 }
 
 .homepage-frase {
-    display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
 .homepage-square {
-    display: flex;
     flex-direction: column;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     width: 100%;
     height: 100px;
-    padding: 100px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    padding: 50px;
+    padding-bottom: 100px;
+    font-family: Hammersmith-One;
     color: rgb(255, 255, 255);
     background-color: rgb(126, 173, 235);
 
 
     .frase {
-        display: flex;
         flex-direction: row;
         text-align: center;
     }
@@ -60,10 +58,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 350px;
+        width: 300px;
         border-radius: 4px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        background-color: #fff;
+        background-color: #f7fbfce0;
 
         img {
             width: 100%;
@@ -74,12 +72,14 @@
         h2 {
             font-size: 20px;
             text-align: center;
+            font-weight: lighter;
         }
 
         p {
             height: 150px;
             margin-bottom: 30px;
             padding: 20px;
+            color: #66666692;
         }
 
         button {
@@ -87,7 +87,7 @@
             border: none;
             margin: 10px;
             height: 30px;
-            width: 320px;
+            width: 90%;
             font-size: 16px;
             color: #fff;
             background-color: #0856bcc5;
@@ -189,8 +189,7 @@
             p {
                 text-align: left;
                 font-size: 18px;
-                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-                    sans-serif;
+                font-family: hammersmith-one;
                 padding-left: 50px;
                 padding-right: 50px;
                 color: #fff;
