@@ -1,6 +1,6 @@
 .homepage {
     height: 100%;
-    background-color:aliceblue;
+    background-color: aliceblue;
 }
 
 .homepage-frase {
@@ -14,9 +14,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 100px;
     margin-bottom: 100px;
-    width: 700px;
+    width: 100%;
     height: 100px;
     padding: 100px;
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -27,6 +26,7 @@
     .frase {
         display: flex;
         flex-direction: row;
+        text-align: center;
     }
 
 
@@ -37,12 +37,15 @@
 
     h2 {
         font-size: 30px;
+        place-content: center;
         text-align: center;
         color: #fff;
     }
 
     h4 {
         font-size: 20px;
+        text-align: center;
+        place-content: center;
     }
 }
 
@@ -57,9 +60,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-right: 50px;
-        margin-left: 50px;
-        width: 300px;
+        width: 350px;
         border-radius: 4px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         background-color: #fff;
@@ -71,8 +72,7 @@
         }
 
         h2 {
-            margin-bottom: 20px;
-            height: 30px;
+            font-size: 20px;
             text-align: center;
         }
 
@@ -85,12 +85,13 @@
         button {
             text-align: center;
             border: none;
+            margin: 10px;
             height: 30px;
-            width: 200px;
+            width: 320px;
             font-size: 16px;
             color: #fff;
             background-color: #0856bcc5;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
 
             button :hover {
@@ -103,24 +104,28 @@
 
 .container {
     border-radius: 4px;
-    padding-bottom: 100px;
+
 
     h1 {
-        font-size: 40px;
+        font-size: 20px;
+        font-family: Hammersmith-One;
         text-align: center;
         margin-bottom: 80px;
         color: #004aad;
     }
 
     p {
-        text-align: center;
+        text-align: left;
     }
 }
 
 .card {
+    margin: 40px;
+    border-radius: 2px;
+
     h2 {
         color: #004aad;
-        font-family: Georgia, "Times New Roman", Times, serif;
+        font-family: Hammersmith-One;
     }
 }
 
