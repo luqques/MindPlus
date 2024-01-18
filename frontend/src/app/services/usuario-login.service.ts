@@ -14,7 +14,27 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UsuarioLoginService {
-  constructor(private http: HttpClient) {}
+ 
+  private storage: Storage;
+ 
+  constructor(private http: HttpClient) {
+    this.storage = window.localStorage;
+  }
+
+  set(key: string, value: any): boolean {
+    if (this.storage) {
+      this.storage.setItem(key, JSON.stringify(value));
+      return true;
+    }
+    return false;
+  }
+  
+  get(key: string): any {
+    if (this.storage) {
+      return JSON.parse(this.storage.getItem(key));
+    }
+    return null;
+  }
 
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}usuario/login`;
@@ -22,7 +42,7 @@ export class UsuarioLoginService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: 'my-auth-token'
+      //'Authorization': 'my-auth-token'
     }),
   };
 

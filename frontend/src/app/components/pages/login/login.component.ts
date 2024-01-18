@@ -39,12 +39,15 @@ export class LoginComponent implements OnInit {
             console.log('Login autenticado!');
             console.log('Retorno da API: ', response);
 
-            const token = response.token;
+            const bearerToken = 'Bearer' + response.token;
             const usuario = response.usuario;
             console.log('Dados do usuário:', usuario);
 
-            if (token) {
-              console.log('Token: ', token);
+            localStorage.setItem('bearerToken', bearerToken)
+            localStorage.setItem('usuarioData', JSON.stringify(usuario))
+
+            if (bearerToken) {
+              console.log('Token: ', bearerToken);
               this.router.navigate(['/']);
             } else {
               console.error('Objeto de resposta inválido:', response);
