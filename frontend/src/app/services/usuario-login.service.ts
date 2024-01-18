@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioLoginService {
+export class UsuarioLoginService { 
   constructor(private http: HttpClient) {}
 
   private baseApiUrl = environment.baseApiUrl;
@@ -22,7 +22,7 @@ export class UsuarioLoginService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: 'my-auth-token'
+      //'Authorization': 'my-auth-token'
     }),
   };
 
