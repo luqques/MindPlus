@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioEntity } from 'src/app/interfaces/UsuarioEntity';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,16 +8,13 @@ import { UsuarioEntity } from 'src/app/interfaces/UsuarioEntity';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
+  ngOnInit(): void {}
 
-  private storage: Storage
+  constructor(private localStorageService: LocalStorageService) {}
 
-  constructor() {
-    this.storage = window.localStorage
-  }
+  token: string = this.localStorageService.get('bearerToken')
 
-  token: string = this.storage.getItem('usuarioData')
-
-  usuarioInfos: UsuarioEntity = {
-    
-  }
+  // usuarioInfos: UsuarioEntity = {
+  //   this.localStorageService.get('usuarioData')
+  // }
 }

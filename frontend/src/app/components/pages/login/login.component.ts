@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
 import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private usuarioLoginService: UsuarioLoginService,
+    private localStorageService: LocalStorageService,
     private router: Router
   ) {}
 
@@ -43,8 +45,8 @@ export class LoginComponent implements OnInit {
             const usuario = response.usuario;
             console.log('Dados do usuário:', usuario);
 
-            localStorage.setItem('bearerToken', bearerToken)
-            localStorage.setItem('usuarioData', JSON.stringify(usuario))
+            this.localStorageService.set('bearerToken', bearerToken)
+            this.localStorageService.set('usuarioData', JSON.stringify(usuario))
 
             if (bearerToken) {
               console.log('Token: ', bearerToken);

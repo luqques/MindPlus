@@ -13,28 +13,8 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioLoginService {
- 
-  private storage: Storage;
- 
-  constructor(private http: HttpClient) {
-    this.storage = window.localStorage;
-  }
-
-  set(key: string, value: any): boolean {
-    if (this.storage) {
-      this.storage.setItem(key, JSON.stringify(value));
-      return true;
-    }
-    return false;
-  }
-  
-  get(key: string): any {
-    if (this.storage) {
-      return JSON.parse(this.storage.getItem(key));
-    }
-    return null;
-  }
+export class UsuarioLoginService { 
+  constructor(private http: HttpClient) {}
 
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}usuario/login`;
