@@ -39,4 +39,6 @@ export class HomeComponent {
     text: 'Só a experiência própria é capaz de tornar sábio o ser humano.',
     author: 'Sigmund Freud'
   };
+
+
 }
