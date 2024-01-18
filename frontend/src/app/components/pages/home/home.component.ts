@@ -9,37 +9,27 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   cards = [
     {
-      src: 'assets/images/mulher-estressadaa.png',
+      src: 'assets/images/conscientizacao.png',
       title: "Conscientização",
-      description: ` Treinamentos regulares para gestores e colaboradores sobre sinais
-      de estresse, ansiedade e depressão, bem como estratégias para
-      lidar com essas questões.`,
+      description: ` Acesse conteudos de que abordam identificação de sinais de estresse, ansiedade e depressão, além de fornecer estratégias de enfrentamento.`,
       actionText: "Treinamentos",
     },
     {
-      src: 'assets/images/mulher-agua.jpg',
+      src: 'assets/images/acesso-a-recursos.png',
       title: "Acesso a recursos",
-      description: ` Possuímos recursos internos e externos para suporte à saúde
-      mental, como linhas diretas de ajuda, profissionais de saúde
-      mental e aplicativos. Além de uma lista de leituras, vídeos e
-      recursos online que promovem a saúde mental.`,
+      description: ` Contamos com profissionais, aplicativos e materiais online, para oferecer suporte abrangente à saúde mental, incluindo listas de leituras e vídeos.`,
       actionText: "Experimente aqui",
     },
     {
-      src: 'assets/images/mulher-estressadaa.png',
+      src: 'assets/images/avaliacoes.png',
       title: "Avaliações Regulares",
-      description: ` Implementamos avaliações regulares da saúde mental para entender
-      as necessidades específicas de nossos colaboradores. Utilizamos
-      pesquisas anônimas para avaliar o nível de estresse, satisfação e
-      bem-estar no trabalho.`,
+      description: ` Pesquisas para compreender as necessidades individuais dos colaboradores, abordando níveis de estresse, satisfação e bem-estar no trabalho.`,
       actionText: "Avalie também!",
     },
     {
-      src: 'assets/images/mulher-estressadaa.png',
+      src: 'assets/images/apoio.png',
       title: " Cultura de Apoio",
-      description: ` Valorizamos o equilíbrio entre trabalho e vida pessoal.Encorajamos
-      uma atmosfera de abertura e suporte, onde os colaboradores se
-      sintam à vontade para compartilhar suas preocupações.`,
+      description: ` Encorajamos uma atmosfera de abertura e suporte, onde os colaboradores se sintam à vontade para compartilhar suas preocupações.`,
       actionText: "Opine",
     },
   ];
