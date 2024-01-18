@@ -1,18 +1,14 @@
 footer {
-    border-top: 1px solid #5790AB;
+    border-top: 1px solid #004AAD;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 220px;
-    background-color: #5790AB;
-}
+    height: 200px;
+    background-color: #004AAD;
+    color: white;
 
-footer h3 {
-    margin-bottom: 1.2em;
-}
-
-footer span {
-    font-weight: bold;
-    color: #5790AB;
+    p {
+        padding: 10px;
+    }
 }
