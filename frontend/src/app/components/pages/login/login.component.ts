@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
-import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   constructor(
-    private usuarioLoginService: UsuarioLoginService,
+    private usuarioService: UsuarioService,
     private localStorageService: LocalStorageService,
     private router: Router
   ) {}
@@ -34,19 +34,17 @@ export class LoginComponent implements OnInit {
     this.formSubmitted = true;
 
     if (usuarioLoginForm.valid) {
-      this.usuarioLoginService
-        .autenticarLogin(usuarioLoginForm.value)
-        .subscribe(
+      this.usuarioService.autenticarLogin(usuarioLoginForm.value).subscribe(
           (response: UsuarioLogin) => {
             console.log('Login autenticado!');
             console.log('Retorno da API: ', response);
 
-            const bearerToken = 'Bearer' + response.token;
+            const bearerToken = 'Bearer ' + response.token;
             const usuario = response.usuario;
             console.log('Dados do usuário:', usuario);
 
             this.localStorageService.set('bearerToken', bearerToken)
-            this.localStorageService.set('usuarioData', JSON.stringify(usuario))
+            this.localStorageService.set('usuarioData', usuario)
 
             if (bearerToken) {
               console.log('Token: ', bearerToken);

@@ -1,43 +1,43 @@
-<div class="perfil-page">
-    <div class="user-page flex">
-        <div class="user-info">
-            <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
-            <h1>Paola Kloch</h1>
+<div class="user-page flex">
+    <div class="user-info">
+        <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
+        <p>{{ usuarioEntity.nome }}</p>
+    </div>
+    <div class="user-data">
+        <div class="info-grid">
+            <form #usuarioEntityForm="ngForm" (ngSubmit)="onSubmit(usuarioEntityForm)">
+                <div class="container-info">
+                    <span>E-mail</span>
+                    <input type="text" id="email" class="label-name" value="{{ usuarioEntity.email }}" ngModel required #email="ngModel">
+                </div>
+                <div class="container-info">
+                    <span>Telefone</span>
+                    <input type="text" id="contato" class="label-name" value="{{ usuarioEntity.telefone }}" ngModel required #telefone="ngModel">
+                </div>
+                <div class="container-info">
+                    <span>Endereço</span>
+                    <input type="text" id="endereco" class="label-name" value="{{ usuarioEntity.endereco }}" ngModel required #endereco="ngModel">
+                </div>
+            </form>
         </div>
-        <div class="user-data">
-            <div class="info-grid1">
-                <form action="">
-                    <div class="container-info">
-                        <span>E-mail</span>
-                        <input type="text" id="email" class="label-name" value="paola.lopes@mouts.info">
-                    </div>
-                    <div class="container-info">
-                        <span>Telefone</span>
-                        <input type="text" id="contato" class="label-name" value="(47) 99286-1109">
-                    </div>
-                    <div class="container-info">
-                        <span>Endereço</span>
-                        <input type="text" id="endereco" class="label-name" value="Indaial">
-                    </div>
-                </form>
-            </div>
-            <div class="info-grid2">
-                <div class="container-info">
-                    <span>Cargo</span>
-                    <input type="text" id="cargo" class="label-name" value="SDR">
-                </div>
-                <div class="container-info">
-                    <span>Modelo de contratação</span>
-                    <input type="text" id="modeloContratacao" class="label-name" value="PJ">
-                </div>
+        <div class="info-grid">
+            <form #usuarioEntityForm="ngForm" (ngSubmit)="onSubmit(usuarioEntityForm)">
                 <div class="container-info">
                     <span>Empresa</span>
-                    <input type="text" id="minhaEmpresa" class="label-name" value="Mouts TI">
+                    <input type="text" id="minhaEmpresa" class="label-name" value="{{ usuarioEntity.empresaId }}" ngModel required #empresaId="ngModel">
                 </div>
-            </div>
-            <div class="button-user">
-                <button type="button" id="button-save">Salvar</button>
-            </div>
+                <div class="container-info">
+                    <span>Função</span>
+                    <input type="text" id="minhaEmpresa" class="label-name" value="{{ usuarioEntity.funcao }}" ngModel required #funcao="ngModel">
+                </div>
+                <div class="container-info">
+                    <span>Status</span>
+                    <input type="text" id="minhaEmpresa" class="label-name" value="{{ usuarioEntity.status }}" ngModel required #status="ngModel">
+                </div>
+            </form>
+        </div>
+        <div>
+            <button type="button" id="button-save" (click)="onSubmit(usuarioEntityForm)">Salvar</button>
         </div>
     </div>
 </div>
