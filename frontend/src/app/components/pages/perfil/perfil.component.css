@@ -86,6 +86,7 @@
 
 #button-save:hover {
   background-color: #072D44;
+  cursor: pointer;
 }
 
 @media (max-width: 430px) {

@@ -12,15 +12,13 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
   providedIn: 'root',
 })
 export class UsuarioService {
-  constructor(private http: HttpClient) {}
-
-  localStorageService!: LocalStorageService; 
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService) {}
 
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}usuario`;
   private apiUrlLogin = `${this.apiUrl}/login`
 
-  token: string = this.localStorageService.get('bearerToken')
+  token: string = this.localStorageService.get('bearerToken');
 
   httpOptions = {
     headers: new HttpHeaders({

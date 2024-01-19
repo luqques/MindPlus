@@ -22,14 +22,5 @@ export class PerfilComponent {
   formSubmitted: boolean = false;
   async onSubmit(usuarioEntityForm: NgForm) {
     this.formSubmitted = true;
-
-    // if (usuarioEntityForm.valid) {
-    //   this.usuarioService.atualizarUsuario(usuarioEntityForm.value).subscribe(
-    //     (response: UsuarioEntity) => {
-    //       console.log(usuarioEntityForm)
-    //     }
-    //   )
-    // }
-    // console.log(this.usuarioEntity)
   }
 }
