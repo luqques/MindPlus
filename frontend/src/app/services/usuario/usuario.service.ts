@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders, } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Observable, ObservableInput, catchError, throwError } from 'rxjs';
 
 import { UsuarioLogin } from '../../interfaces/UsuarioLogin';
@@ -12,26 +16,41 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
   providedIn: 'root',
 })
 export class UsuarioService {
-  constructor(private http: HttpClient, private localStorageService: LocalStorageService) {}
+  constructor(
+    private http: HttpClient,
+    private localStorageService: LocalStorageService
+  ) {}
 
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}usuario`;
-  private apiUrlLogin = `${this.apiUrl}/login`
+  private apiUrlLogin = `${this.apiUrl}/login`;
+  private apiUrlId = `${this.apiUrl}/{id}`;
 
   token: string = this.localStorageService.get('bearerToken');
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `${this.token}`
+      Authorization: `${this.token}`,
     }),
   };
 
   autenticarLogin(payload: any): Observable<UsuarioLogin> {
-    return this.http.post<UsuarioLogin>(this.apiUrlLogin, payload, this.httpOptions);
+    return this.http.post<UsuarioLogin>(
+      this.apiUrlLogin,
+      payload,
+      this.httpOptions
+    );
   }
 
   atualizarUsuario(payload: any): Observable<UsuarioEntity> {
     return this.http.put<UsuarioEntity>(this.apiUrl, payload, this.httpOptions);
+  }
+
+  obterUsuario(id: number): Observable<UsuarioEntity> {
+    return this.http.get<UsuarioEntity>(
+      `${this.apiUrl}/${id}`,
+      this.httpOptions
+    );
   }
 }
