@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
     private router: Router
   ) {}
 
+}
   /*
  // usuario: UsuarioLogin = {
     token: '',
