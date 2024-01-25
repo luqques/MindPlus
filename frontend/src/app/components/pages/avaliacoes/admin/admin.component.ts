@@ -10,14 +10,8 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
 })
-export class AdminComponent implements OnInit {
-  ngOnInit(): void {}
+export class AdminComponent {
 
-  constructor(
-    private usuarioLoginService: UsuarioLoginService,
-    private localStorageService: LocalStorageService,
-    private router: Router
-  ) {}
 
 }
   /*
