@@ -1,0 +1,57 @@
+
+
+/* - - - 2.1 CHART - - - */
+
+.grafico-mensal {
+    display: block;
+    z-index: -10 !important;
+}
+
+/* - - - 2.2 GOALS - - - */
+
+.goal-1-b {
+    background-color: aliceblue
+
+}
+
+.goal-1 {
+    background-color: #f1e730;
+
+}
+
+.goal-2 {
+    background-color: #fff;
+
+}
+
+.goal-3 {
+    background-color: #fff;
+
+}
+
+
+
+
+ /* - - - 2.1 CHART - - - */
+
+    /* - - - 2.2 GOALS - - - */
+
+    .goal-1-b {
+        background-color: #c2eff1;
+
+    }
+
+    .goal-1 {
+        background-color: #f1e730;
+
+    }
+
+    .goal-2 {
+        background-color: #fff;
+
+    }
+
+    .goal-3 {
+        background-color: #fff;
+
+    }
