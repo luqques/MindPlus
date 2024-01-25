@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import { AdminComponent } from './components/pages/avaliacoes/admin/admin.component';
+import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { PerfilComponent } from './components/pages/perfil/perfil.component';
     FooterComponent,
     HomeComponent,
     PerfilComponent,
+    AdminComponent,
+    ColaboradorComponent,
   ],
   imports: [
     BrowserModule,
