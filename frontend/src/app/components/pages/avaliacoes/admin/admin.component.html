@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estatísticas</title>
+  <link rel="stylesheet" href="../utils/style.css">
+  <link rel="stylesheet" href="../utils/header.css">
+  <link rel="stylesheet" href="../utils/reset.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!--- Conteúdo da Google Charts -->
+  <script src="https://kit.fontawesome.com/f9c6abbc59.js" crossorigin="anonymous"></script>
+
+</head>
+
+<!-- Header -->
+
+<body>
+
+  <!-- Introdução -->
+
+  <div class="intro py-3 px-10">
+    <div class="text-2xl font-bold text-black">Estatísticas</div>
+    <div class="text- font-semibold text-black">Selecione a visualização de dados desejada</b></div>
+  </div>
+
+
+  <!-- Select dos Gráficos -->
+  <!-- G1 - Formulário -->
+
+  <label for="forms-adm" class="block ml-[15%] mb-2 mt-6 font-medium text-black">Formulários dos Colaboradores</label>
+  <!--Título G1 -->
+
+  <select id="forms-adm" onchange="showGraph()"
+    class="text-black text-sm border rounded-lg block w-[70%] ml-[15%] p-2.5 bg-[#c2eff1] border-gray-600"
+    data-toggle="modal"> <!--Estilo do Select G1-->
+    <option selected>Escolha um Formulário</option>
+    <option value="FT">Formulário de Satisfação no Trabalho</option>
+    <option value="FP">Formulário de Satisfação Pessoal</option>
+    <option value="FE">Formulário de Identificação de Fatores de Estresse</option>
+    <option value="FA">Formulário de Autocuidado</option>
+    <option value="SG">Satisfação Geral dos Colaboradores</option>
+  </select>
+
+  <!-- G2 - Outros gráficos -->
+
+  <label for="select-adm" class="block ml-[15%] mb-2 mt-8 font-medium text-black ">Gráficos e outras informações</label>
+  <!--Título G2 -->
+
+  <select id="select-adm" onchange="showGraph()"
+    class="text-black text-sm border rounded-lg block w-[70%] ml-[15%] p-2.5 bg-[#c2eff1] border-gray-600"
+    data-toggle="modal"> <!--Estilo do Select G2-->
+    <option selected>Escolha um Gráfico</option>
+    <option value="DF">Distribuição de Respostas por Formulário</option>
+    <option value="DS">Distribuição de Respostas por Setor</option>
+    <option value="NE">Níveis de Estresse</option>
+    <option value="TT">Tendências Temporais</option>
+    <option value="VPP">Equilíbrio de Vida Pessoal/Profissional</option>
+    <option value="CR">Correlações</option>
+    <option value="FB">Feedback</option>
+    <!-- Qualitativo. Será distribuido e visto aleatóriamente, sem identificação -->
+  </select>
+
+
+  <!-- Modal -->
+
+  <div class="modal-overlay" id="overlayFA" onclick="closeModal('modalFA','overlayFA')"></div>
+  <!-- [Adicionar um "clique fora da tela para sair"]-->
+
+  <!-- Modal Formulário de Autocuidado-->
+  <div class="modal" id="modalFA">
+    <!--FA-->
+    <div id="FA" style="width: 900px; height: 500px;"></div>
+  </div>
+
+  <div class="modal-overlay" id="overlaySG" onclick="closeModal('modalSG','overlaySG')"></div>
+
+  <!-- Modal Satisfação Geral -->
+  <div class="modal" id="modalSG">
+    <!--SG-->
+    <div id="SG" style="width: 900px; height: 500px;"></div>
+  </div>
+
+  <script src="../utils/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChartStat); </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<!-- Meta Atual (a ideia é mais pra frente alterar a cor conforme o preenchimento avança) -->
+
+    <div class=" bg-[#c2eff1;] py-3 px-10">
+        <div class="text-2xl font-bold text-black"> Metas de Adesão</div>
+    </div>
+
+    <div class="goal-1-b px-[5%] pt-2 pb-4">
+        <div
+            class="goal-1 text-2xl w-[15%] h-32 float-left pl-4 pt-4 ml-[4%] mt-[-0.3%] border-solid border-2 rounded-xl border-white">
+            10 <br><b>NOVEMBRO</b><br> 2023</div>
+        <div
+            class="goal-2 text-xl w-[80%] h-12 ml-[18%] pr-4 pt-2 mt-[0.7%] mb-[0.5%] border-solid border-2 border-[#276bc4cc] text-right">
+            <b>1400</b> de <b>2000</b> preenchimentos
+        </div>
+        <div class="goal-3 text-xl w-[80%] h-12 ml-[18%] pr-4 pt-2 border-solid border-2 border-[#276bc4cc] text-right">
+            Faltam <b>100</b> colaboradores para atingir a sua meta mensal</div>
+        <!-- Mais tarde pretendo fazer um limite tipo 3/4 de preenchimento é a meta (verde). 1/4 de preenchimento fica vermelho. O meio termo fica amarelo. -->
+    </div>
+
+
+    <!-- Gráfico Mensal -->
+
+    <div class="grafico-mensal bg-[#c2eff1;] py-3 px-10">
+        <div class="text-2xl font-bold text-black"> Preenchimentos por Mês</div>
+    </div>
+    <div class="pb-[5%] pt-[5%] flex flex-row justify-center items-center">
+        <div id="columnchart_material1" style="width: 800px; height: 500px;"></div> <!-- Gráfico 1 -->
+    </div>
+
+
+    <!-- Botões Anual -->
+
+    <div class="bg-[#c2eff1;] py-3 px-10 ">
+        <div class="text-2xl font-bold text-black"> Preenchimentos por Ano</div>
+    </div>
+    <div class="pb-[5%] pt-[5%] flex flex-row justify-center items-center">
+        <div id="columnchart_material2" style="width: 800px; height: 500px;"></div> <!-- Gráfico 2 -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../utils/index.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawChartGoals);</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
