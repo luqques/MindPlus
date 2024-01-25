@@ -3,8 +3,14 @@
     "",
     "\\backend",
     "\\backend\\src",
-    "\\backend\\src\\MindPlus.API"
+    "\\backend\\src\\MindPlus",
+    "\\backend\\src\\MindPlus\\MindPlus",
+    "\\backend\\src\\MindPlus\\MindPlus.Api\\Entity",
+    "\\backend\\src\\MindPlus\\MindPlus.Api\\Infrastructure",
+    "\\backend\\src\\MindPlus\\MindPlus.Api\\Properties",
+    "\\backend\\src\\MindPlus\\MindPlus\\Empresa",
+    "\\backend\\src\\MindPlus\\MindPlus\\Empresa\\Service"
   ],
-  "SelectedNode": "\\backend\\src\\MindPlus.API\\MindPlus.Api.sln",
+  "SelectedNode": "\\backend\\src\\MindPlus",
   "PreviewInSolutionExplorer": false
 }
