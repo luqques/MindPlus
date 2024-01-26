@@ -5,6 +5,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { AdminComponent } from './components/pages/avaliacoes/admin/admin.component';
 import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
+import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'colaborador', component: ColaboradorComponent },
+  { path: 'colaboradores', component: ColaboradoresComponent },
+
 ];
 
 @NgModule({
