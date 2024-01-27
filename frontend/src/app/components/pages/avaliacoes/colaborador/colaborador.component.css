@@ -1,0 +1,29 @@
+.tabs {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f0f0f0;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  
+  .tab:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .avaliacoes {
+    display: flex;
+  }
+  
+  .avaliacao {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .avaliacao.active {
+    display: block;
+  }
