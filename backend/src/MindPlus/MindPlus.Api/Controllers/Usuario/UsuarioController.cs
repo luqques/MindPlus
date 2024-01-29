@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
+using MindPlus.Api.Infrastructure;
 using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -57,7 +58,19 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Visualizar usuário", Description = "Visualiza um usuário de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterUsuarioPorId(int id)
         {
-            return Ok(await _usuarioRepository.ObterPorId(id));
+            var token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split("").Last();
+
+            var usuarioId = Authentication.ObterUsuarioIdPorToken(token);
+
+            if (usuarioId != null && id.ToString() == usuarioId)
+            {
+                return Ok(await _usuarioRepository.ObterPorId(id));
+            } 
+            else
+            {
+                return Unauthorized();
+            }
+
         }
 
         /// <summary>
