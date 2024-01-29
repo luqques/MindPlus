@@ -1,9 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
-import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
-import { Router } from '@angular/router';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-colaborador',
@@ -11,6 +6,25 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./colaborador.component.css'],
 })
 export class ColaboradorComponent {
+  openST = true;
+  openSP = false;
+  openRI = false;
 
+  constructor() {}
 
- }
+  openForm(tabName: string) {
+    // Oculta todos os conteúdos
+    this.openST = false;
+    this.openSP = false;
+    this.openRI = false;
+
+    // Exibe o conteúdo da guia específica
+    if (tabName === 'Satisfação no Trabalho') {
+      this.openST = true;
+    } else if (tabName === 'Satisfação Pessoal') {
+      this.openSP = true;
+    } else if (tabName === 'Relações Interpessoais') {
+      this.openRI = true;
+    }
+  }
+}

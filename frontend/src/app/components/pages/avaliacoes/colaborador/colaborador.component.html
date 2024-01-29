@@ -1,19 +1,18 @@
-<div class="tabs">
-  <div class="tab" id="satisfacaoTrabalho">Satisfação no Trabalho</div>
-  <div class="tab" id="satisfacaoPessoal">Satisfação Pessoal</div>
-  <div class="tab" id="relacoesInterpessoais">Relações Interpessoais</div>
+<div class="tab">
+  <div class="tablinks" (click)="openForm('Satisfação no Trabalho')">Satisfação no Trabalho</div>
+  <div class="tablinks" (click)="openForm('Satisfação Pessoal')">Satisfação Pessoal</div>
+  <div class="tablinks" (click)="openForm('Relações Interpessoais')">Relações Interpessoais</div>
 </div>
-
 <div class="avaliacoes">
-  <div class="avaliacao" id="avaliacaoSatisfacaoTrabalho">
+  <div class="tabcontent" id="ST" [hidden]="!openST">
     <!-- Conteúdo da avaliação de Satisfação no Trabalho -->
     Avaliação de Satisfação no Trabalho...
   </div>
-  <div class="avaliacao" id="avaliacaoSatisfacaoPessoal">
+  <div class="tabcontent" id="SP" [hidden]="!openST">
     <!-- Conteúdo da avaliação de Satisfação Pessoal -->
     Avaliação de Satisfação Pessoal...
   </div>
-  <div class="avaliacao" id="avaliacaoRelacoesInterpessoais">
+  <div class="tabcontent" id="RI" [hidden]="!openST">
     <!-- Conteúdo da avaliação de Relações Interpessoais -->
     Avaliação de Relações Interpessoais...
   </div>

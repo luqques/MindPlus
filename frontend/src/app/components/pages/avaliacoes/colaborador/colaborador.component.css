@@ -1,16 +1,17 @@
-.tabs {
+.tab {
     display: flex;
     justify-content: flex-end;
     background-color: #f0f0f0;
   }
   
-  .tab {
+  .tablinks {
     padding: 10px 20px;
     cursor: pointer;
     border: 1px solid #ccc;
+    color: blue;
   }
   
-  .tab:hover {
+  .tablinks:hover {
     background-color: #e0e0e0;
   }
   
@@ -18,12 +19,15 @@
     display: flex;
   }
   
-  .avaliacao {
+  .tabcontent {
     display: none;
     padding: 20px;
     border: 1px solid #ccc;
   }
   
-  .avaliacao.active {
+  .tab tablinks.active {
     display: block;
   }
+
+
+  
