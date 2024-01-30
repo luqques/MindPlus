@@ -47,7 +47,12 @@ export class UsuarioService {
   }
 
   atualizarUsuario(payload: any): Observable<UsuarioEntity> {
-    return this.http.put<UsuarioEntity>(this.apiUrl, payload, this.httpOptions);
+    return this.http.put<UsuarioEntity>(this.apiUrl, payload, { 
+      headers: { 
+        Authorization: 
+          this.userTokenSubject.value
+      },
+    });
   }
 
   obterUsuario(id: number): Observable<UsuarioEntity> {

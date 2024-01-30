@@ -5,7 +5,7 @@
     </div>
     <div class="user-data">
         <div class="info-grid">
-            <form #usuarioEntityForm="ngForm" (ngSubmit)="onSubmit(usuarioEntityForm)">
+            <form #usuarioEntityForm="ngForm">
                 <div class="container-info">
                     <span>E-mail</span>
                     <input type="text" id="email" class="label-name" value="{{ usuarioEntity.email }}" ngModel required #email="ngModel">
@@ -21,18 +21,18 @@
             </form>
         </div>
         <div class="info-grid">
-            <form #usuarioEntityForm="ngForm" (ngSubmit)="onSubmit(usuarioEntityForm)">
+            <form #usuarioEntityForm="ngForm"  [formGroup]="formGroup" >
                 <div class="container-info">
                     <span>Empresa</span>
-                    <input type="text" id="minhaEmpresa" class="label-name" value="{{ usuarioEntity.empresaId }}" ngModel required #empresaId="ngModel">
+                    <input type="text" id="minhaEmpresa" class="label-name"formControlName="funcao" required>
                 </div>
                 <div class="container-info">
                     <span>Função</span>
-                    <input type="text" id="minhaEmpresa" class="label-name" value="{{ usuarioEntity.funcao }}" ngModel required #funcao="ngModel">
+                    <input type="text" id="funcao" class="label-name" value="{{ usuarioEntity.funcao }}" ngModel required #funcao="ngModel">
                 </div>
                 <div class="container-info">
                     <span>Status</span>
-                    <input type="text" id="minhaEmpresa" class="label-name" value="{{ usuarioEntity.status }}" ngModel required #status="ngModel">
+                    <input type="text" id="status" class="label-name" value="{{ usuarioEntity.status }}" ngModel required #status="ngModel">
                 </div>
             </form>
         </div>

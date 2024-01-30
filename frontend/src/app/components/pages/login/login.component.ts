@@ -17,11 +17,7 @@ export class LoginComponent implements OnInit {
     private usuarioService: UsuarioService,
     private localStorageService: LocalStorageService,
     private router: Router
-  ) {
-    this.usuarioService.userTokenChanged().subscribe(token => {
-      console.log('oi')
-    })
-  }
+  ) {}
 
   usuario: UsuarioLogin = {
     token: '',
