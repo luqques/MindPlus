@@ -8,7 +8,7 @@ footer {
     width: 100%;
     background-color: #185376;
     color: white;
-    position: absolute;
+    position: relative;
     bottom: 0;
 
     p {
