@@ -1,22 +1,27 @@
-<!-- Tab links -->
-<div class="tab">
-  <button class="tablinks" (click)="openForm($event, 'ST')">Satisfação no Trabalho</button>
-  <button class="tablinks" (click)="openForm($event, 'SP')">Satisfação Pessoal</button>
-  <button class="tablinks" (click)="openForm($event, 'RI')">Relações Interpessoais</button>
-</div>
+<div class="form">
 
-<!-- Tab content -->
-<div id="ST" class="tabcontent">
-  <h3>Satisfação no Trabalho</h3>
-  <p>TESTE de Satisfação no Trabalho...</p>
-</div>
+  
 
-<div id="SP" class="tabcontent">
-  <h3>Satisfação Pessoal</h3>
-  <p>TESTE de Satisfação Pessoal...</p>
-</div>
+  <div class="tab">
+    <h3 id="av">• Avaliação •</h3>
+    <button class="tablinks" (click)="openForm('ST')">Satisfação no Trabalho</button>
+    <button class="tablinks" (click)="openForm('SP')">Satisfação Pessoal</button>
+    <button class="tablinks" (click)="openForm('RI')">Relações Interpessoais</button>
+  </div>
 
-<div id="RI" class="tabcontent">
-  <h3>Relações Interpessoais</h3>
-  <p>TESTE de Relações Interpessoais...</p>
+  <div id="ST" class="tabcontent" [hidden]="!openST">
+    <h3>Satisfação no Trabalho</h3>
+    <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,
+      benefícios, cultura organizacional e oportunidades de crescimento.</p>
+  </div>
+
+  <div id="SP" class="tabcontent" [hidden]="!openSP">
+    <h3>Satisfação Pessoal</h3>
+    <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida, como saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
+  </div>
+
+  <div id="RI" class="tabcontent" [hidden]="!openRI">
+    <h3>Relações Interpessoais</h3>
+    <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte social.</p>
+  </div>
 </div>

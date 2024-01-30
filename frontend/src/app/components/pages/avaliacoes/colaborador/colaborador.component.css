@@ -1,8 +1,29 @@
+
+/* Bloco da tab contendo as avaliações */
+.form{ 
+  background-color: #F6F8F8;
+  margin-top: 4vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90vw;
+}
+
+.tab > #av{
+  padding-left: 1vw;
+  display: flex;
+  background-image: linear-gradient(to right, #185376 , #5C93AD);
+  align-items: center;
+  position: sticky;
+  right: 100vw;
+  width: 55vw;
+  color: #F6F8F8;;
+  
+}
+
 /* Style the tab */
 .tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -18,18 +39,17 @@
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #5C93AD;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #00ff0d;
 }
 
 /* Style the tab content */
 .tabcontent {
-  display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #1900ff;
   border-top: none;
 }
