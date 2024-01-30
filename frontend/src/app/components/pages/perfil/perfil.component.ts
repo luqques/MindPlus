@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UsuarioEntity } from 'src/app/interfaces/UsuarioEntity';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
@@ -12,34 +12,49 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 })
 export class PerfilComponent implements OnInit {
   
-  
   usuarioData!: UsuarioEntity;
-  usuarioEntity!: UsuarioEntity;
-  formGroup: any;
-  constructor(private localStorageService: LocalStorageService, private usuarioService: UsuarioService,private formBuilder: FormBuilder) {
-    this.formGroup = this.formBuilder.group(
-      {
-        funcao: ['']
-      }
+  usuarioFormGroup!: FormGroup;
+  nomeControl!: FormControl;
 
+  constructor(private localStorageService: LocalStorageService, private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
+    this.nomeControl = new FormControl('', Validators.required);
+    this.usuarioFormGroup = this.formBuilder.group(
+      {
+        email: ['', Validators.required],
+        telefone: ['', Validators.required],
+        funcao: ['', Validators.required],
+        status: ['', Validators.required],
+        endereco: ['', Validators.required],
+        empresa: ['', Validators.required]
+      }
     );
   }  
 
   ngOnInit(): void {
     this.usuarioData = this.localStorageService.get('usuarioData')
     this.usuarioService.obterUsuario(this.usuarioData.id).subscribe(usuarioEntityResponse => {
-      this.usuarioEntity = usuarioEntityResponse;
-      this.formGroup.patchValue(usuarioEntityResponse); 
+      this.createForm(usuarioEntityResponse);
+      this.nomeControl.setValue(usuarioEntityResponse.nome);
     });
   }
 
+  createForm(usuarioEntity: UsuarioEntity) {
+    this.usuarioFormGroup = this.formBuilder.group(
+      {
+        nome: this.nomeControl,
+        email: [usuarioEntity.email],
+        telefone: [usuarioEntity.telefone],
+        funcao: [usuarioEntity.funcao],
+        status: [usuarioEntity.status],
+        endereco: [usuarioEntity.endereco],
+        empresa: [usuarioEntity.empresaId]
+      }
+    );
+  }
 
-  formSubmitted: boolean = false;
-  async onSubmit(usuarioEntityForm: NgForm) {
-    this.formSubmitted = true;
-
-    if (usuarioEntityForm.valid) {
-      this.usuarioService.atualizarUsuario(this.usuarioEntity)
+  async onSubmit(usuarioFormGroup: FormGroup) {
+    if (usuarioFormGroup.valid) {
+      this.usuarioService.atualizarUsuario(this.usuarioFormGroup)
     }
   }
 }
