@@ -33,15 +33,16 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioData = this.localStorageService.get('usuarioData')
     this.usuarioService.obterUsuario(this.usuarioData.id).subscribe(usuarioEntityResponse => {
-      this.createForm(usuarioEntityResponse);
-      this.nomeControl.setValue(usuarioEntityResponse.nome);
+      this.createForm(usuarioEntityResponse); // TODO: Testar e se não funcionar, pode ser que precise inverter essa linha com a de baixo
+      this.nomeControl = new FormControl(usuarioEntityResponse.nome, Validators.required);
+      this.usuarioFormGroup.controls['nome'].setValue(usuarioEntityResponse.nome);
     });
   }
 
   createForm(usuarioEntity: UsuarioEntity) {
     this.usuarioFormGroup = this.formBuilder.group(
       {
-        nome: this.nomeControl,
+        nome: this.nomeControl.value,
         email: [usuarioEntity.email],
         telefone: [usuarioEntity.telefone],
         funcao: [usuarioEntity.funcao],
