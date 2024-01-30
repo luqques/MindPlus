@@ -7,7 +7,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     background-color: aliceblue;
-    height: 75vh;
+    min-height: 75vh;
     font-family: 'Courier New', Courier, monospace;
   }
 
@@ -26,15 +26,12 @@
     }
   }
 
-  .user-data {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
   .info-grid {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     h2 {
       margin-top: 30px;
@@ -55,9 +52,11 @@
     margin: 20px;
     border: 1px solid rgb(193, 215, 228);
     border-radius: 3px;
+    flex-basis: 30%;
 
     label {
-      font-size: 10px;
+      font-size: 13px;
+      font-weight: 100;
     }
 
     input {

@@ -4,36 +4,34 @@
             <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
             <p name="nome" id="nome" formControlName="nome" required></p>
         </div>
-        <div class="user-data">
-            <div class="info-grid">
-                <div class="container-info">
-                    <label for="email">E-mail</label>
-                    <input type="text" class="label-name" name="email" id="email" formControlName="email" required>
-                </div>
-                <div class="container-info">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" class="label-name" name="telefone" id="telefone" formControlName="telefone" required>
-                </div>
-                <div class="container-info">
-                    <label for="endereco">Endereço</label>
-                    <input type="text" class="label-name" name="endereco" id="endereco" formControlName="endereco" required>
-                </div>
-                <div class="container-info">
-                    <label for="empresa">Empresa</label>
-                    <input type="text" class="label-name" name="empresa" id="empresa" formControlName="empresa" required>
-                </div>
-                <div class="container-info">
-                    <label for="funcao">Função</label>
-                    <input type="text" class="label-name" name="funcao" id="funcao" formControlName="funcao" required>
-                </div>
-                <div class="container-info">
-                    <label for="status">Status</label>
-                    <input type="text" class="label-name" name="status" id="status" formControlName="status" required>
-                </div>
-                <div class="button-user">
-                    <button type="button" id="button-save" (click)="onSubmit(usuarioFormGroup)">Salvar</button>
-                </div>
-            </div> 
+        <div class="info-grid">
+            <div class="container-info">
+                <label for="email">E-mail</label>
+                <input type="text" class="label-name" name="email" id="email" formControlName="email" required>
+            </div>
+            <div class="container-info">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="label-name" name="telefone" id="telefone" formControlName="telefone" required>
+            </div>
+            <div class="container-info">
+                <label for="endereco">Endereço</label>
+                <input type="text" class="label-name" name="endereco" id="endereco" formControlName="endereco" required>
+            </div>
+            <div class="container-info">
+                <label for="empresa">Empresa</label>
+                <input type="text" class="label-name" name="empresa" id="empresa" formControlName="empresa" required>
+            </div>
+            <div class="container-info">
+                <label for="funcao">Função</label>
+                <input type="text" class="label-name" name="funcao" id="funcao" formControlName="funcao" required>
+            </div>
+            <div class="container-info">
+                <label for="status">Status</label>
+                <input type="text" class="label-name" name="status" id="status" formControlName="status" required>
+            </div>
+            <div class="button-user">
+                <button type="button" id="button-save" (click)="onSubmit(usuarioFormGroup)">Salvar</button>
+            </div>
         </div>
     </form>
 </div>

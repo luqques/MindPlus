@@ -17,9 +17,9 @@ export class PerfilComponent implements OnInit {
   nomeControl!: FormControl;
 
   constructor(private localStorageService: LocalStorageService, private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
-    this.nomeControl = new FormControl('', Validators.required);
     this.usuarioFormGroup = this.formBuilder.group(
       {
+        nome: [this.nomeControl, Validators.required],
         email: ['', Validators.required],
         telefone: ['', Validators.required],
         funcao: ['', Validators.required],
