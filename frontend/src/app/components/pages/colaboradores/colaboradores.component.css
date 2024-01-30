@@ -31,6 +31,12 @@ body {
   padding: 9px;
 }
 
+.links {
+  display: table-row;
+  align-items: center;
+  text-align: center;
+}
+
 .custom-table {
     width: 100%;
     border-collapse: collapse;
