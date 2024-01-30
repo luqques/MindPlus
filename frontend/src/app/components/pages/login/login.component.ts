@@ -17,7 +17,11 @@ export class LoginComponent implements OnInit {
     private usuarioService: UsuarioService,
     private localStorageService: LocalStorageService,
     private router: Router
-  ) {}
+  ) {
+    this.usuarioService.userTokenChanged().subscribe(token => {
+      console.log('oi')
+    })
+  }
 
   usuario: UsuarioLogin = {
     token: '',
@@ -48,6 +52,7 @@ export class LoginComponent implements OnInit {
 
             if (bearerToken) {
               console.log('Token: ', bearerToken);
+              this.usuarioService.setUserToken(bearerToken);
               this.router.navigate(['/']);
             } else {
               console.error('Objeto de resposta inválido:', response);

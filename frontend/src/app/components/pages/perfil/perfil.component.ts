@@ -12,12 +12,14 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 })
 export class PerfilComponent implements OnInit {
   
+  usuarioData!: UsuarioEntity;
   usuarioEntity!: UsuarioEntity;
-  
+
   ngOnInit(): void {
-    this.usuarioService.obterUsuario(this.usuarioEntity.id).subscribe(usuarioEntityResponse => {
+    this.usuarioData = this.localStorageService.get('usuarioData')
+    this.usuarioService.obterUsuario(this.usuarioData.id).subscribe(usuarioEntityResponse => {
       this.usuarioEntity = usuarioEntityResponse;
-      console.log(usuarioEntityResponse)
+      console.log(this.usuarioEntity);
     });
   }
 

@@ -58,19 +58,7 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Visualizar usuário", Description = "Visualiza um usuário de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterUsuarioPorId(int id)
         {
-            var token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split("").Last();
-
-            var usuarioId = Authentication.ObterUsuarioIdPorToken(token);
-
-            if (usuarioId != null && id.ToString() == usuarioId)
-            {
-                return Ok(await _usuarioRepository.ObterPorId(id));
-            } 
-            else
-            {
-                return Unauthorized();
-            }
-
+            return Ok(await _usuarioRepository.ObterPorId(id));
         }
 
         /// <summary>

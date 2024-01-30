@@ -4,7 +4,7 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, ObservableInput, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, ObservableInput, catchError, throwError } from 'rxjs';
 
 import { UsuarioLogin } from '../../interfaces/UsuarioLogin';
 
@@ -24,23 +24,26 @@ export class UsuarioService {
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}usuario`;
   private apiUrlLogin = `${this.apiUrl}/login`;
-  private apiUrlId = `${this.apiUrl}/{id}`;
 
-  token: string = this.localStorageService.get('bearerToken');
+  private userTokenSubject = new BehaviorSubject<string>('');
+
+  public setUserToken(token: string) {
+    this.userTokenSubject.next(token);
+  }
+
+  public userTokenChanged():Observable<string> {
+    return this.userTokenSubject.asObservable();
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      //Authorization: `${this.token}`,
+      'Authorization': `${this.userTokenSubject.value}`,
     }),
   };
 
   autenticarLogin(payload: any): Observable<UsuarioLogin> {
-    return this.http.post<UsuarioLogin>(
-      this.apiUrlLogin,
-      payload,
-      this.httpOptions
-    );
+    return this.http.post<UsuarioLogin>(this.apiUrlLogin, payload, this.httpOptions);
   }
 
   atualizarUsuario(payload: any): Observable<UsuarioEntity> {
@@ -48,9 +51,11 @@ export class UsuarioService {
   }
 
   obterUsuario(id: number): Observable<UsuarioEntity> {
-    return this.http.get<UsuarioEntity>(
-      `${this.apiUrl}/${id}`,
-      this.httpOptions
-    );
+    return this.http.get<UsuarioEntity>(`${this.apiUrl}/${id}`, { 
+      headers: { 
+        Authorization: 
+          this.userTokenSubject.value
+      },
+    });
   }
 }
