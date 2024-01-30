@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
-import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
-import { Router } from '@angular/router';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-colaboradores',
@@ -11,6 +7,36 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./colaboradores.component.css'],
 })
 export class ColaboradoresComponent {
+  // colaboradores: any[] = []
 
+  // constructor(private httpClient: HttpClient) {}
 
- }
+  // ngOnInit() {
+  //   this.fetchColaboradores();
+  // }
+
+  // fetchColaboradores() {
+  //   const apiUrl = 'https://localhost:4200/usuario'; // Replace with your actual API endpoint
+
+  //   this.httpClient.get<any[]>(apiUrl).subscribe(
+  //     (data) => {
+  //       this.colaboradores = data;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching colaboradores:', error);
+  //     }
+  //   );
+  // }
+
+  colaboradores = [
+    {
+      nome: 'Maria'
+    },
+    {
+      nome: 'Isa'
+    },
+    {
+      nome: 'Paola'
+    }
+  ]
+}

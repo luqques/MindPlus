@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <div class="container-tabela">
         <table class="custom-table">
             <thead>
@@ -23,15 +22,9 @@
                 </th>
               </tr>
             </thead>
-          
-            <tbody>
+            <tbody *ngFor="let colaborador of colaboradores">
               <tr>
-                <td>Fulano 1</td>
-                <td></td>
-                <td>Ver Editar Excluir</td>
-              </tr>
-              <tr>
-                <td>Fulano 2</td>
+                <td>{{ colaborador.nome }}</td>
                 <td></td>
                 <td>Ver Editar Excluir</td>
               </tr>
