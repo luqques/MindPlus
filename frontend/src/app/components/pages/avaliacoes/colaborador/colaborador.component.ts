@@ -6,25 +6,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./colaborador.component.css'],
 })
 export class ColaboradorComponent {
-  openST = true;
-  openSP = false;
-  openRI = false;
 
-  constructor() {}
+  openForm(evt: Event, formName: string): void {
+    console.log(evt + formName);
 
-  openForm(tabName: string) {
-    // Oculta todos os conteúdos
-    this.openST = false;
-    this.openSP = false;
-    this.openRI = false;
+    // Declare all variables
+    let i: number;
+    let tabcontent: HTMLCollectionOf<Element>;
+    let tablinks: HTMLCollectionOf<Element>;
 
-    // Exibe o conteúdo da guia específica
-    if (tabName === 'Satisfação no Trabalho') {
-      this.openST = true;
-    } else if (tabName === 'Satisfação Pessoal') {
-      this.openSP = true;
-    } else if (tabName === 'Relações Interpessoais') {
-      this.openRI = true;
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent") as HTMLCollectionOf<Element>;
+    for (i = 0; i < tabcontent.length; i++) {
+      (tabcontent[i] as HTMLElement).style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks") as HTMLCollectionOf<Element>;
+    for (i = 0; i < tablinks.length; i++) {
+      const tablink = tablinks[i] as HTMLElement;
+      tablink.className = tablink.className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    const currentTab = document.getElementById(formName);
+    if (currentTab) {
+      currentTab.style.display = "block";
+      if (evt && evt.currentTarget) {
+        const currentTarget = evt.currentTarget as HTMLElement;
+        currentTarget.className += " active";
+      }
     }
   }
 }
