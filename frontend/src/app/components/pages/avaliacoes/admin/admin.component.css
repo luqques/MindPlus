@@ -16,3 +16,20 @@
     position: sticky;
     color: #F6F8F8;
   }
+
+
+
+  
+  .card {
+    background-color: #5C93AD;
+    color: #F6F8F8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .numero-preenchimentos {
+    font-size: 24px;
+    font-weight: bold;
+  }
