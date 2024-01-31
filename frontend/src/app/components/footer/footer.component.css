@@ -1,4 +1,5 @@
 footer {
+    position: absolute;
     border-top: 1px solid #185376;
     display: flex;
     flex-direction: column;
@@ -8,8 +9,8 @@ footer {
     width: 100%;
     background-color: #185376;
     color: white;
-    position: relative;
     bottom: 0;
+
 
     p {
         padding: 5px;

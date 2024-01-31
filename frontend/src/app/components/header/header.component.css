@@ -1,9 +1,14 @@
 nav {
+    position: sticky;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     background-color: #185376;
     padding: 0 1em 0 1em;
     height: 100px;
+    width: 100%;
+    top: 0;
+
 }
 
 .logo, .links {
