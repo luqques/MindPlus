@@ -11,7 +11,7 @@ namespace MindPlus.Api.Repository
         public async Task AtualizarUsuario(UsuarioEntity usuario)
         {
             string sql = @"
-                    UPDATE USUSARIO
+                    UPDATE USUARIO
                         SET Nome = @Nome,
                             Email = @Email,
                             Senha = @Senha,
