@@ -18,6 +18,7 @@ body {
     box-shadow: 30%;
 }
 
+
 .botao-addcolab{
     background-color:  #185376;
     color: #f6f6f6;
@@ -31,8 +32,10 @@ body {
   padding: 9px;
 }
 
+
 .links {
-  display: table-row;
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
 }
