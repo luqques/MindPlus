@@ -1,10 +1,9 @@
 <div class="block">
 
   <h3 class="h">• Metas •</h3> <!--TÍTULO-->
-
-  <div class="card">
-    <h4>Preenchimento Atual</h4>
-    <div class="numero-preenchimentos">152/200</div>
+    <div *ngFor="let card of cardData" class="card">
+    <h2><!--Preenchimento Atual-->{{card.title}}</h2>
+    <div class="numero-preenchimentos"><!--152/200-->{{ card.numeroPreenchimentos }}</div>
   </div>
 
 </div>
@@ -13,13 +12,14 @@
 <div class="block">
 
   <h3 class="h">• Estatísticas •</h3> <!--TÍTULO-->
-
   <div class="card">
-    <h4>Preenchimento Atual</h4>
+    <h2>Satisfação Geral</h2>
     <div class="numero-preenchimentos">152/200</div>
   </div>
 
 </div>
+
+
 
 
 
@@ -42,7 +42,7 @@
 -->
 
 
-  <!--- Conteúdo da Google Charts 
+<!--- Conteúdo da Google Charts 
   <script src="https://kit.fontawesome.com/f9c6abbc59.js" crossorigin="anonymous"></script>
 
 </head>
@@ -57,15 +57,15 @@
   </div>
 
 -->
-  <!-- Select dos Gráficos -->
-  <!-- G1 - Formulário -->
+<!-- Select dos Gráficos -->
+<!-- G1 - Formulário -->
 
-  <!--
+<!--
   <label for="forms-adm" class="block ml-[15%] mb-2 mt-6 font-medium text-black">Formulários dos Colaboradores</label>
  -->
- 
-  <!--Título G1 -->
-  <!--
+
+<!--Título G1 -->
+<!--
   <select id="forms-adm" onchange="showGraph()"
     class="text-black text-sm border rounded-lg block w-[70%] ml-[15%] p-2.5 bg-[#c2eff1] border-gray-600"
     data-toggle="modal"> 
@@ -79,16 +79,16 @@
     <option value="SG">Satisfação Geral dos Colaboradores</option>
   </select>
 -->
-  <!-- G2 - Outros gráficos -->
+<!-- G2 - Outros gráficos -->
 <!--
   <label for="select-adm" class="block ml-[15%] mb-2 mt-8 font-medium text-black ">Gráficos e outras informações</label>
   -->
-  <!--Título G2 -->
+<!--Título G2 -->
 <!--
   <select id="select-adm" onchange="showGraph()"
     class="text-black text-sm border rounded-lg block w-[70%] ml-[15%] p-2.5 bg-[#c2eff1] border-gray-600"
     data-toggle="modal"> -->
-    <!--Estilo do Select G2-->
+<!--Estilo do Select G2-->
 <!--
     <option selected>Escolha um Gráfico</option>
     <option value="DF">Distribuição de Respostas por Formulário</option>
@@ -100,25 +100,25 @@
     <option value="FB">Feedback</option>
   </select>
 -->
-    <!-- Qualitativo. Será distribuido e visto aleatóriamente, sem identificação -->
+<!-- Qualitativo. Será distribuido e visto aleatóriamente, sem identificação -->
 
 
-  <!-- Modal 
+<!-- Modal 
 
   <div class="modal-overlay" id="overlayFA" onclick="closeModal('modalFA','overlayFA')"></div>
  [Adicionar um "clique fora da tela para sair"]
 
    Modal Formulário de Autocuidado 
   <div class="modal" id="modalFA"> -->
-    <!--FA-->
-    <!--<div id="FA" style="width: 900px; height: 500px;"></div>
+<!--FA-->
+<!--<div id="FA" style="width: 900px; height: 500px;"></div>
   </div>
 
   <div class="modal-overlay" id="overlaySG" onclick="closeModal('modalSG','overlaySG')"></div>
 -->
-  <!-- Modal Satisfação Geral
+<!-- Modal Satisfação Geral
   <div class="modal" id="modalSG"> -->
-    <!--SG-
+<!--SG-
     <div id="SG" style="width: 900px; height: 500px;"></div>
   </div>
 
