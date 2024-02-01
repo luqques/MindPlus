@@ -18,7 +18,7 @@ namespace MindPlus.Api.Repository
                             Telefone = @Telefone,
                             Endereco = @Endereco,
                             EmpresaId = @EmpresaId,
-                            Status = @Status
+                            Status = @Status,
                             Funcao = @Funcao
                         WHERE Id = @Id
             ";
