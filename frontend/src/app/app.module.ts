@@ -13,6 +13,7 @@ import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { AdminComponent } from './components/pages/avaliacoes/admin/admin.component';
 import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
 import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
+import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ColaboradoresComponent } from './components/pages/colaboradores/colabor
     AdminComponent,
     ColaboradorComponent,
     ColaboradoresComponent,
+    CadastroColaboradoresComponent,
   ],
   imports: [
     BrowserModule,
