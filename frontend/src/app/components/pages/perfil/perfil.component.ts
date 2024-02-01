@@ -19,7 +19,7 @@ export class PerfilComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService, private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
     this.usuarioFormGroup = this.formBuilder.group(
       {
-        nome: [this.nomeControl, Validators.required],
+        nome: [''],
         email: ['', Validators.required],
         telefone: ['', Validators.required],
         funcao: ['', Validators.required],
@@ -33,29 +33,28 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioData = this.localStorageService.get('usuarioData')
     this.usuarioService.obterUsuario(this.usuarioData.id).subscribe(usuarioEntityResponse => {
-      this.createForm(usuarioEntityResponse); // TODO: Testar e se não funcionar, pode ser que precise inverter essa linha com a de baixo
-      this.nomeControl = new FormControl(usuarioEntityResponse.nome, Validators.required);
-      this.usuarioFormGroup.controls['nome'].setValue(usuarioEntityResponse.nome);
+      this.usuarioFormGroup.patchValue(usuarioEntityResponse);
     });
   }
 
-  createForm(usuarioEntity: UsuarioEntity) {
-    this.usuarioFormGroup = this.formBuilder.group(
-      {
-        nome: this.nomeControl.value,
-        email: [usuarioEntity.email],
-        telefone: [usuarioEntity.telefone],
-        funcao: [usuarioEntity.funcao],
-        status: [usuarioEntity.status],
-        endereco: [usuarioEntity.endereco],
-        empresa: [usuarioEntity.empresaId]
-      }
-    );
+  usuarioMock: UsuarioEntity = {
+    id: 1,
+    nome: 'Administrador',
+    email: 'admin',
+    telefone: '123456789999',
+    endereco: 'Rua A, 123',
+    empresaId: 1,
+    status: 'ativo',
+    funcao: 'admin'
   }
 
-  async onSubmit(usuarioFormGroup: FormGroup) {
+  submit(usuarioFormGroup: FormGroup<any>) {
     if (usuarioFormGroup.valid) {
-      this.usuarioService.atualizarUsuario(this.usuarioFormGroup)
+      console.log(usuarioFormGroup.controls["nome"].value);
+
+      this.usuarioService.atualizarUsuario(this.usuarioMock).subscribe(response => console.log(response));
+    } else {
+      alert('Necessário preencher todos os campos!')
     }
   }
 }

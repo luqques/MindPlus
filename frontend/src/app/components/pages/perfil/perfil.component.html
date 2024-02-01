@@ -1,8 +1,8 @@
 <div class="user-page">
-    <form [formGroup]="usuarioFormGroup">
+    <form [formGroup]="usuarioFormGroup" (ngSubmit)="submit(usuarioFormGroup)">
         <div class="user-info">
             <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
-            <p name="nome" id="nome" formControlName="nome" required></p>
+            <p name="nome" id="nome">{{ usuarioFormGroup.get("nome")?.value }}</p>
         </div>
         <div class="info-grid">
             <div class="container-info">
@@ -30,7 +30,7 @@
                 <input type="text" class="label-name" name="status" id="status" formControlName="status" required>
             </div>
             <div class="button-user">
-                <button type="button" id="button-save" (click)="onSubmit(usuarioFormGroup)">Salvar</button>
+                <button type="submit" id="button-save">Salvar</button>
             </div>
         </div>
     </form>

@@ -46,7 +46,7 @@ export class UsuarioService {
     return this.http.post<UsuarioLogin>(this.apiUrlLogin, payload, this.httpOptions);
   }
 
-  atualizarUsuario(payload: any): Observable<UsuarioEntity> {
+  atualizarUsuario(payload: UsuarioEntity): Observable<UsuarioEntity> {
     return this.http.put<UsuarioEntity>(this.apiUrl, payload, { 
       headers: { 
         Authorization: 
