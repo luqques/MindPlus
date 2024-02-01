@@ -1,35 +1,41 @@
 /* Bloco da tab contendo os gráficos */
-.block{ 
-    display: block;
-    background-color: #F6F8F8;
-    margin-top: 4vh;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90vw;
-    height: 90vh;
-  }
-  
-  .h{
-    padding-left: 1vw;
-    display: flex;
-    background-image: linear-gradient(to right, #185376 , #5C93AD);
-    position: sticky;
-    color: #F6F8F8;
-  }
+.container {
+  display: block;
+  background-color: #F6F8F8;
+  margin-top: 4vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 93vw;
+  height: 90vh;
+}
+
+.h {
+  padding-left: 1vw;
+  display: flex;
+  background-image: linear-gradient(to right, #185376, #5C93AD);
+  position: sticky;
+  color: #F6F8F8;
+}
+
+.title {
+  background-image: linear-gradient(to right, #185376, #5C93AD, #F6F8F8);
+}
 
 
+.card {
+  display: inline-block;
+  text-align: center;
+  margin-inline-start: 1.8em;
+  margin-top: 0.8em;
+  height: 29vh;
+  width: 29vw;
+  padding: 20px;
+  background-color: white;
+  color: #F6F8F8;
+  border-radius: 0.8em;
+}
 
-  
-  .card {
-    background-color: #5C93AD;
-    color: #F6F8F8;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .numero-preenchimentos {
-    font-size: 24px;
-    font-weight: bold;
-  }
+.numero-preenchimentos {
+  font-size: 24px;
+  font-weight: bold;
+}
