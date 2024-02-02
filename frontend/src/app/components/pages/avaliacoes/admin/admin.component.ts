@@ -1,30 +1,33 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
-import { UsuarioLoginService } from 'src/app/services/usuario-login.service';
-import { Router } from '@angular/router';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
 })
+
 export class AdminComponent {
-  //@Input() cardTitle: string = 'Preenchimento Atual';
-  //@Input() outraCardTitle: string = 'Satisfação Geral';
-  //@Input() numeroPreenchimentos: string = '152/200';
-  @Input() cardData: { title: string; numeroPreenchimentos: string }[] = [];
+
+  @Input() cardMetas: { title: string; numeroPreenchimentos: string }[] = [];
+  @Input() cardChart: { title2: string; chart: string }[] = [];
 
   constructor() {
+    this.cardMetas = [
+      { title: 'Preenchimento Atual', numeroPreenchimentos: '152/200' }, //LEMBRETE: adicionar métodos
+      { title: 'Preenchimento por Mês', numeroPreenchimentos: 'grafico mês' },
+      { title: 'Preenchimento por Ano', numeroPreenchimentos: 'gráfico ano' },
+    ]
 
-    this.cardData = [
-      { title: 'Preenchimento Atual', numeroPreenchimentos: '152/200' },
-      { title: 'Preenchimento por Mês', numeroPreenchimentos: '50/100' },
-      { title: 'Preenchimento por Ano', numeroPreenchimentos: '100/150' },
-
+    this.cardChart = [
+      { title2: 'Satisfação Geral', chart: 'grafico1' },
+      { title2: 'Níveis de Estresse', chart: 'grafico2' },
+      { title2: 'Tendências Temporais', chart: 'grafico3' },
+      { title2: 'Equilíbrio de Vida Pessoal/Profissional', chart: 'grafico4' },
+      { title2: 'Distribuições de Respostas por Setor', chart: 'grafico5' },
     ];
-    
   }
+
+
+
 
 } 
