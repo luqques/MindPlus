@@ -1,10 +1,8 @@
 <div class="container">
 
-  <h3 class="h">• Metas •</h3>
+  <h2 class="h">• Metas •</h2>
   <div *ngFor="let card of cardMetas" class="card">
-    <div class="title">
-      <h2><!--Preenchimento Atual-->{{card.title}}</h2>
-    </div>
+    <h3 class="title"><!--Preenchimento Atual-->{{card.title}}</h3>
     <div class="cardMetas"><!--152/200-->{{ card.numeroPreenchimentos }}</div>
   </div>
 
@@ -13,11 +11,9 @@
 
 <div class="container">
 
-  <h3 class="h">• Estatísticas •</h3>
+  <h2 class="h">• Estatísticas •</h2>
   <div *ngFor="let card of cardChart" class="card">
-    <div class="title">
-      <h2><!--Satisfação Geral-->{{card.title2}}</h2>
-    </div>
+    <h3 class="title"><!--Satisfação Geral-->{{card.title2}}</h3>
     <div class="cardChart"><!--gráfico1-->{{ card.chart }}</div>
   </div>
 
