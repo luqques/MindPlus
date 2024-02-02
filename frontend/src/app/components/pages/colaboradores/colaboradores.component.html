@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="colaboradores.component.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="colaboradores.component.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container-tabela">
-        <table class="custom-table">
-            <thead>
-              <tr>
-                <th class="titulos">Usuários</th>
-                <th>
-                  <input type="text" placeholder="Pesquisar Colaborador">
-                </th>
-                <th>
-                  <input type="button" name="Adicionar-colaborador" value="Adicionar Colaborador">
-                </th>
-              </tr>
-            </thead>
-          
-            <tbody>
-              <tr>
-                <td>Fulano 1</td>
-                <td></td>
-                <td>Ver Editar Excluir</td>
-              </tr>
-              <tr>
-                <td>Fulano 2</td>
-                <td></td>
-                <td>Ver Editar Excluir</td>
-              </tr>
-            </tbody>
-          </table>
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th class="titulos">Usuários</th>
+            <th>
+              <input
+                type="text"
+                class="search-colab"
+                placeholder="Pesquisar Colaborador"
+              />
+            </th>
+            <th>
+              <input
+                type="button"
+                name="Adicionar-colaborador"
+                value="Adicionar Colaborador"
+                class="botao-addcolab "
+                [routerLink]="['/cadastroColaborador']"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let colaborador of colaboradores">
+          <tr>
+            <td>{{ colaborador.nome }}</td>
+            <td></td>
+            <div class="test">
+              <td class="links">Ver Editar Excluir</td>
+            </div>
+          </tr>
+        </tbody>
+      </table>
     </div>
-</body>
-
+  </body>
 </html>
