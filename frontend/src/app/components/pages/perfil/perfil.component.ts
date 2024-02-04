@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuarioEntity } from 'src/app/interfaces/UsuarioEntity';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
-
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 @Component({
@@ -19,40 +18,46 @@ export class PerfilComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService, private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
     this.usuarioFormGroup = this.formBuilder.group(
       {
-        nome: [''],
+        id: 0,
+        nome: ['', Validators.required],
         email: ['', Validators.required],
+        senha: '',
         telefone: ['', Validators.required],
-        funcao: ['', Validators.required],
-        status: ['', Validators.required],
         endereco: ['', Validators.required],
-        empresa: ['', Validators.required]
+        empresaId: 0,
+        status: ['', Validators.required],
+        funcao: ['', Validators.required],
       }
     );
   }  
 
   ngOnInit(): void {
-    this.usuarioData = this.localStorageService.get('usuarioData')
+    this.usuarioData = this.localStorageService.get('usuarioData');
+    
+    console.log(this.usuarioData);
+
     this.usuarioService.obterUsuario(this.usuarioData.id).subscribe(usuarioEntityResponse => {
       this.usuarioFormGroup.patchValue(usuarioEntityResponse);
     });
   }
 
-  usuarioMock: UsuarioEntity = {
-    id: 1,
-    nome: 'Administrador',
-    email: 'admin',
-    telefone: '123456789999',
-    endereco: 'Rua A, 123',
-    empresaId: 1,
-    status: 'ativo',
-    funcao: 'admin'
-  }
+  // usuarioMock: UsuarioEntity = {
+  //   id: 1,
+  //   nome: 'Administrador',
+  //   email: 'admin',
+  //   senha: 'admin',
+  //   telefone: '123456789999',
+  //   endereco: 'Rua A, 123',
+  //   empresaId: 1,
+  //   status: 'ativo',
+  //   funcao: 'admin'
+  // }
 
-  submit(usuarioFormGroup: FormGroup<any>) {
-    if (usuarioFormGroup.valid) {
-      console.log(usuarioFormGroup.controls["nome"].value);
+  submit() {
+    if (this.usuarioFormGroup.valid) {
+      console.log(this.usuarioFormGroup.controls["nome, email"].value);
 
-      this.usuarioService.atualizarUsuario(this.usuarioMock).subscribe(response => console.log(response));
+      this.usuarioService.atualizarUsuario(this.usuarioFormGroup.controls['id, nome, email, senha, telefone, endereco, empresaId, status, funcao'].value).subscribe(responseMessage => console.log(responseMessage));
     } else {
       alert('Necessário preencher todos os campos!')
     }

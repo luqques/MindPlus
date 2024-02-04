@@ -1,5 +1,5 @@
 <div class="user-page">
-    <form [formGroup]="usuarioFormGroup" (ngSubmit)="submit(usuarioFormGroup)">
+    <form [formGroup]="usuarioFormGroup" (ngSubmit)="submit()">
         <div class="user-info">
             <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
             <p name="nome" id="nome">{{ usuarioFormGroup.get("nome")?.value }}</p>
@@ -30,7 +30,7 @@
                 <input type="text" class="label-name" name="status" id="status" formControlName="status" required>
             </div>
             <div class="button-user">
-                <button type="submit" id="button-save">Salvar</button>
+                <button type="submit" [disabled] ="!usuarioFormGroup.valid" id="button-save">Salvar</button>
             </div>
         </div>
     </form>

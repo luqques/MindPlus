@@ -35,7 +35,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return Unauthorized("Usuario ou senha inválidos.");
+                return Unauthorized("E-mail ou senha inválidos.");
             }
         }
 
