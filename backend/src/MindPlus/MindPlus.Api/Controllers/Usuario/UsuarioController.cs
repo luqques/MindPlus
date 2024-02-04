@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
+using MindPlus.Api.Infrastructure;
 using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -34,7 +35,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return Unauthorized("Usuario ou senha inválidos.");
+                return Unauthorized("E-mail ou senha inválidos.");
             }
         }
 
