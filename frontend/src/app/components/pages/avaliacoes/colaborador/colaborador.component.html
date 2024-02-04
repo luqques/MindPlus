@@ -1,0 +1,55 @@
+<div class="form">
+
+  <div class="tab">
+    <h3 id="av">• Avaliação •</h3> <!--TÍTULO-->
+    <button class="tablinks" (click)="openForm('ST')">Satisfação no Trabalho</button>
+    <button class="tablinks" (click)="openForm('SP')">Satisfação Pessoal</button>
+    <button class="tablinks" (click)="openForm('RI')">Relações Interpessoais</button>
+  </div>
+
+  <div id="ST" class="tabcontent" [hidden]="!openST">
+    <h3>Satisfação no Trabalho</h3>
+    <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,
+      benefícios, cultura organizacional e oportunidades de crescimento.</p>
+
+      <div class="avaliacao">
+        <h4>Gestão Interna</h4>
+        <p>Como você avalia a gestão interna da empresa?</p>
+        <div class="opcoes">
+          <input type="radio" id="gi1" name="gi" value="1">
+          <label for="gi1">Discordo totalmente</label>
+    
+          <input type="radio" id="gi2" name="gi" value="2">
+          <label for="gi2">Discordo</label>
+    
+          <input type="radio" id="gi3" name="gi" value="3">
+          <label for="gi3">Indiferente/Não sei</label>
+    
+          <input type="radio" id="gi4" name="gi" value="4">
+          <label for="gi4">Concordo</label>
+    
+          <input type="radio" id="gi5" name="gi" value="5">
+          <label for="gi5">Concordo totalmente</label>
+        </div>
+      </div>
+
+  </div>
+
+  <div id="SP" class="tabcontent" [hidden]="!openSP">
+    <h3>Satisfação Pessoal</h3>
+    <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida, como
+      saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
+
+
+  </div>
+
+  <div id="RI" class="tabcontent" [hidden]="!openRI">
+    <h3>Relações Interpessoais</h3>
+    <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte
+      social.</p>
+
+
+  </div>
+  <!-- LEMBRETE: Colocar em métodos-->
+
+</div>

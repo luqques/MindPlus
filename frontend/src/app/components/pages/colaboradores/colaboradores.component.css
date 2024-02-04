@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f6f6f6;
+}
+.container-tabela {
+    place-content: center;
+    align-items: center;
+    margin:auto; 
+    margin-top: 70px;   
+    padding: 30px;
+    height: 500px;
+    width: 1000px;
+    background-color: white;
+    box-shadow: 30%;
+}
+
+
+.botao-addcolab{
+    background-color:  #185376;
+    color: #f6f6f6;
+    border-radius: 10px;
+    border: #185376;
+    padding: 10px;
+}
+
+.search-colab {
+  border-radius: 10px;
+  padding: 9px;
+}
+
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .custom-table th, .custom-table td {
+    padding: 20px;
+  }
+  
+  .custom-table .titulos {
+    text-align: left;
+    align-items: center;
+  }
+  
+  .custom-table input[type="text"], .custom-table input[type="button"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .custom-table th input[type="button"] {
+    display: block;
+  }
+
+  .titulos {
+    align-items: center;
+    text-align: center;
+    color: gray;
+  }
+  
+  .custom-table th {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  
+  .custom-table td {
+    padding: 10px;
+  }
+  

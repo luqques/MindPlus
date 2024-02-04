@@ -1,14 +1,18 @@
 footer {
-    border-top: 1px solid #004AAD;
+    
+    background-color: #185376;
+    position: fixed;
+    bottom: 0;
+    height: 12vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 150px;
-    background-color: #004AAD;
     color: white;
 
     p {
-        padding: 10px;
-    }
+        padding: 5px;
+    }    
 }
+

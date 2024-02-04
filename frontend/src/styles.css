@@ -1,14 +1,7 @@
-/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
-
-@font-face {
-    font-family: Hammersmith-One;
-    src: url(assets/fonts/HammersmithOne-Regular.ttf);
-}
-
 * {
     padding: 0;
     margin: 0;
-    font-family: Hammersmith-One;
+    font-family: sans-serif;
     box-sizing: border-box;
 }
 
