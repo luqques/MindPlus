@@ -1,10 +1,10 @@
 ﻿using Dapper;
-using MindPlus.Api.Contracts.Repository;
+using MindPlus.Api.Contracts.Repository.Usuario;
 using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
 using MindPlus.Api.Infrastructure;
 
-namespace MindPlus.Api.Repository
+namespace MindPlus.Api.Repository.Usuario
 {
     public class UsuarioRepository : Connection, IUsuarioRepository
     {
@@ -29,7 +29,7 @@ namespace MindPlus.Api.Repository
         {
             string sql = @"
                     INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Status, Funcao)
-                        VALUE (@Nome, @Email, @Senha, @Telefone, @Endereco, @EmpresaId, @Status, @Funcao)
+                        VALUES (@Nome, @Email, @Senha, @Telefone, @Endereco, @EmpresaId, @Status, @Funcao)
             ";
             await Execute(sql, usuario);
         }

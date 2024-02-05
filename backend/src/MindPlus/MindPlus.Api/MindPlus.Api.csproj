@@ -15,8 +15,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\Empresa\" />
-  </ItemGroup>
-
 </Project>

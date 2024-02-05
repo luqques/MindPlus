@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MindPlus.Api.Contracts.Repository;
+using MindPlus.Api.Contracts.Repository.Usuario;
 using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity;
 using MindPlus.Api.Infrastructure;
@@ -51,7 +51,7 @@ namespace MindPlus.Api.Controllers.Usuario
         }
 
         /// <summary>
-        /// Visualizar todos os usuários.
+        /// Visualizar usuário.
         /// </summary>
         [HttpGet("{id:int}")]
         [Authorize]
