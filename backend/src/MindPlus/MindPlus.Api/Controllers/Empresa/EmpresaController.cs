@@ -33,7 +33,7 @@ namespace MindPlus.Api.Controllers.Empresa
         /// Visualizar uma empresa.
         /// </summary>
         [HttpGet("{id:int}")]
-        [Authorize(Roles = "admin")]
+        [Authorize]
         [SwaggerOperation(Summary = "Visualizar empresa", Description = "Visualiza uma empresa de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterEmpresaPorId(int id)
         {

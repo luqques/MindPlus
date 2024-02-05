@@ -1,25 +1,15 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-} from '@angular/common/http';
-import { BehaviorSubject, Observable, ObservableInput, catchError, throwError } from 'rxjs';
-
-import { UsuarioLogin } from '../../interfaces/UsuarioLogin';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IUsuarioLogin } from '../../interfaces/IUsuarioLogin';
 import { environment } from 'src/environments/environment';
-import { UsuarioEntity } from 'src/app/interfaces/UsuarioEntity';
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  constructor(
-    private http: HttpClient,
-    private localStorageService: LocalStorageService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}usuario`;
@@ -31,23 +21,16 @@ export class UsuarioService {
     this.userTokenSubject.next(token);
   }
 
-  public userTokenChanged():Observable<string> {
+  public userTokenChanged(): Observable<string> {
     return this.userTokenSubject.asObservable();
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `${this.userTokenSubject.value}`,
-    }),
-  };
-
-  autenticarLogin(payload: any): Observable<UsuarioLogin> {
-    return this.http.post<UsuarioLogin>(this.apiUrlLogin, payload, this.httpOptions);
+  autenticarLogin(payload: any): Observable<IUsuarioLogin> {
+    return this.http.post<IUsuarioLogin>(this.apiUrlLogin, payload);
   }
 
-  atualizarUsuario(payload: UsuarioEntity): Observable<UsuarioEntity> {
-    return this.http.put<UsuarioEntity>(this.apiUrl, payload, { 
+  atualizarUsuario(payload: IUsuarioEntity): Observable<IUsuarioEntity> {
+    return this.http.put<IUsuarioEntity>(this.apiUrl, payload, { 
       headers: { 
         Authorization: 
           this.userTokenSubject.value
@@ -55,8 +38,8 @@ export class UsuarioService {
     });
   }
 
-  obterUsuario(id: number): Observable<UsuarioEntity> {
-    return this.http.get<UsuarioEntity>(`${this.apiUrl}/${id}`, { 
+  obterUsuarioPorId(id: number): Observable<IUsuarioEntity> {
+    return this.http.get<IUsuarioEntity>(`${this.apiUrl}/${id}`, { 
       headers: { 
         Authorization: 
           this.userTokenSubject.value
