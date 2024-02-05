@@ -1,4 +1,13 @@
 
+.background{
+  background-image: url('https://images.pexels.com/photos/7793699/pexels-photo-7793699.jpeg');
+  /* */
+
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
 /* Bloco da tab contendo as avaliações */
 .form{ 
   background-color: #F6F8F8;
@@ -71,3 +80,4 @@
 .opcoes input {
   margin-bottom: 5px;
 }
+
