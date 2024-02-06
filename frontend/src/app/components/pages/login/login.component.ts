@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UsuarioLogin } from 'src/app/interfaces/UsuarioLogin';
+import { IUsuarioLogin } from 'src/app/interfaces/IUsuarioLogin';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  usuario: UsuarioLogin = {
+  usuario: IUsuarioLogin = {
     token: '',
     usuario: '',
   };
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
     if (usuarioLoginForm.valid) {
       this.usuarioService.autenticarLogin(usuarioLoginForm.value).subscribe(
-          (response: UsuarioLogin) => {
+          (response: IUsuarioLogin) => {
             console.log('Login autenticado!');
             console.log('Retorno da API: ', response);
 

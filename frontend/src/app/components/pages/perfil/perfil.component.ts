@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsuarioEntity } from 'src/app/interfaces/UsuarioEntity';
+import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
+import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
@@ -9,13 +10,19 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
+
 export class PerfilComponent implements OnInit {
   
-  usuarioData!: UsuarioEntity;
+  usuarioData!: IUsuarioEntity;
   usuarioFormGroup!: FormGroup;
   nomeControl!: FormControl;
 
-  constructor(private localStorageService: LocalStorageService, private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
+  constructor(
+    private localStorageService: LocalStorageService,
+    private usuarioService: UsuarioService,
+    private empresaService: EmpresaService, 
+    private formBuilder: FormBuilder
+    ) {
     this.usuarioFormGroup = this.formBuilder.group(
       {
         id: 0,
@@ -24,7 +31,7 @@ export class PerfilComponent implements OnInit {
         senha: '',
         telefone: ['', Validators.required],
         endereco: ['', Validators.required],
-        empresaId: 0,
+        empresaNome: ['', Validators.required],
         status: ['', Validators.required],
         funcao: ['', Validators.required],
       }
@@ -36,22 +43,14 @@ export class PerfilComponent implements OnInit {
     
     console.log(this.usuarioData);
 
-    this.usuarioService.obterUsuario(this.usuarioData.id).subscribe(usuarioEntityResponse => {
+    this.usuarioService.obterUsuarioPorId(this.usuarioData.id).subscribe(usuarioEntityResponse => {
       this.usuarioFormGroup.patchValue(usuarioEntityResponse);
     });
-  }
 
-  // usuarioMock: UsuarioEntity = {
-  //   id: 1,
-  //   nome: 'Administrador',
-  //   email: 'admin',
-  //   senha: 'admin',
-  //   telefone: '123456789999',
-  //   endereco: 'Rua A, 123',
-  //   empresaId: 1,
-  //   status: 'ativo',
-  //   funcao: 'admin'
-  // }
+    this.empresaService.obterEmpresaPorId(this.usuarioData.empresaId).subscribe(empresaEntityResponse => {
+      this.usuarioFormGroup.patchValue({empresaNome: empresaEntityResponse.nome});
+    })
+  }
 
   submit() {
     if (this.usuarioFormGroup.valid) {
