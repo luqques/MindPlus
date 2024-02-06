@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/pages/login/login.component';
@@ -14,28 +13,32 @@ import { AdminComponent } from './components/pages/avaliacoes/admin/admin.compon
 import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
 import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
 import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DropdownComponent } from "./components/utils/dropdown/usuario-dropdown.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    PerfilComponent,
-    AdminComponent,
-    ColaboradorComponent,
-    ColaboradoresComponent,
-    CadastroColaboradoresComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        PerfilComponent,
+        AdminComponent,
+        ColaboradorComponent,
+        ColaboradoresComponent,
+        CadastroColaboradoresComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgbModule,
+        DropdownComponent
+    ]
 })
 export class AppModule {}

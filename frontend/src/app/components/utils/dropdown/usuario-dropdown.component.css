@@ -1,0 +1,11 @@
+#user-icon {
+    width: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#user-icon:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+}
