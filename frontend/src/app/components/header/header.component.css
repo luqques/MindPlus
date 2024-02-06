@@ -45,3 +45,7 @@ nav {
 .menu-usuario-item:hover {
     background-color: #185376;
 }
+
+.botao-menu-responsivo {
+    background-color: #4c9ac7;
+}
