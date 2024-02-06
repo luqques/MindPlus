@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
