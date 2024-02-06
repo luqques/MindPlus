@@ -2,22 +2,22 @@ nav {
     background-color: #185376;
 
     ul {
-        margin-right: 0px!important;
-        margin-left: auto!important;
+        margin-right: 0px !important;
+        margin-left: auto !important;
     }
 
     li {
         align-items: inherit;
 
         a {
-            color: white!important;
-            opacity: 0.7;
-            transition: 0.4s;
+            color: white !important;
+            opacity: 0.8;
+            transition: 0.3s;
         }
 
         a:hover {
-            opacity: 0.9;
-            transition: 0.4s;
+            opacity: 1;
+            transition: 0.3s;
         }
     }
 }
@@ -36,11 +36,12 @@ nav {
 #user-icon {
     width: 30px;
     height: 30px;
-    opacity: 1;
-    transition: 0.4s;
 }
 
-#user-icon:hover {
-    opacity: 0.8;
-    transition: 0.4s;
+.menu-usuario {
+    background-color: #0b5783;
+}
+
+.menu-usuario-item:hover {
+    background-color: #185376;
 }

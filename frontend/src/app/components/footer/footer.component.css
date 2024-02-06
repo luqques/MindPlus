@@ -9,13 +9,11 @@ footer {
     color: white;
 
     div {
-        margin-top: 2rem;
         padding: 5px;
 
         b {
             margin-top: 1rem;
             padding: 5px;
         }
-    }    
+    }
 }
-
