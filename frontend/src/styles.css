@@ -1,9 +1,14 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@font-face {
+    font-family: Barlow;
+    src: url(assets/fonts/Barlow-Regular.ttf);
+}
+
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: Barlow;
     box-sizing: border-box;
 }
 
@@ -19,5 +24,4 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

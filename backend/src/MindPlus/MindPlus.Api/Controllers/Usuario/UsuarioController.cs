@@ -54,7 +54,6 @@ namespace MindPlus.Api.Controllers.Usuario
         /// Visualizar usuário.
         /// </summary>
         [HttpGet("{id:int}")]
-        [Authorize]
         [SwaggerOperation(Summary = "Visualizar usuário", Description = "Visualiza um usuário de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterUsuarioPorId(int id)
         {
