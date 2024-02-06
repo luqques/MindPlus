@@ -41,8 +41,6 @@ export class PerfilComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioData = this.localStorageService.get('usuarioData');
     
-    console.log(this.usuarioData);
-
     this.usuarioService.obterUsuarioPorId(this.usuarioData.id).subscribe(usuarioEntityResponse => {
       this.usuarioFormGroup.patchValue(usuarioEntityResponse);
     });
