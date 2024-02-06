@@ -14,7 +14,6 @@ import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/
 import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
 import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DropdownComponent } from "./components/utils/dropdown/usuario-dropdown.component";
 
 @NgModule({
     declarations: [
@@ -37,8 +36,7 @@ import { DropdownComponent } from "./components/utils/dropdown/usuario-dropdown.
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
-        NgbModule,
-        DropdownComponent
+        NgbModule
     ]
 })
 export class AppModule {}

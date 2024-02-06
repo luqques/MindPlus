@@ -1,18 +1,21 @@
 footer {
-    
-    background-color: #185376;
-    position: fixed;
-    bottom: 0;
-    height: 12vh;
     width: 100%;
+    height: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #185376;
     color: white;
 
-    p {
+    div {
+        margin-top: 2rem;
         padding: 5px;
+
+        b {
+            margin-top: 1rem;
+            padding: 5px;
+        }
     }    
 }
 
