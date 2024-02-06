@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
+
 export class PerfilComponent implements OnInit {
   
   usuarioData!: IUsuarioEntity;
