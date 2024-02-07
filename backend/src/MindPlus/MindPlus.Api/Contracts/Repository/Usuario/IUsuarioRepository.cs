@@ -1,5 +1,5 @@
 ﻿using MindPlus.Api.Dto.Usuario;
-using MindPlus.Api.Entity;
+using MindPlus.Api.Entity.Usuario;
 
 namespace MindPlus.Api.Contracts.Repository.Usuario
 {

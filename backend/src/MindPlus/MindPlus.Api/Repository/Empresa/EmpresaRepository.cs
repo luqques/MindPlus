@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using MindPlus.Api.Contracts.Repository.Empresa;
 using MindPlus.Api.Dto.Empresa;
-using MindPlus.Api.Entity;
+using MindPlus.Api.Entity.Empresa;
 using MindPlus.Api.Infrastructure;
 
 namespace MindPlus.Api.Repository.Empresa

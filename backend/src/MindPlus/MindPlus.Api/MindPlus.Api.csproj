@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Contracts\Repository\IAvaliacaoRepository.cs" />
+    <Compile Remove="Controllers\Usuario\AvaliacaoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Contracts\Repository\Avaliacao\IAvaliacaoRepository.cs" />
+    <None Include="Controllers\Avaliacao\AvaliacaoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.24" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.25" />
     <PackageReference Include="MySql.Data" Version="8.2.0" />

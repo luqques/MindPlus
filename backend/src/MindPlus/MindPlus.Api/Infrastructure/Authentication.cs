@@ -1,5 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using MindPlus.Api.Entity;
+using MindPlus.Api.Entity.Usuario;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

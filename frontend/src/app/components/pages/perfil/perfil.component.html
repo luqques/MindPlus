@@ -1,39 +1,39 @@
-<div class="container text-center">
+<div class="container text-center my-5">
     <form [formGroup]="usuarioFormGroup" (ngSubmit)="submit()">
-        <div class="user-info">
+        <div class="usuario-foto">
             <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
             <p name="nome" id="nome">{{ usuarioFormGroup.get("nome")?.value }}</p>
         </div>
         <div class="row">
             <div class="col container-info">
                 <label for="email">E-mail</label>
-                <input type="text" class="label-name" name="email" id="email" formControlName="email" required>
+                <input type="text" class="form-control" name="email" id="email" formControlName="email" required>
             </div>
             <div class="col container-info">
                 <label for="telefone">Telefone</label>
-                <input type="text" class="label-name" name="telefone" id="telefone" formControlName="telefone" required>
+                <input type="text" class="form-control" name="telefone" id="telefone" formControlName="telefone" required>
             </div>
             <div class="col container-info">
                 <label for="endereco">Endereço</label>
-                <input type="text" class="label-name" name="endereco" id="endereco" formControlName="endereco" required>
+                <input type="text" class="form-control" name="endereco" id="endereco" formControlName="endereco" required>
             </div>
         </div>
         <div class="row">
             <div class="col container-info">
-                <label for="empresaNome">Empresa</label>
-                <input type="text" class="label-name" name="empresaNome" id="empresaNome" formControlName="empresaNome" required>
-            </div>
-            <div class="col container-info">
                 <label for="funcao">Função</label>
-                <input type="text" class="label-name" name="funcao" id="funcao" formControlName="funcao" required>
+                <input type="text" class="form-control" name="funcao" id="funcao" formControlName="funcao" required readonly>
             </div>
             <div class="col container-info">
                 <label for="status">Status</label>
-                <input type="text" class="label-name" name="status" id="status" formControlName="status" required>
+                <input type="text" class="form-control" name="status" id="status" formControlName="status" required readonly>
+            </div>
+            <div class="col container-info">
+                <label for="empresaNome">Empresa</label>
+                <input type="text" class="form-control" name="empresaNome" id="empresaNome" formControlName="empresaNome" required readonly>
             </div>
         </div> 
         <div>
-            <button type="submit" class="btn btn-primary btn-lg button-save">Salvar</button>
+            <button type="submit" class="btn btn-primary button-save">Salvar</button>
         </div>
     </form>
 </div>
