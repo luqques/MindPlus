@@ -66,7 +66,7 @@ namespace MindPlus.Api.Controllers.Usuario
         [HttpPost]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Cadastrar um novo usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> CadastrarUsuario(UsuarioDto usuario)
+        public async Task<IActionResult> CadastrarUsuario(UsuarioCadastroDto usuario)
         {
             await _usuarioRepository.CadastrarUsuario(usuario);
             return Ok("Colaborador cadastrado com sucesso!");
@@ -78,10 +78,23 @@ namespace MindPlus.Api.Controllers.Usuario
         [HttpPut]
         [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Atualizar informações de um usuário", Description = "Requer autenticação como 'admin'.")]
-        public async Task<IActionResult> AtualizarUsuario(UsuarioEntity usuario)
+        public async Task<IActionResult> AtualizarUsuario([FromBody] UsuarioEntity usuario)
         {
             await _usuarioRepository.AtualizarUsuario(usuario);
             return Ok("Usuário atualizado com sucesso!");
+        }
+
+        /// <summary>
+        /// Atualizar informações do próprio perfil. (Requer autenticação)
+        /// </summary>
+        [HttpPut]
+        [Route("perfil")]
+        [Authorize]
+        [SwaggerOperation(Summary = "Atualizar informações do próprio perfil", Description = "Requer autenticação.")]
+        public async Task<IActionResult> AtualizarProprioPerfil([FromBody] UsuarioAtualizacaoDto usuario)
+        {
+            await _usuarioRepository.AtualizarProprioPerfil(usuario);
+            return Ok("Seu perfil foi atualizado com sucesso!");
         }
 
         /// <summary>

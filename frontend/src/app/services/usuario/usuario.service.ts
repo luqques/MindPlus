@@ -29,9 +29,10 @@ export class UsuarioService {
     return this.http.post<IUsuarioLogin>(this.apiUrlLogin, payload);
   }
 
-  atualizarUsuario(payload: IUsuarioEntity): Observable<IUsuarioEntity> {
-    return this.http.put<IUsuarioEntity>(this.apiUrl, payload, { 
+  atualizarProprioPerfil(payload: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/perfil`, payload, { 
       headers: { 
+        'Content-Type': 'application/json',
         Authorization: 
           this.userTokenSubject.value
       },
