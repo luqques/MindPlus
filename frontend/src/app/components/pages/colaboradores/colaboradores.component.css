@@ -38,6 +38,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 }
 
 .custom-table {
@@ -78,4 +79,15 @@ body {
   .custom-table td {
     padding: 10px;
   }
-  
+
+ .botao-tabela {
+  border: none;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 15px;
+  padding: 10px;
+  cursor: pointer;
+ }
+
+
