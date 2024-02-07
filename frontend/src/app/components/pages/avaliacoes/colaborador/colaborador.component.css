@@ -1,20 +1,16 @@
 
-.background{
+.imagem-fundo{
   background-image: url('https://images.pexels.com/photos/7793699/pexels-photo-7793699.jpeg');
-  /* */
-
   background-size: cover;
   background-attachment: fixed;
+  height: 80vh;
 }
 
-
 /* Bloco da tab contendo as avaliações */
-.form{ 
+.formulario{ 
   background-color: #F6F8F8;
-  margin-top: 4vh;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 90vw;
+  margin-left: auto; margin-right: auto; 
+  max-width: 90vw; 
 }
 
 .tab > #av{
@@ -26,16 +22,15 @@
   right: 100vw;
   width: 55vw;
   color: #F6F8F8;
-  
 }
 
-/* Style the tab */
+/* Style da tab */
 .tab {
   display: flex;
   justify-content: flex-end;
 }
 
-/* Style the buttons that are used to open the tab content */
+/* Style buttons (abre o tab content) */
 .tab button {
   background-color: inherit;
   float: left;
@@ -46,7 +41,6 @@
   transition: 0.3s;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #5C93AD;
 }
@@ -56,7 +50,7 @@
   background-color: #00ff0d;
 }
 
-/* Style the tab content */
+/* Style da tab content */
 .tabcontent {
   padding: 6px 12px;
   border-top: none;
