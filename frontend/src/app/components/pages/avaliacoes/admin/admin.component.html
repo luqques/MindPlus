@@ -1,25 +1,25 @@
-<div class="background">
+<div class="imagem-fundo">
 
-<div class="container">
+  <div class="fundo">
 
-  <h2 class="h">• Metas •</h2>
-  <div *ngFor="let card of cardMetas" class="card">
-    <h3 class="title"><!--Preenchimento Atual-->{{card.title}}</h3>
-    <div class="cardMetas"><!--152/200-->{{ card.numeroPreenchimentos }}</div>
+    <h2 class="titulo1">• Metas •</h2>
+    <div *ngFor="let cartao of cartaoMetas" class="cartao">
+      <h3 class="titulo2"><!--Preenchimento Atual-->{{cartao.title}}</h3>
+      <div class="cartaoMetas"><!--152/200-->{{ cartao.numeroPreenchimentos }}</div>
+    </div>
+
   </div>
 
-</div>
 
+  <div class="fundo">
 
-<div class="container">
+    <h2 class="titulo1">• Estatísticas •</h2>
+    <div *ngFor="let cartao of cartaoChart" class="cartao">
+      <h3 class="titulo2"><!--Satisfação Geral-->{{cartao.title2}}</h3>
+      <div class="cartaoChart"><!--gráfico1-->{{ cartao.chart }}</div>
+    </div>
 
-  <h2 class="h">• Estatísticas •</h2>
-  <div *ngFor="let card of cardChart" class="card">
-    <h3 class="title"><!--Satisfação Geral-->{{card.title2}}</h3>
-    <div class="cardChart"><!--gráfico1-->{{ card.chart }}</div>
   </div>
-
-</div>
 
 </div>
 
