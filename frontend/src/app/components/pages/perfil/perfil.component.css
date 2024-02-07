@@ -1,15 +1,14 @@
-.user-info {
-  width: 100px;
-  margin: 50px;
+.usuario-foto {
+  width: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   img {
     width: 100px;
     border-radius: 90px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  }
-
-  p {
-    text-align: center;
   }
 }
 
@@ -17,38 +16,20 @@
   display: flex;
   flex-direction: column;
   background: white;
-  padding: 10px;
-  margin: 20px;
-  border: 1px solid rgb(193, 215, 228);
-  border-radius: 3px;
-  flex-basis: 30%;
+  margin: 15px;
+  flex-basis: 40%;
 
   label {
-    font-size: 13px;
-    font-weight: 100;
     text-align: left;
-  }
-
-  input {
-    outline: none;
-  }
-
-  .label-name {
-    margin-top: 5px;
-    border: 0px transparent;
-    border-radius: 3px;
-    padding: 5px;
   }
 }
 
 .button-save {
-  transition: 0.5s;
   background-color: #185376;
   border-color: #185376;
 }
 
 .button-save:hover {
-  transition: 0.5s;
   background-color: #214153;
   border-color: #214153;
 }

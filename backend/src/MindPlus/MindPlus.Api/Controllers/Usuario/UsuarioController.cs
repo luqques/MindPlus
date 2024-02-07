@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Contracts.Repository.Usuario;
 using MindPlus.Api.Dto.Usuario;
-using MindPlus.Api.Entity;
+using MindPlus.Api.Entity.Usuario;
 using MindPlus.Api.Infrastructure;
 using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;

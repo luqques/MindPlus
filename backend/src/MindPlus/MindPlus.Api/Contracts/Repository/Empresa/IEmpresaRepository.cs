@@ -1,5 +1,5 @@
 ﻿using MindPlus.Api.Dto.Empresa;
-using MindPlus.Api.Entity;
+using MindPlus.Api.Entity.Empresa;
 
 namespace MindPlus.Api.Contracts.Repository.Empresa
 {

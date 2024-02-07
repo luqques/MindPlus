@@ -1,4 +1,4 @@
-﻿using MindPlus.Api.Entity;
+﻿using MindPlus.Api.Entity.Usuario;
 
 namespace MindPlus.Api.Dto.Usuario
 {
