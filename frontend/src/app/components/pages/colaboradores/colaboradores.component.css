@@ -6,6 +6,7 @@
 body {
     background-color: #f6f6f6;
 }
+
 .container-tabela {
     place-content: center;
     align-items: center;
@@ -13,11 +14,11 @@ body {
     margin-top: 70px;   
     padding: 30px;
     height: 500px;
-    width: 1000px;
+    max-width: 1000px;
     background-color: white;
-    box-shadow: 30%;
+    border-radius:20px;
+    box-shadow: rgba(128, 128, 128, 0.719) 1px 1px 10px 1px;
 }
-
 
 .botao-addcolab{
     background-color:  #185376;
@@ -38,7 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  
+  justify-content: space-around;
 }
 
 .custom-table {
@@ -75,10 +76,11 @@ body {
     text-align: center;
   }
   
-  
   .custom-table td {
     padding: 10px;
+
   }
+
 
  .botao-tabela {
   border: none;
