@@ -94,7 +94,7 @@ namespace MindPlus.Api.Controllers.Usuario
         public async Task<IActionResult> AtualizarProprioPerfil([FromBody] UsuarioAtualizacaoDto usuario)
         {
             await _usuarioRepository.AtualizarProprioPerfil(usuario);
-            return Ok("Seu perfil foi atualizado com sucesso!");
+            return Ok(new { message = "Seu perfil foi atualizado com sucesso!" });
         }
 
         /// <summary>

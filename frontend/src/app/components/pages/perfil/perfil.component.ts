@@ -50,6 +50,9 @@ export class PerfilComponent implements OnInit {
     })
   }
 
+  isResponseOk = false;
+  isResponseError = false;
+
   submit() {
     if (this.usuarioFormGroup.valid) {
 
@@ -59,7 +62,19 @@ export class PerfilComponent implements OnInit {
         telefone: this.usuarioFormGroup.controls["telefone"].value,
         endereco: this.usuarioFormGroup.controls["endereco"].value,
       }
-      this.usuarioService.atualizarProprioPerfil(usuarioData).subscribe(response => console.log(response))
+      this.usuarioService.atualizarProprioPerfil(usuarioData).subscribe(
+        response => {
+          console.log(response);
+          this.isResponseOk = true;
+          this.isResponseError = false;
+
+        },
+        error => {
+          console.error(error);
+          this.isResponseOk = false;
+          this.isResponseError = true;
+        }
+      );
     } else {
       alert('Necessário preencher todos os campos!')
     }
