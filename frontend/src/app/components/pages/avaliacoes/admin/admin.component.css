@@ -1,5 +1,5 @@
 /* Bloco da tab contendo os gráficos */
-.imagem-fundo{
+.imagem-fundo {
   background-image: url('https://images.pexels.com/photos/4623463/pexels-photo-4623463.jpeg');
   /* https://images.pexels.com/photos/7793699/pexels-photo-7793699.jpeg
   https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg 
@@ -14,7 +14,8 @@
   position: relative;
   text-align: center;
   width: 93vw;
-  left: 50%; transform: translate(-50%, 5%);
+  left: 50%;
+  transform: translate(-50%, 5%);
   background-color: #F6F8F8D9;
   padding-bottom: 1em;
 
@@ -22,30 +23,35 @@
 
 .cartao {
   display: inline-block;
-  height: 39vh; width: 29vw;
-  margin-top: 1.5%; margin-inline: 1%;
+  height: 39vh;
+  width: 29vw;
+  margin-top: 1.5%;
+  margin-inline: 1%;
   background: white;
   border-bottom-right-radius: 0.8em;
   border-bottom-left-radius: 0.8em;
 }
 
 
-@media (max-width: 55rem) { 
-  .fundo { 
-     flex-direction: column; 
-  } 
-  .cartao { 
-     flex: none; 
-     width: 100%; 
-     transform: translate(-1%, 5%);
+@media (max-width: 55rem) {
+  .fundo {
+    flex-direction: column;
+    padding-bottom: 0em;
+    margin-bottom: 2em;
+    border-bottom-right-radius: 0.8em;
+    border-bottom-left-radius: 0.8em;
   }
-  .titulo2{
-    
+
+  .cartao {
+    flex: none;
+    width: 100%;
+    transform: translate(-1%);
   }
 }
 
 .titulo1 {
-  padding-top: 0.3em; padding-left: 1vw;
+  padding-top: 0.2em;
+  padding-left: 1vw;
   text-align: start;
   height: 1.7em;
   color: #F6F8F8;
@@ -57,9 +63,10 @@
   font-size: 2.6vh;
   font-weight: normal;
   text-align: left;
-  height: 3.5vh; min-width: 29vw; 
-  padding-top: 0.1em;
-  padding-left: 1em;
+  height: 3.5vh;
+  min-width: 29vw;
+  padding-top: 0.07em;
+  padding-left: 0.7em;
   color: #F6F8F8;
   background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
 
@@ -69,6 +76,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh; width: 10vw;
+  height: 10vh;
+  width: 10vw;
   background: #e7dc76;
 }
