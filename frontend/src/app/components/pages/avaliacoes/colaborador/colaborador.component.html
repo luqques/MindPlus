@@ -16,43 +16,74 @@
 
       <div class="avaliacao">
         <h4>Gestão Interna</h4>
-        <p>Como você avalia a gestão interna da empresa?</p>
-        <div class="opcoes">
-          <input type="radio" id="gi1" name="gi" value="1">
-          <label for="gi1">Discordo totalmente</label>
+        <div class="perguntas">
+          <p>Você acredita que a empresa está ativamente engajada em melhorar com base nos feedbacks recebidos?</p>
+          <p>Os processos de tomada de decisão são claros e compreensíveis para todos os colaboradores.</p>
+          <p>A liderança demonstra empatia e compreensão em relação às necessidades e desafios dos colaboradores.</p>
 
-          <input type="radio" id="gi2" name="gi" value="2">
-          <label for="gi2">Discordo</label>
+          <h4>Benefícios</h4>
+          <p>Os benefícios oferecidos têm um impacto positivo na sua satisfação geral no trabalho.</p>
+          <p>Além dos benefícios tangíveis, a empresa oferece vantagens não-materiais que contribuem para a satisfação
+            no trabalho.</p>
+          <p>Os benefícios oferecidos estão alinhados com seus valores pessoais e necessidades individuais.</p>
 
-          <input type="radio" id="gi3" name="gi" value="3">
-          <label for="gi3">Indiferente/Não sei</label>
+          <h4>Cultura Organizacional</h4>
+          <p>Você acredita que os valores da empresa são incorporados nas práticas diárias e decisões?</p>
+          <p>A diversidade é valorizada e promovida ativamente na cultura organizacional.</p>
+          <p>Você percebe estímulos à inovação e criatividade na cultura organizacional?</p>
 
-          <input type="radio" id="gi4" name="gi" value="4">
-          <label for="gi4">Concordo</label>
+          <h4>Oportunidades de Crescimento</h4>
+          <p>A empresa fornece feedback pessoal construtivo para promover o desenvolvimento profissional.</p>
+          <p>Como você avalia as oportunidades de avanço na sua carreira dentro da empresa?</p>
+          <p>Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?</p>
+        </div>
 
-          <input type="radio" id="gi5" name="gi" value="5">
-          <label for="gi5">Concordo totalmente</label>
+        <div class="row">
+          <div class="radio-buttons">
+            <div class="col">
+              <label>Concordo</label>
+              <input type="radio" name="gi" value="1" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+            </div>
+            <div class="col">
+              <label>Concordo <br />pouco</label>
+              <input type="radio" name="gi" value="2" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+            </div>
+
+            <div class="col">
+              <label>Indiferente <br />/Não sei</label>
+              <input type="radio" name="gi" value="3" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+            </div>
+
+            <div class="col">
+              <label>Discordo <br />pouco</label>
+              <input type="radio" name="gi" value="4" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+            </div>
+
+            <div class="col">
+              <label>Discordo</label>
+              <input type="radio" name="gi" value="5" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]">
+            </div>
+          </div>
         </div>
       </div>
 
+
+      <div id="SP" class="tabcontent" [hidden]="!openSP">
+        <h3>Satisfação Pessoal</h3>
+        <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,
+          como
+          saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
+
+      </div>
+
+
+      <div id="RI" class="tabcontent" [hidden]="!openRI">
+        <h3>Relações Interpessoais</h3>
+        <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte
+          social.</p>
+
+      </div> <!-- LEMBRETE: Colocar em métodos-->
+
     </div>
-
-
-    <div id="SP" class="tabcontent" [hidden]="!openSP">
-      <h3>Satisfação Pessoal</h3>
-      <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida, como
-        saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
-
-    </div>
-
-
-    <div id="RI" class="tabcontent" [hidden]="!openRI">
-      <h3>Relações Interpessoais</h3>
-      <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte
-        social.</p>
-
-    </div> <!-- LEMBRETE: Colocar em métodos-->
 
   </div>
-
-</div>
