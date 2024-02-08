@@ -25,7 +25,7 @@ namespace MindPlus.Api.Repository.Usuario
             await Execute(sql, usuario);
         }
 
-        public async Task CadastrarUsuario(UsuarioDto usuario)
+        public async Task CadastrarUsuario(UsuarioCadastroDto usuario)
         {
             string sql = @"
                     INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Status, Funcao)
@@ -64,6 +64,17 @@ namespace MindPlus.Api.Repository.Usuario
         {
             string sql = @"SELECT * FROM USUARIO";
             return await GetConnection().QueryAsync<UsuarioEntity>(sql);
+        }
+
+        public async Task AtualizarProprioPerfil(UsuarioAtualizacaoDto usuario)
+        {
+            string sql = @"
+                    UPDATE USUARIO
+                        SET Email = @Email,
+                            Telefone = @Telefone,
+                            Endereco = @Endereco
+                        WHERE Id = @Id";
+            await Execute(sql, usuario);
         }
     }
 }

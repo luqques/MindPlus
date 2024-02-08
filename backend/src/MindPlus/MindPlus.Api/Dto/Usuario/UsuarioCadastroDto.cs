@@ -1,6 +1,6 @@
 ﻿namespace MindPlus.Api.Dto.Usuario
 {
-    public class UsuarioDto
+    public class UsuarioCadastroDto
     {
         public string Nome { get; set; }
         public string Email { get; set; }

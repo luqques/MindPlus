@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
 import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
@@ -50,11 +50,31 @@ export class PerfilComponent implements OnInit {
     })
   }
 
+  isResponseOk = false;
+  isResponseError = false;
+
   submit() {
     if (this.usuarioFormGroup.valid) {
-      console.log(this.usuarioFormGroup.controls["nome, email"].value);
 
-      this.usuarioService.atualizarUsuario(this.usuarioFormGroup.controls['id, nome, email, senha, telefone, endereco, empresaId, status, funcao'].value).subscribe(responseMessage => console.log(responseMessage));
+      const usuarioData: any = {
+        id: this.usuarioFormGroup.controls["id"].value,
+        email: this.usuarioFormGroup.controls["email"].value,
+        telefone: this.usuarioFormGroup.controls["telefone"].value,
+        endereco: this.usuarioFormGroup.controls["endereco"].value,
+      }
+      this.usuarioService.atualizarProprioPerfil(usuarioData).subscribe(
+        response => {
+          console.log(response);
+          this.isResponseOk = true;
+          this.isResponseError = false;
+
+        },
+        error => {
+          console.error(error);
+          this.isResponseOk = false;
+          this.isResponseError = true;
+        }
+      );
     } else {
       alert('Necessário preencher todos os campos!')
     }
