@@ -15,7 +15,6 @@
 .container-info {
   display: flex;
   flex-direction: column;
-  background: white;
   margin: 15px;
   flex-basis: 40%;
 
