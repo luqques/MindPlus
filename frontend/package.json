@@ -24,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^15.1.2",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.11.3",
     "jquery": "^3.7.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
@@ -43,7 +44,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0",
     "typescript": "~5.0.2"
   }
 }

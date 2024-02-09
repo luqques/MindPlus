@@ -13,6 +13,7 @@ import { AdminComponent } from './components/pages/avaliacoes/admin/admin.compon
 import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
 import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
 import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { CadastroColaboradoresComponent } from './components/pages/colaboradores
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgbModule
     ]
 })
 export class AppModule {}

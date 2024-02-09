@@ -5,31 +5,31 @@
             <p name="nome" id="nome">{{ usuarioFormGroup.get("nome")?.value }}</p>
         </div>
         <div class="row">
-            <div class="col container-info">
-                <label for="email">E-mail</label>
-                <input type="text" class="form-control" name="email" id="email" formControlName="email" required>
+            <div class="col form-floating pl-2 container-info">
+                <input type="text" class="form-control" id="email" formControlName="email" required>
+                <label class="ms-3" for="email">E-mail</label>
             </div>
-            <div class="col container-info">
-                <label for="telefone">Telefone</label>
-                <input type="text" class="form-control" name="telefone" id="telefone" formControlName="telefone" required>
+            <div class="col form-floating pl-2 container-info">
+                <input type="text" class="form-control" id="telefone" formControlName="telefone" required>
+                <label class="ms-3" for="telefone">Telefone</label>
             </div>
-            <div class="col container-info">
-                <label for="endereco">Endereço</label>
-                <input type="text" class="form-control" name="endereco" id="endereco" formControlName="endereco" required>
+            <div class="col form-floating pl-2 container-info">
+                <input type="text" class="form-control" id="endereco" formControlName="endereco" required>
+                <label class="ms-3" for="endereco">Endereço</label>
             </div>
         </div>
         <div class="row">
-            <div class="col container-info">
-                <label for="funcao">Função</label>
-                <input type="text" class="form-control" name="funcao" id="funcao" formControlName="funcao" required readonly>
+            <div class="col form-floating pl-2 container-info">
+                <input type="text" class="form-control" id="funcao" formControlName="funcao" required>
+                <label class="ms-3" for="funcao">Função</label>
             </div>
-            <div class="col container-info">
-                <label for="status">Status</label>
-                <input type="text" class="form-control" name="status" id="status" formControlName="status" required readonly>
+            <div class="col form-floating pl-2 container-info">
+                <input type="text" class="form-control" id="status" formControlName="status" required>
+                <label class="ms-3" for="status">Status</label>
             </div>
-            <div class="col container-info">
-                <label for="empresaNome">Empresa</label>
-                <input type="text" class="form-control" name="empresaNome" id="empresaNome" formControlName="empresaNome" required readonly>
+            <div class="col form-floating pl-2 container-info">
+                <input type="text" class="form-control" id="empresa" formControlName="empresa" required>
+                <label class="ms-3" for="empresa">Empresa</label>
             </div>
         </div> 
         <div>
