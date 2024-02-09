@@ -9,59 +9,56 @@
 
 <body>
 
-    <div class="p-4 m-5 text-center font-bold text-2xl">
-        <h1>Cadastro Colaborador</h1>
+    <div class="register-container">
+        <div class="titulo">
+            <h2>Cadastro Colaborador</h2>
+        </div>
+    
+        <div class="div-form">
+            <form class="formulario w-30 p-3">
+                <label for="name" class="l-form">Nome:</label>
+                <input type="text" id="name" name="name" required class="i-form" placeholder="Nome colaborador">
+                <span class="error" id="nameError"></span>
+    
+                <label for="email" class="l-form">E-mail:</label>
+                <input type="email" id="email" name="email" required class="i-form" placeholder="colaborador@mail.com">
+                <span class="error" id="emailError"></span>
+    
+                <label for="contato" class="l-form">Contato:</label>
+                <input type="text" id="contact" name="contact" required class="i-form" placeholder="(00) 0000-0000">
+                <span class="error" id="contactError"></span>
+    
+                <label for="endereco" class="l-form">Endereço:</label>
+                <input type="text" id="address" name="address" required class="i-form" placeholder="Rua, Bairro, Cidade">
+                <span class="error" id="addressError"></span>
+    
+                <label for="cargo" class="l-form">Cargo:</label>
+                <input type="text" id="office" name="office" required class="i-form">
+                <span class="error" id="officeError"></span>
+    
+                <label for="empresa" class="l-form">Empresa:</label>
+                <input type="text" id="company" name="company" required class="i-form">
+                <span class="error" id="companyError"></span>
+    
+                <label for="contratacao" id="mdc">Modelo de contratação:</label>
+                <select name="" id="" class="i-select">
+                    <option selected>Selecione uma opção</option>
+                    <option value="clt">CLT</option>
+                    <option value="pj">PJ</option>
+                    <option value="estagio">Estagiário</option>
+                </select>
+    
+                <label for="password" class="l-form" id="pass">Senha:</label>
+                <input type="password" id="password" name="password" required class="i-form">
+                <span class="error" id="passwordError"></span>
+    
+                <button type="button"
+                    class=""
+                    onclick="validateForm()">Cadastrar</button>
+            </form>
+    
+        </div>
     </div>
-
-    <div class="div-form">
-
-        <form class="formulario w-25 p-3">
-            <label for="name" class="l-form">Nome:</label>
-            <input type="text" id="name" name="name" required class="i-form" placeholder="Nome colaborador">
-            <span class="error" id="nameError"></span>
-
-            <label for="email" class="l-form">E-mail:</label>
-            <input type="email" id="email" name="email" required class="i-form" placeholder="colaborador@mail.com">
-            <span class="error" id="emailError"></span>
-
-            <label for="contato" class="l-form">Contato:</label>
-            <input type="text" id="contact" name="contact" required class="i-form" placeholder="(00) 0000-0000">
-            <span class="error" id="contactError"></span>
-
-            <label for="endereco" class="l-form">Endereço:</label>
-            <input type="text" id="address" name="address" required class="i-form" placeholder="Rua, Bairro, Cidade">
-            <span class="error" id="addressError"></span>
-
-            <label for="cargo" class="l-form">Cargo:</label>
-            <input type="text" id="office" name="office" required class="i-form">
-            <span class="error" id="officeError"></span>
-
-            <label for="empresa" class="l-form">Empresa:</label>
-            <input type="text" id="company" name="company" required class="i-form">
-            <span class="error" id="companyError"></span>
-
-            <label for="contratacao" id="mdc">Modelo de contratação:</label>
-            <select name="" id="" class="i-select">
-                <option selected>Selecione uma opção</option>
-                <option value="clt">CLT</option>
-                <option value="pj">PJ</option>
-                <option value="estagio">Estagiário</option>
-            </select>
-
-            <label for="password" class="l-form" id="pass">Senha:</label>
-            <input type="password" id="password" name="password" required class="i-form">
-            <span class="error" id="passwordError"></span>
-
-            <button type="button"
-                class="bg-blue-700 text-white px-10 p-2 border-none rounded-md cursor-pointer hover:opacity-75"
-                onclick="validateForm()">Cadastrar</button>
-        </form>
-
-    </div>
-
-
-
-
 </body>
 
 </html>
