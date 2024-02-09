@@ -26,7 +26,7 @@ namespace MindPlus.Api.Controllers.Empresa
         public async Task<IActionResult> CadastrarEmpresa(EmpresaDto empresa)
         {
             await _empresaRepository.CadastrarEmpresa(empresa);
-            return Ok("Empresa cadastrada com sucesso!");
+            return Ok(new { message = "Empresa cadastrada com sucesso!" });
         }
 
         /// <summary>

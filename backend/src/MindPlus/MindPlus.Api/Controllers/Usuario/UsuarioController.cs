@@ -35,7 +35,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return Unauthorized("E-mail ou senha inválidos.");
+                return Unauthorized(new { message = "E-mail ou senha inválidos." });
             }
         }
 
@@ -69,7 +69,7 @@ namespace MindPlus.Api.Controllers.Usuario
         public async Task<IActionResult> CadastrarUsuario(UsuarioCadastroDto usuario)
         {
             await _usuarioRepository.CadastrarUsuario(usuario);
-            return Ok("Colaborador cadastrado com sucesso!");
+            return Ok(new { message = "Colaborador cadastrado com sucesso!" });
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace MindPlus.Api.Controllers.Usuario
         public async Task<IActionResult> AtualizarUsuario([FromBody] UsuarioEntity usuario)
         {
             await _usuarioRepository.AtualizarUsuario(usuario);
-            return Ok("Usuário atualizado com sucesso!");
+            return Ok(new { message = "Usuário atualizado com sucesso!" });
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace MindPlus.Api.Controllers.Usuario
         public async Task<IActionResult> RemoverUsuario(int id)
         {
             await _usuarioRepository.RemoverUsuario(id);
-            return Ok("Usuário removido com sucesso.");
+            return Ok(new { message = "Usuário removido com sucesso." });
         }
     }
 }

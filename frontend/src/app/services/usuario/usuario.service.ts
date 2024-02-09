@@ -56,4 +56,13 @@ export class UsuarioService {
       },
     });
   }
+
+  desativarUsuario(id: number) {
+    return this.http.delete<any>(`${this.apiUrl}?id=${id}`, {
+      headers: {
+        Authorization:
+          this.userTokenSubject.value
+      }
+    })
+  }
 }

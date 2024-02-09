@@ -1,4 +1,4 @@
-<div class="container rounded-4 shadow p-4 bg-white mx-auto mt-5">
+<div class="container rounded-4 shadow p-4 bg-white mx-auto my-5">
   <div class="table-responsive">
     <div class="d-flex justify-content-between py-1">
       <div class="input-group mb-3 mx-3">
@@ -37,7 +37,7 @@
             </span>
           </td>
           <td>
-            <span class="ps-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <span class="ps-3" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExclusao">
               <i class="bi bi-x-circle botao-excluir"></i>
             </span>
           </td>
@@ -48,11 +48,11 @@
 </div>
 
 <!-- Modal de confirmação da exclusão do usuário -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalConfirmacaoExclusao" tabindex="-1" aria-labelledby="modalConfirmacaoExclusaoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção!</h1>
+        <h1 class="modal-title fs-5" id="modalConfirmacaoExclusaoLabel">Atenção!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -61,7 +61,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary">Sim</button>
+        <button type="button" class="btn btn-primary" (click)="desativarUsuario(4)">Sim</button>
       </div>
     </div>
   </div>

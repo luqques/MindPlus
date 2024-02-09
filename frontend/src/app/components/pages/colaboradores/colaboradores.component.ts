@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-colaboradores',
@@ -38,5 +37,15 @@ export class ColaboradoresComponent implements OnInit {
     } else {
       this.usuariosFiltrados = this.usuarios;
     }
+  }
+
+  desativarUsuario(id: number) {
+    this.usuarioService.desativarUsuario(id).subscribe(
+      (response) => {
+        console.log(response);
+      }, (error) => {
+        console.log("Erro ao desativar usuário: ", error);
+      }
+    )
   }
 }
