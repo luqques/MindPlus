@@ -1,0 +1,19 @@
+.botao-excluir {
+    transition: 0.4s;
+}
+
+.botao-excluir:hover {
+    cursor: pointer;
+    color: rgb(199, 31, 31);
+    transition: 0.4s;
+}
+
+.botao-editar {
+    transition: 0.4s;
+}
+
+.botao-editar:hover {
+    cursor: pointer;
+    color: rgb(32, 78, 204);
+    transition: 0.4s;
+}

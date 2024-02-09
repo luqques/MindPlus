@@ -1,11 +1,18 @@
-<div class="container rounded-4 shadow position-absolute top-50 start-50 translate-middle p-4 bg-white">
+<div class="container rounded-4 shadow p-4 bg-white mx-auto mt-5">
   <div class="table-responsive">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    <div class="d-flex justify-content-between py-1">
+      <div class="input-group mb-3 mx-3">
+        <input type="text" class="form-control" placeholder="Nome do colaborador" aria-label="Nome do colaborador" aria-describedby="button-addon2" [(ngModel)]="nomeFiltrado">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="filtrarUsuarios()">Filtrar</button>
+      </div>
+      <div class="d-grid gap-2 mb-3 mx-3 w-100">
+        <button class="btn btn-primary p-2 flex-grow-1" type="button" routerLink="/cadastroColaborador">
+          <i class="bi bi-plus"></i>Cadastrar colaborador
+        </button>
+      </div>
     </div>
-    <table class="table table-hover">
-      <caption class="pt-3">List of users</caption>
+    <table class="table table-hover mb-0">
+      <caption class="pt-3">Lista de usuários</caption>
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -15,17 +22,9 @@
           <th scope="col">Endereço</th>
           <th scope="col">Editar</th>
           <th scope="col">Excluir</th>
-          <!-- <th class="titulos">Usuários</th>
-          <th>
-            <input type="text" class="search-colab" placeholder="Pesquisar Colaborador"
-            />
-          </th>
-          <th>
-            <input type="button" name="adicionar-colaborador" value="Adicionar Colaborador" class="botao-addcolab" routerLink="/cadastroColaborador"/>
-          </th> -->
         </tr>
       </thead>
-      <tbody *ngFor="let usuario of usuarios">
+      <tbody *ngFor="let usuario of usuariosFiltrados">
         <tr>
           <th scope="row">{{ this.usuario.id }}</th>
           <td>{{ this.usuario.nome }}</td>
@@ -33,17 +32,37 @@
           <td>{{ this.usuario.telefone }}</td>
           <td>{{ this.usuario.endereco }}</td>
           <td>
-            <button type="button" routerLink="/cadastroColaborador">
-              <i class="bi bi-x-circle"></i>
-            </button>              
+            <span class="ps-3" routerLink="/perfil">
+              <i class="bi bi-pencil-square botao-editar"></i>
+            </span>
           </td>
           <td>
-            <button class="botao-tabela" routerLink="/cadastroColaborador">
-              <i class="bi bi-x-circle"></i>
-            </button>      
+            <span class="ps-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="bi bi-x-circle botao-excluir"></i>
+            </span>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- Modal de confirmação da exclusão do usuário -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir este colaborador?</p>
+        <p>Obs: o status do usuário será alterado para "inativo".</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary">Sim</button>
+      </div>
+    </div>
   </div>
 </div>
