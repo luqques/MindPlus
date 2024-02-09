@@ -62,10 +62,39 @@
 
 h4{
   background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
+  color: #F6F8F8;
+  padding-left: 0.5em;
 }
 
 
-.radioOptions{
-  float: right;
-  margin-inline: 2em;
+
+.satisfacao{
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  right: 8.1%; top: 31%;
+}
+
+.satisfacao p{
+  padding-inline: 1.1em;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+.radio{
+  display: inline-flex; /* deixa as colunas em linhas*/
+  margin-inline: 2.2em;
+  flex-wrap: nowrap;
+
+}
+
+.pergunta{
+  margin-right: 8em;
+  padding-left: 1em;
+  text-wrap: wrap;
+  width: 50%;
+  
 }
