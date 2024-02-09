@@ -25,11 +25,11 @@ export class UsuarioService {
     return this.userTokenSubject.asObservable();
   }
 
-  autenticarLogin(payload: any): Observable<IUsuarioLogin> {
+  public autenticarLogin(payload: any): Observable<IUsuarioLogin> {
     return this.http.post<IUsuarioLogin>(this.apiUrlLogin, payload);
   }
 
-  atualizarProprioPerfil(payload: any): Observable<any> {
+  public atualizarProprioPerfil(payload: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/perfil`, payload, { 
       headers: { 
         'Content-Type': 'application/json',
@@ -39,10 +39,19 @@ export class UsuarioService {
     });
   }
 
-  obterUsuarioPorId(id: number): Observable<IUsuarioEntity> {
+  public obterUsuarioPorId(id: number): Observable<IUsuarioEntity> {
     return this.http.get<IUsuarioEntity>(`${this.apiUrl}/${id}`, { 
       headers: { 
         Authorization: 
+          this.userTokenSubject.value
+      },
+    });
+  }
+
+  public listarUsuarios(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl, {
+      headers: {
+        Authorization:
           this.userTokenSubject.value
       },
     });

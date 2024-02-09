@@ -43,7 +43,7 @@ namespace MindPlus.Api.Controllers.Usuario
         /// Visualizar todos os usuários.
         /// </summary>
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         [SwaggerOperation(Summary = "Visualizar todos os usuários", Description = "Lista todos os usuários do sistema.")]
         public async Task<IActionResult> VisualizarUsuarios()
         {

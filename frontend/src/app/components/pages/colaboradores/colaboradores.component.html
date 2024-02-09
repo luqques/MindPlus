@@ -14,28 +14,21 @@
           <tr>
             <th class="titulos">Usuários</th>
             <th>
-              <input
-                type="text"
-                class="search-colab"
-                placeholder="Pesquisar Colaborador"
+              <input type="text" class="search-colab" placeholder="Pesquisar Colaborador"
               />
             </th>
             <th>
-              <input
-                type="button"
-                name="Adicionar-colaborador"
-                value="Adicionar Colaborador"
-                class="botao-addcolab "
-                [routerLink]="['/cadastroColaborador']"
-              />
+              <input type="button" name="Adicionar-colaborador" value="Adicionar Colaborador" class="botao-addcolab "[routerLink]="['/cadastroColaborador']"/>
             </th>
           </tr>
         </thead>
-        <tbody *ngFor="let colaborador of colaboradores">
+        <tbody *ngFor="let usuario of usuarios">
           <tr>
-            <td>{{ colaborador.nome }}</td>
-            <td></td>
-            <div class="test">
+            <td>{{ this.usuario.nome }}</td>
+            <td>{{ this.usuario.email }}</td>
+            <td>{{ this.usuario.telefone }}</td>
+            <td>{{ this.usuario.endereco }}</td>
+            <div>
               <td class="links">
                 <button class="botao-tabela" [routerLink]="['/cadastroColaborador']">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
