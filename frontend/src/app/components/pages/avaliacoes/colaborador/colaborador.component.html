@@ -13,86 +13,41 @@
       <h3>Satisfação no Trabalho</h3>
       <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,<br />
        benefícios, cultura organizacional e oportunidades de crescimento.</p>
-        
-       <div class="satisfação">
+      
+        <div class="icones">
+          <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
+          <i class="bi bi-emoji-laughing"></i>
+          <i class="bi bi-emoji-smile"></i>
+          <i class="bi bi-emoji-neutral"></i>
+          <i class="bi bi-emoji-frown"></i>
+          <i class="bi bi-emoji-angry"></i>
+        </div>
+
+       <div class="satisfacao">
         <p>Concordo<br /> muito</p>
         <p>Concordo</p>
         <p>Indiferente<br />/Não sei</p>
         <p>Discordo</p>
         <p>Discordo<br /> Muito</p>
        </div>
-           
+
         <h4>Gestão Interna</h4>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Você acredita que a empresa está ativamente engajada em melhorar com base nos feedbacks recebidos?</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio2">Os processos de tomada de decisão são claros e compreensíveis para todos os colaboradores.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-        
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio2">A liderança demonstra empatia e compreensão em relação às necessidades e desafios dos colaboradores.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
+        <!--
         <h4>Benefícios</h4>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Os benefícios oferecidos têm um impacto positivo na sua satisfação geral no trabalho.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Além dos benefícios tangíveis, a empresa oferece vantagens não-materiais que contribuem para a satisfação
-            no trabalho.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Os benefícios oferecidos estão alinhados com seus valores pessoais e necessidades individuais.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
         <h4>Cultura Organizacional</h4>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Você acredita que os valores da empresa são incorporados nas práticas diárias e decisões?</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">A diversidade é valorizada e promovida ativamente na cultura organizacional.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Você percebe estímulos à inovação e criatividade na cultura organizacional?</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
         <h4>Oportunidades de Crescimento</h4>
+          -->
 
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">A empresa fornece feedback pessoal construtivo para promover o desenvolvimento profissional.</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
+        <div class="row tabela" *ngFor="let pergunta of perguntas; let i = index">
+          <div class="conteudo">
+            <label class="col pergunta"><p>{{ pergunta }}</p></label>
+            <div class="col radio" *ngFor="let _ of valores; let j = index">
+              <input class="radioOpcao" type="radio" [name]="'radioOpcao' + (j + 1)" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
+            </div>
+          </div>
         </div>
 
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Como você avalia as oportunidades de avanço na sua carreira dentro da empresa?</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-        <div class="custom-control custom-radio">
-          <label class="custom-control-label" for="customRadio1">Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?</label>
-          <input class="radioOptions" type="radio" name="radioOption" value="2" *ngFor="let _ of [1, 2, 3, 4, 5]">
-        </div>
-
-     
-
+       
       <div id="SP" class="tabcontent" [hidden]="!openSP">
         <h3>Satisfação Pessoal</h3>
         <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,
