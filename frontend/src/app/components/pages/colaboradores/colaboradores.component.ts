@@ -9,6 +9,7 @@ import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
 })
 export class ColaboradoresComponent implements OnInit {
   usuarios!: IUsuarioEntity[];
+  usuarioSelecionado: { id: number, nome: string } = { id: 0, nome: '' };
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -18,14 +19,16 @@ export class ColaboradoresComponent implements OnInit {
         this.usuarios = response
         console.log(this.usuarios);
         this.usuariosFiltrados = this.usuarios;
+        this.filtrarUsuarios();
       },
       (error) => {
-        console.log('Erro ao listar usuários', error);
+        console.log('Erro ao listar usuários: ', error);
       }
     )
   }
 
   nomeFiltrado = '';
+  statusFiltrado = '';
   usuariosFiltrados!: IUsuarioEntity[];
   
   filtrarUsuarios() {
@@ -43,8 +46,10 @@ export class ColaboradoresComponent implements OnInit {
     this.usuarioService.desativarUsuario(id).subscribe(
       (response) => {
         console.log(response);
+        this.filtrarUsuarios();
       }, (error) => {
         console.log("Erro ao desativar usuário: ", error);
+        alert("Ocorreu algum erro ao desativar o usuário!");
       }
     )
   }
