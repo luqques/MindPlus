@@ -13,29 +13,21 @@
       <h3>Satisfação no Trabalho</h3>
       <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,<br />
         benefícios, cultura organizacional e oportunidades de crescimento.</p>
-
-
-
       <!--
         <h4>Benefícios</h4>
         <h4>Cultura Organizacional</h4>
         <h4>Oportunidades de Crescimento</h4>
       -->
-
-
       <h4>Gestão Interna</h4> <!-- Fazer a coisa de repetir titulo aqui -->
 
-      <div class="i-s">
-        <div class="icones">
-          <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
-          <i class="bi bi-emoji-laughing"></i>
-          <i class="bi bi-emoji-smile"></i>
-          <i class="bi bi-emoji-neutral"></i>
-          <i class="bi bi-emoji-frown"></i>
-          <i class="bi bi-emoji-angry"></i>
-        </div>
-
-
+      <div class="icones">
+        <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
+        <i class="bi bi-emoji-laughing"></i>
+        <i class="bi bi-emoji-smile"></i>
+        <i class="bi bi-emoji-neutral"></i>
+        <i class="bi bi-emoji-frown"></i>
+        <i class="bi bi-emoji-angry"></i>
+      </div>
 
       <table>
         <tr>
@@ -54,32 +46,30 @@
               <p>{{ pergunta }}</p>
             </label>
           </td>
-          <td class="radio" *ngFor="let _ of valores; let j = index">
-            <input class="radioOpcao" type="radio" [name]="'radioOpcao' + (j + 1)" [value]="5 - j"
-              id="{{ 'pergunta' + i + 'opcao' + j }}">
+          <td class="btn-group" role="group" *ngFor="let _ of valores; let j = index">
+            <input class="radioOpcao" type="radio" [name]="'pergunta' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
           </td>
         </tr>
       </table>
+    </div>
 
 
-
-
-        <div id="SP" class="tabcontent" [hidden]="!openSP">
-          <h3>Satisfação Pessoal</h3>
-          <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,
-            como
-            saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
-
-        </div>
-
-        <div id="RI" class="tabcontent" [hidden]="!openRI">
-          <h3>Relações Interpessoais</h3>
-          <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e
-            suporte
-            social.</p>
-
-        </div> <!-- LEMBRETE: Colocar em métodos-->
-
-      </div>
+    <div id="SP" class="tabcontent" [hidden]="!openSP">
+      <h3>Satisfação Pessoal</h3>
+      <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,
+        como
+        saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
 
     </div>
+
+    <div id="RI" class="tabcontent" [hidden]="!openRI">
+      <h3>Relações Interpessoais</h3>
+      <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e
+        suporte
+        social.</p>
+
+    </div> <!-- LEMBRETE: Colocar em métodos-->
+
+  </div>
+
+</div>
