@@ -1,52 +1,68 @@
-<!-- colaboradores.component.html -->
+<div class="container rounded-4 shadow p-4 bg-white mx-auto my-5">
+  <div class="table-responsive">
+    <div class="d-flex justify-content-between py-1">
+      <div class="input-group mb-3 mx-3">
+        <input type="text" class="form-control" placeholder="Nome do colaborador" aria-label="Nome do colaborador" aria-describedby="button-addon2" [(ngModel)]="nomeFiltrado">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="filtrarUsuarios()">Filtrar</button>
+      </div>
+      <div class="d-grid gap-2 mb-3 mx-3 w-100">
+        <button class="btn btn-primary p-2 flex-grow-1" type="button" routerLink="/cadastroColaborador">
+          <i class="bi bi-plus"></i>Cadastrar colaborador
+        </button>
+      </div>
+    </div>
+    <table class="table table-hover mb-0">
+      <caption class="pt-3">Lista de usuários</caption>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let usuario of usuariosFiltrados">
+        <tr>
+          <th scope="row">{{ this.usuario.id }}</th>
+          <td>{{ this.usuario.nome }}</td>
+          <td>{{ this.usuario.email }}</td>
+          <td>{{ this.usuario.telefone }}</td>
+          <td>{{ this.usuario.endereco }}</td>
+          <td>
+            <span class="ps-3" routerLink="/perfil">
+              <i class="bi bi-pencil-square botao-editar"></i>
+            </span>
+          </td>
+          <td>
+            <span class="ps-3" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExclusao">
+              <i class="bi bi-x-circle botao-excluir"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<div class="container-tabela">
-  <table class="custom-table">
-    <thead>
-      <tr>
-        <th class="titulos">Usuários</th>
-        <th>
-          <input
-            type="text"
-            class="search-colab"
-            placeholder="Pesquisar Colaborador"
-          />
-        </th>
-        <th>
-          <input
-            type="button"
-            name="Adicionar-colaborador"
-            value="Adicionar Colaborador"
-            class="botao-addcolab "
-            [routerLink]="['/cadastroColaborador']"
-          />
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let colaborador of colaboradores; let i = index" [class.striped]="i % 2 === 0">
-        <td>{{ colaborador.nome }}</td>
-        <td></td>
-        <td class="links">
-          <button class="botao-tabela" [routerLink]="['/cadastroColaborador']">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-              <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-              <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-            </svg>
-          </button>              
-          <button class="botao-tabela" [routerLink]="['/cadastroColaborador']">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-            </svg>
-          </button>      
-          <button class="botao-tabela" [routerLink]="['/cadastroColaborador']">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-              <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-            </svg>
-          </button> 
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<!-- Modal de confirmação da exclusão do usuário -->
+<div class="modal fade" id="modalConfirmacaoExclusao" tabindex="-1" aria-labelledby="modalConfirmacaoExclusaoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalConfirmacaoExclusaoLabel">Atenção!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir este colaborador?</p>
+        <p>Obs: o status do usuário será alterado para "inativo".</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary" (click)="desativarUsuario(4)">Sim</button>
+      </div>
+    </div>
+  </div>
 </div>
