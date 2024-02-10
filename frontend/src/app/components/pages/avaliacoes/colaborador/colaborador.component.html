@@ -12,8 +12,20 @@
     <div id="ST" class="tabcontent" [hidden]="!openST">
       <h3>Satisfação no Trabalho</h3>
       <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,<br />
-       benefícios, cultura organizacional e oportunidades de crescimento.</p>
-      
+        benefícios, cultura organizacional e oportunidades de crescimento.</p>
+
+
+
+      <!--
+        <h4>Benefícios</h4>
+        <h4>Cultura Organizacional</h4>
+        <h4>Oportunidades de Crescimento</h4>
+      -->
+
+
+      <h4>Gestão Interna</h4> <!-- Fazer a coisa de repetir titulo aqui -->
+
+      <div class="i-s">
         <div class="icones">
           <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
           <i class="bi bi-emoji-laughing"></i>
@@ -23,46 +35,51 @@
           <i class="bi bi-emoji-angry"></i>
         </div>
 
-       <div class="satisfacao">
-        <p>Concordo<br /> muito</p>
-        <p>Concordo</p>
-        <p>Indiferente<br />/Não sei</p>
-        <p>Discordo</p>
-        <p>Discordo<br /> Muito</p>
-       </div>
 
-        <h4>Gestão Interna</h4>
-        <!--
-        <h4>Benefícios</h4>
-        <h4>Cultura Organizacional</h4>
-        <h4>Oportunidades de Crescimento</h4>
-          -->
 
-        <div class="row tabela" *ngFor="let pergunta of perguntas; let i = index">
-          <div class="conteudo">
-            <label class="col pergunta"><p>{{ pergunta }}</p></label>
-            <div class="col radio" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'radioOpcao' + (j + 1)" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </div>
-          </div>
+      <table>
+        <tr>
+          <th></th>
+          <th>
+            <p>Concordo<br /> muito</p>
+            <p>Concordo</p>
+            <p>Indiferente<br />/Não sei</p>
+            <p>Discordo</p>
+            <p>Discordo<br /> Muito</p>
+          </th>
+        </tr>
+        <tr class="tabela" *ngFor="let pergunta of perguntas; let i = index">
+          <td>
+            <label class="pergunta">
+              <p>{{ pergunta }}</p>
+            </label>
+          </td>
+          <td class="radio" *ngFor="let _ of valores; let j = index">
+            <input class="radioOpcao" type="radio" [name]="'radioOpcao' + (j + 1)" [value]="5 - j"
+              id="{{ 'pergunta' + i + 'opcao' + j }}">
+          </td>
+        </tr>
+      </table>
+
+
+
+
+        <div id="SP" class="tabcontent" [hidden]="!openSP">
+          <h3>Satisfação Pessoal</h3>
+          <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,
+            como
+            saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
+
         </div>
 
-       
-      <div id="SP" class="tabcontent" [hidden]="!openSP">
-        <h3>Satisfação Pessoal</h3>
-        <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,
-          como
-          saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p>
+        <div id="RI" class="tabcontent" [hidden]="!openRI">
+          <h3>Relações Interpessoais</h3>
+          <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e
+            suporte
+            social.</p>
+
+        </div> <!-- LEMBRETE: Colocar em métodos-->
 
       </div>
 
-      <div id="RI" class="tabcontent" [hidden]="!openRI">
-        <h3>Relações Interpessoais</h3>
-        <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte
-          social.</p>
-
-      </div> <!-- LEMBRETE: Colocar em métodos-->
-
     </div>
-
-  </div>

@@ -67,27 +67,26 @@ h4{
 }
 
 
-
-.satisfacao{
-  position: absolute;
-  display: flex;
-  flex-wrap: nowrap;
-  right: 8.1%; top: 31%;
-}
-
-.satisfacao p{
+th {
+  p{
+  display: inline-flex;
   padding-inline: 1.1em;
   font-size: small;
   font-weight: bold;
   text-align: center;
+  float: right;
+  }
 }
 
-
+.radioOpcao{
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
 
 .radio{
-  display: inline-flex; /* deixa as colunas em linhas*/
-  margin-inline: 2.2em;
-  flex-wrap: nowrap;
+  display: inline; /* deixa as colunas em linhas*/
+  margin-inline: 2.2em; 
 
 }
 
@@ -98,3 +97,5 @@ h4{
   width: 50%;
   
 }
+
+
