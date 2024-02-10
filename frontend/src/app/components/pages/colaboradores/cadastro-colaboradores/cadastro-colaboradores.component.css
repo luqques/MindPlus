@@ -53,6 +53,7 @@
   margin-bottom: 10px;
   background-color: aliceblue;
   border-radius: 10px;
+  border-color: rgba(206, 206, 206, 0.753);
 }
 
 .i-select {
@@ -60,6 +61,18 @@
   padding: 8px;
   margin-bottom: 10px;
   background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.botao-cadastro {
+    border-color: #185376;
+    border-radius: 10px;
+    width: 30%;
+    background-color:#185376;
+    color: white;
+    padding: 5px;
+    margin-left: 35%;
+
 }
 
 .error {
