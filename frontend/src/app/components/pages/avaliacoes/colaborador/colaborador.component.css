@@ -1,5 +1,4 @@
-
-.imagem-fundo{
+.imagem-fundo {
   background-image: url('https://images.pexels.com/photos/7793699/pexels-photo-7793699.jpeg');
   background-size: cover;
   background-attachment: fixed;
@@ -7,10 +6,10 @@
 }
 
 
-.tab > #av{
+.tab>#av {
   padding-left: 1vw;
   display: flex;
-  background-image: linear-gradient(to right, #185376 , #5C93AD);
+  background-image: linear-gradient(to right, #185376, #5C93AD);
   align-items: center;
   position: sticky;
   right: 100vw;
@@ -52,15 +51,16 @@
 }
 
 /* Bloco da tab contendo as avaliações */
-.formulario{ 
+.formulario {
   background-color: #F6F8F8;
-  margin-left: auto; margin-right: auto; 
-  max-width: 90vw; 
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90vw;
   overflow: hidden;
 }
 
 
-h4{
+h4 {
   background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
   color: #F6F8F8;
   padding-left: 0.5em;
@@ -68,34 +68,33 @@ h4{
 
 
 th {
-  p{
+
+}   
+
+th p {
   display: inline-flex;
-  padding-inline: 1.1em;
+  padding-inline: 0.5em;
   font-size: small;
   font-weight: bold;
   text-align: center;
-  float: right;
-  }
+  white-space: nowrap;
 }
 
-.radioOpcao{
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
+.radioOpcao {
+  cursor: pointer;
 }
 
-.radio{
-  display: inline; /* deixa as colunas em linhas*/
-  margin-inline: 2.2em; 
+.radio {
+
+  /* deixa as colunas em linhas*/
+  margin-inline: 2.2em;
 
 }
 
-.pergunta{
-  margin-right: 8em;
+.pergunta p{
+  margin-right: 1em;
   padding-left: 1em;
-  text-wrap: wrap;
+  text-wrap: nowrap;
   width: 50%;
-  
+  font-size: small;
 }
-
-
