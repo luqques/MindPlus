@@ -67,12 +67,15 @@ h4{
 }
 
 
-
-th p{
+th {
+  p{
+  display: inline-flex;
   padding-inline: 1.1em;
   font-size: small;
   font-weight: bold;
   text-align: center;
+  float: right;
+  }
 }
 
 .radioOpcao{
