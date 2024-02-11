@@ -10,29 +10,24 @@
     </div>
 
     <div id="ST" class="tabcontent" [hidden]="!openST">
-      <h3>Satisfação no Trabalho</h3>
-      <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,<br />
-        benefícios, cultura organizacional e oportunidades de crescimento.</p>
-      <!--
-        <h4>Benefícios</h4>
-        <h4>Cultura Organizacional</h4>
-        <h4>Oportunidades de Crescimento</h4>
-      -->
-      <h4>Gestão Interna</h4> <!-- Fazer a coisa de repetir titulo aqui -->
 
-      <div class="icones">
         <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
-        <i class="bi bi-emoji-laughing"></i>
-        <i class="bi bi-emoji-smile"></i>
-        <i class="bi bi-emoji-neutral"></i>
-        <i class="bi bi-emoji-frown"></i>
-        <i class="bi bi-emoji-angry"></i>
-      </div>
-
+       
       <table>
-        <tr>
-          <th></th>
+        <tr class="linha1">
+          <th><h3>Satisfação no Trabalho</h3></th>
           <th>
+            <i class="bi bi-emoji-laughing"></i>
+            <i class="bi bi-emoji-smile"></i>
+            <i class="bi bi-emoji-neutral"></i>
+            <i class="bi bi-emoji-frown"></i>
+            <i class="bi bi-emoji-angry"></i>
+          </th>
+        </tr>
+        <tr class="linha2">
+          <th class="descricao"><p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna, <br />
+              benefícios, cultura organizacional e oportunidades de crescimento.</p></th>
+          <th class="satisfacao">
             <p>Concordo<br /> muito</p>
             <p>Concordo</p>
             <p>Indiferente<br />/Não sei</p>
@@ -40,14 +35,56 @@
             <p>Discordo<br /> Muito</p>
           </th>
         </tr>
-        <tr class="tabela" *ngFor="let pergunta of perguntas; let i = index">
+        <tr class="linha-t">
+          <th><h4>Gestão Interna</h4></th>
+        </tr>
+        <tr *ngFor="let pergunta of perguntasST1; let i = index">
           <td>
             <label class="pergunta">
               <p>{{ pergunta }}</p>
             </label>
           </td>
-          <td class="btn-group" role="group" *ngFor="let _ of valores; let j = index">
-            <input class="radioOpcao" type="radio" [name]="'pergunta' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
+          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+            <input class="radioOpcao" type="radio" [name]="'perguntasST1' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
+          </td>
+        </tr>
+        <tr class="linha-t">
+          <th><h4>Benefícios</h4></th>
+        </tr>
+        <tr class="tabela" *ngFor="let pergunta of perguntasST2; let i = index">
+          <td>
+            <label class="pergunta">
+              <p>{{ pergunta }}</p>
+            </label>
+          </td>
+          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+            <input class="radioOpcao" type="radio" [name]="'perguntasSs' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
+          </td>
+        </tr>
+        <tr class="linha-t">
+          <th><h4>Cultura Organizacional</h4></th>
+        </tr>
+        <tr class="tabela" *ngFor="let pergunta of perguntasST3; let i = index">
+          <td>
+            <label class="pergunta">
+              <p>{{ pergunta }}</p>
+            </label>
+          </td>
+          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+            <input class="radioOpcao" type="radio" [name]="'perguntasST3' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
+          </td>
+        </tr>
+        <tr class="linha-t">
+          <th><h4>Oportunidades de Crescimento</h4></th>
+        </tr>
+        <tr class="tabela" *ngFor="let pergunta of perguntasST4; let i = index">
+          <td>
+            <label class="pergunta">
+              <p>{{ pergunta }}</p>
+            </label>
+          </td>
+          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+            <input class="radioOpcao" type="radio" [name]="'perguntasST4' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
           </td>
         </tr>
       </table>
