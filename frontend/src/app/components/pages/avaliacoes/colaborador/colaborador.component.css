@@ -59,18 +59,30 @@
   overflow: hidden;
 }
 
+/* Título das sessões da avaliação */
+th{
+  h4{
+    background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
+    color: #F6F8F8;
+    padding-left: 0.5em;
+  }
+  
+  .s{
+    background-image: linear-gradient(to left, #185376, #5C93AD, #e5f3f3);
+  }
+}
 
-h4 {
+th h4{
   background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
   color: #F6F8F8;
   padding-left: 0.5em;
 }
 
+th.s{
+  background-image: linear-gradient(to left, #185376, #5C93AD, #e5f3f3);
+}
 
-th {
-
-}   
-
+/* Satisfação do usuário */
 th p {
   display: inline-flex;
   padding-inline: 0.5em;
@@ -80,21 +92,21 @@ th p {
   white-space: nowrap;
 }
 
-.radioOpcao {
-  cursor: pointer;
-}
-
-.radio {
-
-  /* deixa as colunas em linhas*/
-  margin-inline: 2.2em;
-
-}
-
+/* Perguntas */
 .pergunta p{
-  margin-right: 1em;
+  margin-right: 5em;
   padding-left: 1em;
   text-wrap: nowrap;
   width: 50%;
   font-size: small;
 }
+
+/* Radio buttons */
+.radioOpcao {
+  cursor: pointer;
+}
+
+.radio {
+  margin-inline: 2em;
+}
+

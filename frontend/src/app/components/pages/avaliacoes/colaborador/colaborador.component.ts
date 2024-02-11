@@ -7,31 +7,36 @@ import { Component } from '@angular/core';
 })
 export class ColaboradorComponent {
 
-  /* Perguntas e radio */
+  /* Perguntas e radio button */
 
-
-
-
-
-
-  perguntas = [
+  perguntasST1 = [
     "Você acredita que a empresa está ativamente engajada em melhorar com base nos feedbacks recebidos?",
     "Os processos de tomada de decisão são claros e compreensíveis para todos os colaboradores.",
     "A liderança demonstra empatia e compreensão em relação às necessidades e desafios dos colaboradores.",
+  ];
 
+  perguntasST2 = [
     "Os benefícios oferecidos têm um impacto positivo na sua satisfação geral no trabalho.",
     "Além dos benefícios tangíveis, a empresa oferece vantagens não-materiais que contribuem para a satisfação no trabalho.",
     "Os benefícios oferecidos estão alinhados com seus valores pessoais e necessidades individuais.",
+  ]
 
+  perguntasST3 = [
     "Você acredita que os valores da empresa são incorporados nas práticas diárias e decisões?",
     "A diversidade é valorizada e promovida ativamente na cultura organizacional.",
     "Você percebe estímulos à inovação e criatividade na cultura organizacional?",
+  ]
 
+  perguntasST4 = [
     "A empresa fornece feedback pessoal construtivo para promover o desenvolvimento profissional.",
     "Como você avalia as oportunidades de avanço na sua carreira dentro da empresa?",
     "Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?"
+  ]
 
-  ];
+  perguntas = [this.perguntasST1, this.perguntasST2, this.perguntasST3, this.perguntasST4]
+
+
+  
   
   valores = [
     1,
