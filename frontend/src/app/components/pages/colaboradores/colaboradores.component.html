@@ -1,11 +1,11 @@
 <div class="container rounded-4 shadow p-4 bg-white mx-auto my-5">
   <div class="table-responsive">
     <div class="d-flex justify-content-between py-1">
-      <div class="input-group mb-3 mx-3">
+      <div class="input-group mb-3 mx-2">
         <input type="text" class="form-control" placeholder="Nome do colaborador" aria-label="Nome do colaborador" aria-describedby="button-addon2" [(ngModel)]="nomeFiltrado">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="filtrarUsuarios()">Filtrar</button>
       </div>
-      <div class="d-grid gap-2 mb-3 mx-3 w-100">
+      <div class="d-grid gap-2 mb-3 mx-2 w-100">
         <button class="btn btn-primary p-2 flex-grow-1" type="button" routerLink="/cadastroColaborador">
           <i class="bi bi-plus"></i>Cadastrar colaborador
         </button>
@@ -37,7 +37,7 @@
             </span>
           </td>
           <td>
-            <span class="ps-3" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExclusao">
+            <span class="ps-3" data-bs-toggle="modal" data-bs-target="#modalConfirmacaoExclusao" (click)="usuarioSelecionado = { id: usuario.id, nome: usuario.nome }">
               <i class="bi bi-x-circle botao-excluir"></i>
             </span>
           </td>
@@ -56,12 +56,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Tem certeza que deseja excluir este colaborador?</p>
+        <h3>Tem certeza que deseja excluir o colaborador {{ usuarioSelecionado.nome }}?</h3>
         <p>Obs: o status do usuário será alterado para "inativo".</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary" (click)="desativarUsuario(4)">Sim</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="desativarUsuario(usuarioSelecionado.id)">Sim</button>
       </div>
     </div>
   </div>
