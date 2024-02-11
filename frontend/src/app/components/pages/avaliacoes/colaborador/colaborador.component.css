@@ -5,7 +5,6 @@
   /*height: 80vh;*/
 }
 
-
 .tab>#av {
   padding-left: 1vw;
   display: flex;
@@ -45,59 +44,63 @@
 
 /* Style da tab content */
 .tabcontent {
-  padding: 6px 12px;
-  border-top: none;
   overflow: hidden;
 }
 
 /* Bloco da tab contendo as avaliações */
 .formulario {
+
   background-color: #F6F8F8;
   margin-left: auto;
   margin-right: auto;
   max-width: 90vw;
-  overflow: hidden;
 }
 
 /* Título das sessões da avaliação */
-th{
-  h4{
-    background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
-    color: #F6F8F8;
-    padding-left: 0.5em;
-  }
-  
-  .s{
-    background-image: linear-gradient(to left, #185376, #5C93AD, #e5f3f3);
-  }
-}
-
-th h4{
+.linha-t h4 {
+  width: 180%;
   background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
   color: #F6F8F8;
   padding-left: 0.5em;
+
 }
 
-th.s{
-  background-image: linear-gradient(to left, #185376, #5C93AD, #e5f3f3);
+/* Título da avaliação e ícones */
+.linha1 {
+  h3 {
+    padding-left: 0.5em;
+  }
+  i{
+    position: relative;
+    left: 8em;
+    padding-inline: 1.6em;
+  }
 }
 
-/* Satisfação do usuário */
-th p {
-  display: inline-flex;
-  padding-inline: 0.5em;
-  font-size: small;
-  font-weight: bold;
-  text-align: center;
-  white-space: nowrap;
+/* Descrição da avaliação e satisfação */
+.linha2 {
+  .descricao {
+    padding-left: 1em;
+    font-weight: normal;
+    word-wrap: break-word;
+  }
+
+  .satisfacao p{
+    position: relative;
+    left: 10em;
+    display: inline-flex;
+    padding-inline: 0.5em;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+  }
 }
+
 
 /* Perguntas */
-.pergunta p{
-  margin-right: 5em;
+.pergunta p {
   padding-left: 1em;
   text-wrap: nowrap;
-  width: 50%;
   font-size: small;
 }
 
@@ -107,6 +110,7 @@ th p {
 }
 
 .radio {
-  margin-inline: 2em;
+  position: relative;
+  margin-inline: 1.7em;
+  left: 8.5em;
 }
-
