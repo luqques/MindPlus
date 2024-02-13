@@ -9,7 +9,7 @@
 .titulo {
   text-align: center;
   padding: 10px;
-  color: white;
+  color: rgb(43, 43, 43);
 }
 
 .formulario {
@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: linear-gradient(0deg, rgba(156,205,219,1) 0%, rgba(87,144,171,1) 50%, rgba(6,68,105,1) 100%);
+  background-color: #f6f6f6;
 }
 
 .div-form {
@@ -40,6 +40,7 @@
   margin-bottom: 40px;
   border-radius: 20px;
   box-shadow: 20px, 20px;
+  margin-top: 40px;
 }
 
 .l-form {
@@ -64,16 +65,29 @@
   border-radius: 10px;
 }
 
+.wrapper{
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 10px;
+}
+
 .botao-cadastro {
-    border-color: #185376;
+    border-color: rgb(32, 78, 204);
     border-radius: 10px;
     width: 30%;
-    background-color:#185376;
+    background-color:rgb(32, 78, 204);
     color: white;
     padding: 5px;
-    margin-left: 35%;
+}
+
+.botao-cadastro:hover {
+  background-color: rgb(16, 80, 255);
+  border-color:  rgb(16, 80, 255);
+  transition: 1s;
 
 }
+
 
 .error {
   color: red;
