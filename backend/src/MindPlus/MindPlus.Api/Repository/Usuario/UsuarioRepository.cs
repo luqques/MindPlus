@@ -60,9 +60,9 @@ namespace MindPlus.Api.Repository.Usuario
             await Execute(sql, new { id });
         }
 
-        public async Task<IEnumerable<UsuarioEntity>> VisualizarUsuarios()
+        public async Task<IEnumerable<UsuarioEntity>> VisualizarUsuariosAtivos()
         {
-            string sql = @"SELECT * FROM USUARIO";
+            string sql = @"SELECT * FROM USUARIO WHERE Status = 'ativo'";
             return await GetConnection().QueryAsync<UsuarioEntity>(sql);
         }
 

@@ -44,10 +44,10 @@ namespace MindPlus.Api.Controllers.Usuario
         /// </summary>
         [HttpGet]
         //[Authorize]
-        [SwaggerOperation(Summary = "Visualizar todos os usuários", Description = "Lista todos os usuários do sistema.")]
-        public async Task<IActionResult> VisualizarUsuarios()
+        [SwaggerOperation(Summary = "Visualizar todos os usuários ativos", Description = "Lista todos os usuários ativos do sistema.")]
+        public async Task<IActionResult> VisualizarUsuariosAtivos()
         {
-            return Ok(await _usuarioRepository.VisualizarUsuarios());
+            return Ok(await _usuarioRepository.VisualizarUsuariosAtivos());
         }
 
         /// <summary>

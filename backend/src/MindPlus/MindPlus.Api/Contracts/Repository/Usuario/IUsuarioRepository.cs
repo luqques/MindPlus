@@ -8,7 +8,7 @@ namespace MindPlus.Api.Contracts.Repository.Usuario
         Task CadastrarUsuario(UsuarioCadastroDto usuario);
         Task AtualizarUsuario(UsuarioEntity usuario);
         Task RemoverUsuario(int id);
-        Task<IEnumerable<UsuarioEntity>> VisualizarUsuarios();
+        Task<IEnumerable<UsuarioEntity>> VisualizarUsuariosAtivos();
         Task<UsuarioEntity> ObterPorId(int id);
         Task<UsuarioTokenDto> LogIn(LoginDto usuario);
         Task AtualizarProprioPerfil(UsuarioAtualizacaoDto usuario);
