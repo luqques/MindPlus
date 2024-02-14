@@ -57,7 +57,7 @@ table{
   margin-right: auto;
   width: 90vw;
   margin-bottom: 2em;
-
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 
@@ -101,11 +101,12 @@ table{
 
   .satisfacao p{
     display: inline-flex;
-    padding-inline: 0.5em;
     font-size: small;
     font-weight: bold;
     text-align: center;
     margin-bottom: -0.1em;
+    padding-inline: 0.5em;
+    padding-bottom: 0.5em;
   }
 }
 

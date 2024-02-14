@@ -9,9 +9,9 @@
       <button class="tablinks" (click)="openForm('RI')">Relações Interpessoais</button>
     </div>
 
-    <div id="ST" class="tabcontent" [hidden]="!openST">
+<!-- COLOCAR primeiras coisas da tabela compartilhadas entre todos, serem unicas. Troca somente de gestao interna para baixo -->
         <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
-      <table>
+      <table id="ST" class="tabcontent" [hidden]="!openST">
         <tr class="linha1">
           <th><h3>Satisfação no Trabalho</h3></th>
           <th>
@@ -90,12 +90,9 @@
           </td>
         </tr>
       </table>
-    </div>
+  
 
-
-    <div id="SP" class="tabcontent" [hidden]="!openSP">
-
-        <table>
+        <table id="SP" class="tabcontent" [hidden]="!openSP">
           <tr class="linha1">
             <th><h3>Satisfação Pessoal</h3></th>
             <th>
@@ -173,12 +170,9 @@
             </td>
           </tr>
         </table>
-    </div>
 
 
-    <div id="RI" class="tabcontent" [hidden]="!openRI">
-
-        <table>
+        <table id="RI" class="tabcontent" [hidden]="!openRI">
           <tr class="linha1">
             <th><h3>Relações Interpessoais</h3></th>
             <th>
@@ -256,7 +250,7 @@
             </td>
           </tr>
         </table>
-    </div> <!-- LEMBRETE: Colocar em métodos-->
+     <!-- LEMBRETE: Colocar em métodos-->
 
   </div>
 
