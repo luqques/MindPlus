@@ -6,35 +6,38 @@
 }
 
 .tab>#av {
-  padding-left: 1vw;
-  display: flex;
-  background-image: linear-gradient(to right, #185376, #5C93AD);
+  margin-left: 2.2em;
+  padding-left: 0.5em;
+  display: inline-flex;
   align-items: center;
-  position: sticky;
-  right: 100vw;
-  width: 55vw;
+  min-height: 6vh;
+  min-width: 51.2vw;
+  background-image: linear-gradient(to right, #185376, #5C93AD);
   color: #F6F8F8;
 }
 
 /* Style da tab */
 .tab {
-  display: flex;
+  margin-top: 2em;
+  margin-bottom: -0.5em;
+  display: inline-flex;
   justify-content: flex-end;
 }
 
 /* Style buttons (abre o tab content) */
 .tab button {
-  background-color: inherit;
-  float: left;
+  background: #F6F8F8;
+  opacity: 0.7;
   border: none;
-  outline: none;
   cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
+  padding-inline: 1em;
+  
 }
 
 .tab button:hover {
-  background-color: #5C93AD;
+  transition: 0.5s;
+  background-color: #c0dce9;
+  height: 6vh;
 }
 
 /* Create an active/current tablink class */
@@ -48,32 +51,38 @@
 }
 
 /* Bloco da tab contendo as avaliações */
-.formulario {
-
-  background-color: #F6F8F8;
+table{
+  background: #F6F8F8;
   margin-left: auto;
   margin-right: auto;
-  max-width: 90vw;
+  width: 90vw;
+  margin-bottom: 2em;
+
 }
 
+
 /* Título das sessões da avaliação */
-.linha-t h4 {
-  width: 180%;
+.linha-t {
   background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
   color: #F6F8F8;
-  padding-left: 0.5em;
+}
 
+.linha-t h4{
+  padding-left: 0.5em;
 }
 
 /* Título da avaliação e ícones */
 .linha1 {
+  
   h3 {
+    padding-top: 0.5em;
     padding-left: 0.5em;
   }
   i{
     position: relative;
-    left: 8em;
-    padding-inline: 1.6em;
+    top: 0.5em;
+    font-size: x-large;
+    padding-inline: 0.9em;
   }
 }
 
@@ -86,13 +95,12 @@
   }
 
   .satisfacao p{
-    position: relative;
-    left: 10em;
     display: inline-flex;
     padding-inline: 0.5em;
     font-size: small;
     font-weight: bold;
     text-align: center;
+    margin-bottom: -0.1em;
   }
 }
 
@@ -112,5 +120,4 @@
 .radio {
   position: relative;
   margin-inline: 1.7em;
-  left: 8.5em;
 }
