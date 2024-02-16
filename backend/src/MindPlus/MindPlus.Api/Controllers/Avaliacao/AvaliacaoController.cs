@@ -1,4 +1,4 @@
-/*
+
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Service;
@@ -33,4 +33,3 @@ namespace MindPlus.Api.Controllers
         }
     }
 }
-*/
