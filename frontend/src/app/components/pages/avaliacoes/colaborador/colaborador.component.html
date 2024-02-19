@@ -2,255 +2,222 @@
 
   <div class="formulario">
 
-    <div class="tab">
-      <h3 id="av">• Avaliação •</h3> <!--TÍTULO-->
-      <button class="tablinks" (click)="openForm('ST')">Satisfação no Trabalho</button>
-      <button class="tablinks" (click)="openForm('SP')">Satisfação Pessoal</button>
-      <button class="tablinks" (click)="openForm('RI')">Relações Interpessoais</button>
-    </div>
+    <table id="cabecalho1">
+      <tr class="tab">
+        <td><h3 id="av">• Avaliação •</h3></td>
+        <td>
+          <button class="tablinks" (click)="openForm('ST')">Satisfação no Trabalho</button>
+          <button class="tablinks" (click)="openForm('SP')">Satisfação Pessoal</button>
+          <button class="tablinks" (click)="openForm('RI')">Relações Interpessoais</button>
+        </td>
+      </tr>
+    </table>
 
-<!-- COLOCAR primeiras coisas da tabela compartilhadas entre todos, serem unicas. Troca somente de gestao interna para baixo -->
-        <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
-      <table id="ST" class="tabcontent" [hidden]="!openST">
-        <tr class="linha1">
-          <th><h3>Satisfação no Trabalho</h3></th>
-          <th>
-            <i class="text-success bi bi-emoji-laughing"></i>
-            <i class="text-primarybi bi-emoji-smile"></i>
-            <i class="text-secondary bi bi-emoji-neutral"></i>
-            <i class="text-warning bi bi-emoji-frown"></i>
-            <i class="text-danger bi bi-emoji-angry"></i>
-          </th>
-        </tr>
-        <tr class="linha2">
-          <th class="descricao"><p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna, <br />
-              benefícios, cultura organizacional e oportunidades de crescimento.</p></th>
-          <th class="satisfacao">
-            <p>Concordo<br /> muito</p>
-            <p>Concordo</p>
-            <p>Indiferente<br />/Não sei</p>
-            <p>Discordo</p>
-            <p>Discordo<br /> Muito</p>
-          </th>
-        </tr>
-        <tr class="linha-t">
-          <th><h4>Gestão Interna</h4></th>
-          <th></th>
-        </tr>
-        <tr class="selecao" *ngFor="let pergunta of perguntasST1; let i = index">
-          <td>
-            <label class="pergunta">
-              <p>{{ pergunta }}</p>
-            </label>
-          </td>
-          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-            <input class="radioOpcao" type="radio" [name]="'perguntasST1' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-          </td>
-        </tr>
-        <tr class="linha-t">
-          <th><h4>Benefícios</h4></th>
-          <th></th>
-        </tr>
-        <tr class="selecao" *ngFor="let pergunta of perguntasST2; let i = index">
-          <td>
-            <label class="pergunta">
-              <p>{{ pergunta }}</p>
-            </label>
-          </td>
-          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-            <input class="radioOpcao" type="radio" [name]="'perguntasSs' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-          </td>
-        </tr>
-        <tr class="linha-t">
-          <th><h4>Cultura Organizacional</h4></th>
-          <th></th>
-        </tr>
-        <tr class="selecao" *ngFor="let pergunta of perguntasST3; let i = index">
-          <td>
-            <label class="pergunta">
-              <p>{{ pergunta }}</p>
-            </label>
-          </td>
-          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-            <input class="radioOpcao" type="radio" [name]="'perguntasST3' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-          </td>
-        </tr>
-        <tr class="linha-t">
-          <th><h4>Oportunidades de Crescimento</h4></th>
-          <th></th>
-        </tr>
-        <tr class="selecao" *ngFor="let pergunta of perguntasST4; let i = index">
-          <td>
-            <label class="pergunta">
-              <p>{{ pergunta }}</p>
-            </label>
-          </td>
-          <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-            <input class="radioOpcao" type="radio" [name]="'perguntasST4' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-          </td>
-        </tr>
-      </table>
-  
+    <table id="cabecalho2">
+      <tr class="linha1">
+        <th id="ST" class="tabcontent" [hidden]="!openST"><h3>Satisfação no Trabalho</h3></th>
+        <th id="SP" class="tabcontent" [hidden]="!openSP"><h3>Satisfação Pessoal</h3></th>
+        <th id="RI" class="tabcontent" [hidden]="!openRI"><h3>Relações Interpessoais</h3></th>
+        <th></th>
+        <th>
+          <i class="text-success bi bi-emoji-laughing"></i>
+          <i class="text-primarybi bi-emoji-smile"></i>
+          <i class="text-secondary bi bi-emoji-neutral"></i>
+          <i class="text-warning bi bi-emoji-frown"></i>
+          <i class="text-danger bi bi-emoji-angry"></i>
+        </th>
+      </tr>
+    </table>
 
-        <table id="SP" class="tabcontent" [hidden]="!openSP">
-          <tr class="linha1">
-            <th><h3>Satisfação Pessoal</h3></th>
-            <th>
-              <i class="text-success bi bi-emoji-laughing"></i>
-              <i class="text-primarybi bi-emoji-smile"></i>
-              <i class="text-secondary bi bi-emoji-neutral"></i>
-              <i class="text-warning bi bi-emoji-frown"></i>
-              <i class="text-danger bi bi-emoji-angry"></i>
-            </th>
-          </tr>
-          <tr class="linha2">
-            <th class="descricao"><p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio trabalho-vida,<br /> como saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</p></th>
-            <th class="satisfacao"> 
-              <p>Concordo<br /> muito</p>
-              <p>Concordo</p>
-              <p>Indiferente<br />/Não sei</p>
-              <p>Discordo</p>
-              <p>Discordo<br /> Muito</p>
-            </th>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Gestão Interna</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST1; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasST1' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Benefícios</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST2; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasSs' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Cultura Organizacional</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST3; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasST3' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Oportunidades de Crescimento</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST4; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasST4' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-        </table>
+    <!-- COLOCAR primeiras coisas da tabela compartilhadas entre todos, serem unicas. Troca somente de gestao interna para baixo -->
+    <!--https://icons.getbootstrap.com/icons/emoji-laughing/-->
 
+    <!--Satisfação no Trabalho-->
+    <table id="ST" class="tabcontent" [hidden]="!openST">
+      <tr class="linha2">
+        <th class="descricao">
+          <p>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna,
+            <br />
+            benefícios, cultura organizacional e oportunidades de crescimento.</p>
+        </th>
+        <th class="satisfacao">
+          <p>Concordo<br /> muito</p>
+          <p>Concordo</p>
+          <p>Indiferente<br />/Não sei</p>
+          <p>Discordo</p>
+          <p>Discordo<br /> Muito</p>
+        </th>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Gestão Interna</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasST1; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasST1' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Benefícios</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasST2; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasST2' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Cultura Organizacional</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasST3; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasST3' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t"><th><h4>Oportunidades de Crescimento</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasST4; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label>
+        </td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasST4' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+    </table>
 
-        <table id="RI" class="tabcontent" [hidden]="!openRI">
-          <tr class="linha1">
-            <th><h3>Relações Interpessoais</h3></th>
-            <th>
-              <i class="text-success bi bi-emoji-laughing"></i>
-              <i class="text-primarybi bi-emoji-smile"></i>
-              <i class="text-secondary bi bi-emoji-neutral"></i>
-              <i class="text-warning bi bi-emoji-frown"></i>
-              <i class="text-danger bi bi-emoji-angry"></i>
-            </th>
-          </tr>
-          <tr class="linha2">
-            <th class="descricao"><p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte social.</p></th>
-            <th class="satisfacao">
-              <p>Concordo<br /> muito</p>
-              <p>Concordo</p>
-              <p>Indiferente<br />/Não sei</p>
-              <p>Discordo</p>
-              <p>Discordo<br /> Muito</p>
-            </th>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Gestão Interna</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST1; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasST1' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Benefícios</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST2; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasSs' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Cultura Organizacional</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST3; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasST3' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-          <tr class="linha-t">
-            <th><h4>Oportunidades de Crescimento</h4></th>
-            <th></th>
-          </tr>
-          <tr class="selecao" *ngFor="let pergunta of perguntasST4; let i = index">
-            <td>
-              <label class="pergunta">
-                <p>{{ pergunta }}</p>
-              </label>
-            </td>
-            <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
-              <input class="radioOpcao" type="radio" [name]="'perguntasST4' + i" [value]="5 - j" id="{{ 'pergunta' + i + 'opcao' + j }}">
-            </td>
-          </tr>
-        </table>
-     <!-- LEMBRETE: Colocar em métodos-->
+<!--Satisfação Pessoal-->
+    <table id="SP" class="tabcontent" [hidden]="!openSP">
+      <tr class="linha2">
+        <th class="descricao">
+          <p>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio
+            trabalho-vida,<br /> como saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e
+            atividades de lazer.</p>
+        </th>
+        <th class="satisfacao">
+          <p>Concordo<br /> muito</p>
+          <p>Concordo</p>
+          <p>Indiferente<br />/Não sei</p>
+          <p>Discordo</p>
+          <p>Discordo<br /> Muito</p>
+        </th>
+      </tr>
+      <tr class="linha-t"><th><h4>Saúde e Autocuidado</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasSP1; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label>
+        </td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasSP1' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Tempo de Descanso</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasSP2; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label>
+        </td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasSP2' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Hobbies e Interesses</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasSP3; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasSP3' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Apoio</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasSP4; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasSP4' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+    </table>
+
+<!--Relações Interpessoais-->
+    <table id="RI" class="tabcontent" [hidden]="!openRI">
+      <tr class="linha2">
+        <th class="descricao">
+          <p>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e
+            suporte social.</p>
+        </th>
+        <th class="satisfacao">
+          <p>Concordo<br /> muito</p>
+          <p>Concordo</p>
+          <p>Indiferente<br />/Não sei</p>
+          <p>Discordo</p>
+          <p>Discordo<br /> Muito</p>
+        </th>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Conexões Pessoais</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasRI1; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasRI1' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Bem-Estar no Ambiente de Trabalho</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasRI2; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasRI2' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Apoio Emocional</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasRI3; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasRI3' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+      <tr class="linha-t">
+        <th><h4>Interações Diárias</h4></th>
+        <th></th>
+      </tr>
+      <tr class="selecao" *ngFor="let pergunta of perguntasRI4; let i = index">
+        <td><label class="pergunta"><p>{{ pergunta }}</p></label></td>
+        <td class="radio btn-group" role="group" *ngFor="let _ of valores; let j = index">
+          <input class="radioOpcao" type="radio" [name]="'perguntasRI4' + i" [value]="5 - j"
+            id="{{ 'pergunta' + i + 'opcao' + j }}">
+        </td>
+      </tr>
+    </table>
+    <!-- LEMBRETE: Colocar em métodos-->
 
   </div>
 

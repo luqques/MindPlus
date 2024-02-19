@@ -5,23 +5,37 @@
   /*height: 80vh;*/
 }
 
-.tab>#av {
-  margin-left: 2.2em;
-  padding-left: 0.5em;
+/* Style da tab */
+.tab{
   display: inline-flex;
+  overflow: hidden;
+  width: 90vw;
+  margin-top: 2em;
+  margin-bottom: -0.5em ;
+}
+
+.tab #av{
   align-items: center;
-  min-height: 6vh;
-  min-width: 51.2vw;
+  min-width: 40vw;
+  padding-top: 0.2em;
+  padding-left: 0.5em;
+  height: 7vh;
   background-image: linear-gradient(to right, #185376, #5C93AD);
+  background-size: cover;
   color: #F6F8F8;
 }
 
-/* Style da tab */
-.tab {
-  margin-top: 2em;
-  margin-bottom: -0.5em;
-  display: inline-flex;
-  justify-content: flex-end;
+.tab .tablinks{
+  align-items: center;
+  height: 7vh;
+  padding-inline: 2em;
+  margin-inline: 0.2em;
+  background-size: cover;
+  
+}
+
+.tablinks{
+
 }
 
 /* Style buttons (abre o tab content) */
@@ -31,13 +45,13 @@
   border: none;
   cursor: pointer;
   padding-inline: 1em;
-  
+  display: inline-flex;
 }
 
 .tab button:hover {
   transition: 0.5s;
   background-color: #c0dce9;
-  height: 6vh;
+  font-weight: bold;
 }
 
 /* Create an active/current tablink class */
@@ -45,21 +59,27 @@
   background-color: #00ff0d;
 }
 
-/* Style da tab content */
-.tabcontent {
-  overflow: hidden;
+
+
+.tab>#av {
 }
 
-/* Bloco da tab contendo as avaliações */
+.cabeçalho1{
+  
+}
+
+
 table{
-  background: #F6F8F8;
   margin-left: auto;
   margin-right: auto;
   width: 90vw;
-  margin-bottom: 2em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+/* Bloco da tab contendo as avaliações */
+.tabcontent{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 15px;
+  background: #F6F8F8;
+}
 
 /* Título das sessões da avaliação */
 .linha-t {
@@ -72,22 +92,29 @@ table{
   padding-left: 0.5em;
 }
 
+.cabeçalho2{
+  display: inline;
+  max-width: 90vw;
+}
 
 /* Título da avaliação e ícones */
 .linha1 {
-  
+  background: #F6F8F8;
   h3 {
     padding-top: 0.5em;
     padding-left: 0.5em;
     color: #185376;
   }
   i{
+    display: block;
     position: relative;
-    top: 0.5em;
+    float: right;
+    right: 2em;
     font-size: x-large;
     padding-inline: 0.9em;
   }
 }
+
 
 
 /* Descrição da avaliação e satisfação */
