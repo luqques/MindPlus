@@ -1,4 +1,4 @@
-/*
+
 using System;
 using System.Threading.Tasks;
 using Dapper;
@@ -11,14 +11,29 @@ namespace MindPlus.Api.Repository
     {
         public async Task<int> ObterQuantidadeAvaliacoesMesAtual()
         {
-            string sql = @"
+           
+        }
+
+        public async Task<EstatisticasDTO> ObterEstatisticas()
+        {
+            string sql = @"SELECT (SELECT COUNT(*) FROM AVALIACAO WHERE MONTH(Data) = MONTH(GETDATE()) AND YEAR(Data) = YEAR(GETDATE())),
+                            ";
+
+
+
+
+        }
+
+        public async Task<MetasDTO> ObterMetas()
+        {
+
+             string sql = @"
                 SELECT COUNT(*) 
                 FROM AVALIACAO 
                 WHERE MONTH(Data) = MONTH(GETDATE()) 
                 AND YEAR(Data) = YEAR(GETDATE())";
             
             return await GetConnection().QueryFirstOrDefaultAsync<int>(sql);
+
         }
     }
-}
-*/

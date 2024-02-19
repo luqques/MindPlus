@@ -1,12 +1,13 @@
 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Service;
 
 namespace MindPlus.Api.Controllers
 {
     [ApiController]
-    [Route("api/avaliacoes")]
+    [Route("avaliacoes")]
     public class AvaliacaoController : ControllerBase
     {
         private readonly AvaliacaoService _avaliacaoService;
@@ -14,22 +15,41 @@ namespace MindPlus.Api.Controllers
         public AvaliacaoController(AvaliacaoService avaliacaoService)
         {
             _avaliacaoService = avaliacaoService;
-        }
+        }//injeção de dependência
 
-        [HttpGet("estatisticas/preenchimento-atual")]
-        public async Task<IActionResult> ObterEstatisticasPreenchimentoAtual()
+        private readonly AvaliacaoRepository repositorio = new AvaliacaoRepository();
+
+        [HttpGet("estatisticas")]
+        public async Task<EstatisticasDTO> ObterEstatisticas()
         {
             try
             {
-                var quantidadeAvaliacoes = await _avaliacaoService.ObterQuantidadeAvaliacoesMesAtual();
-                var totalColaboradores = 200; // Substitua pelo total real de colaboradores ativos
+                var EstatisticasDTO = await repositorio.ObterEstatisticas();
 
-                return Ok(new { preenchidos = quantidadeAvaliacoes, total = totalColaboradores });
+                return Ok(EstatisticasDTO);
             }
+
             catch (Exception ex)
             {
                 return StatusCode(500, $"Erro interno: {ex.Message}");
             }
         }
+
+        [HttpGet("metas")]
+        public async Task<MetasDTO> ObterMetas()
+        {
+            try
+            {
+                var MetasDTO = await repositorio.ObterMetas();
+
+                return Ok(MetasDTO);
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
+
     }
 }
