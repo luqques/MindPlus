@@ -1,7 +1,6 @@
 
-using System;
-using System.Threading.Tasks;
-using MindPlus.Api.Entity;
+using MindPlus.Api.Dto.Empresa;
+using MindPlus.Api.Entity.Empresa;
 
 namespace MindPlus.Api.Contracts.Repository
 {
@@ -9,7 +8,6 @@ namespace MindPlus.Api.Contracts.Repository
     {
         Task CadastrarEmpresa(EmpresaDto empresa);
         Task<int> ObterQuantidadeAvaliacoesMesAtual();
-        Task CadastrarEmpresa(EmpresaDto empresa);
         Task<EmpresaEntity> ObterPorId(int id);
     }
 }

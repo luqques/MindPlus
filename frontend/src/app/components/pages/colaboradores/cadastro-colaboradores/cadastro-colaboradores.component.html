@@ -1,42 +1,37 @@
-<div class="container-sm rounded-4 shadow p-4 bg-white m-5">
+<div class="container rounded-4 shadow p-4 bg-white mx-auto my-5">
     <form [formGroup]="usuarioFormGroup" (ngSubmit)="onSubmit()">
         <div class="row">
-            <div class="form-floating pl-2 container-info">
+            <div class="form-floating pb-3 container-info">
                 <input type="text" class="form-control" id="nome" formControlName="nome" required>
                 <label class="ms-3" for="nome">Nome</label>
             </div>
-            <div class="form-floating pl-2 container-info">
+            <div class="form-floating pb-3 container-info">
                 <input type="text" class="form-control" id="email" formControlName="email" required>
                 <label class="ms-3" for="nome">E-mail</label>
             </div>
-            <div class="form-floating pl-2 container-info">
+            <div class="form-floating pb-3 container-info">
                 <input type="text" class="form-control" id="telefone" formControlName="telefone" required>
                 <label class="ms-3" for="telefone">Telefone</label>
             </div>
-            <div class="form-floating pl-2 container-info">
+            <div class="form-floating pb-3 container-info">
                 <input type="text" class="form-control" id="endereco" formControlName="endereco" required>
                 <label class="ms-3" for="endereco">Endereço</label>
             </div>
-            <div class="form-floating pl-2 container-info">
+            <div class="form-floating pb-3 container-info">
                 <input type="text" class="form-control" id="empresaNome" formControlName="empresaNome" required>
                 <label class="ms-3" for="empresaNome">Empresa</label>
             </div>
-            <div class="form-floating pl-2 container-info">
-                <input type="text" class="form-control" id="funcao" formControlName="funcao" required>
-                <label class="ms-3" for="funcao">Função</label>
+            <div class="pb-3">
+                <select class="form-select form-select-lg" id="funcao" formControlName="funcao" required>
+                    <option value="1">Colaborador</option>
+                    <option value="2">Administrador</option>
+                </select>
             </div>
-
-            <select class="form-select form-select-lg" id="funcao" formControlName="funcao" required>
-                <option selected>Função...</option>
-                <option value="1">Colaborador</option>
-                <option value="2">Administrador</option>
-            </select>
-
-            <div class="form-floating pl-2 container-info">
+            <div class="form-floating pb-3 container-info">
                 <input type="text" class="form-control" id="senha" formControlName="senha" required>
                 <label class="ms-3" for="senha">Senha temporária</label>
             </div>
-            <div>
+            <div class="text-center">
                 <button type="submit" class="btn btn-primary button-save">Cadastrar</button>
             </div>
         </div>

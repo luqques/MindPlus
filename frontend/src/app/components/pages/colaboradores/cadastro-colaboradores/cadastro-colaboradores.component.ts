@@ -27,10 +27,10 @@ export class CadastroColaboradoresComponent implements OnInit{
     this.usuarioFormGroup = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', Validators.required],
-      Telefone: ['', Validators.required],
-      Endereço: ['', Validators.required],
-      Função: ['', Validators.required],
-      Status: ['ativo', Validators.required]
+      telefone: ['', Validators.required],
+      endereco: ['', Validators.required],
+      funcao: ['', Validators.required],
+      status: ['ativo', Validators.required]
     });
   }
 
@@ -46,7 +46,7 @@ export class CadastroColaboradoresComponent implements OnInit{
   isResponseError = false;
 
   onSubmit() {
-    if (this.usuarioFormGroup.valid) {
+    // if (this.usuarioFormGroup.valid) {
       
       const usuarioData: any = {
         nome: this.usuarioFormGroup.controls["nome"].value,
@@ -60,7 +60,7 @@ export class CadastroColaboradoresComponent implements OnInit{
       }
 
       console.log(usuarioData);
-    }
+    // }
   } 
 }
 
