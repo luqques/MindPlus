@@ -9,9 +9,9 @@ namespace MindPlus.Api.Dto.Avaliacao
         public List<EscoreAvaliacao> EscoresST { get; set; }
         public List<EscoreAvaliacao> EscoresSP { get; set; }
         public List<EscoreAvaliacao> EscoresRI { get; set; }
-        public NiveisEstresse NiveisEstresse { get; set; } //utiliza média uma vez
-        public List<TendenciasTemporais> TendenciasTemporais { get; set; } //é uma lista pois utiliza média de vários meses
-        public EquilibrioVida EquilibrioVida { get; set; }
+        public NiveisEstresse niveisEstresse { get; set; } //utiliza média uma vez
+        public List<TendenciasTemporais> tendenciasTemporais { get; set; } //é uma lista pois utiliza média de vários meses
+        public EquilibrioVida equilibrioVida { get; set; }
     }
 
     //SG
@@ -35,18 +35,17 @@ namespace MindPlus.Api.Dto.Avaliacao
     //TT grafico linha - media de escore das provas por mes
     public class TendenciasTemporais
     {
-        public string Mes { get; set; }
+        public int Mes { get; set; }
         public double MediaEscore { get; set; }
     }
 
     //EVP/P grafico em barra com numero indicando 1-5 - media geral de cada um (ST e SP), compara qual é o maior, e quanto maior é
-   /*
     public class EquilibrioVida
     {
-        public string Categoria { get; set; } REVISAR UTILIDADE DA CLASSE
-        public double MediaGeral { get; set; }
+        //public string Categoria { get; set; } REVISAR UTILIDADE DA CLASSE
+        //public double MediaGeral { get; set; }
     }
-   */
+
 
 }
 
