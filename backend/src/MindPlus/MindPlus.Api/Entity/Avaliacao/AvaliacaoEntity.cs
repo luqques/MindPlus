@@ -3,9 +3,9 @@ namespace MindPlus.Api.Entity.Avaliacao
     public class AvaliacaoEntity
     {
         public int Id { get; set; }
-        public string USUARIO_Id { get; set; }
-        public string Avaliacao { get; set; }
-        public string Data { get; set; }
-        public string Escore { get; set; }
+        public int USUARIO_Id { get; set; }
+        public int Avaliacao { get; set; }
+        public DateTime Data { get; set; }
+        public double Escore { get; set; }
     }
 }
