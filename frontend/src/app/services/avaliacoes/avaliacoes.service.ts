@@ -3,7 +3,8 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IAvaliacaoEntity } from 'src/app/interfaces/IAvaliacaoEntity';
+import { IMetasDTO } from 'src/app/interfaces/IMetasDTO';
+import { IEstatisticasDTO } from 'src/app/interfaces/IEstatisticasDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,8 @@ export class AvaliacaoService {
     return this.userTokenSubject.asObservable();
   }
 
-  public obterEstatisticas(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/estatisticas`, {
+  public obterEstatisticas(): Observable<IEstatisticasDTO> {
+    return this.http.get<IEstatisticasDTO>(`${this.apiUrl}/estatisticas`, {
       headers: {
         Authorization: 
           this.userTokenSubject.value
@@ -33,8 +34,8 @@ export class AvaliacaoService {
     });
   }
 
-  public obterMetas(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/metas`, {
+  public obterMetas(): Observable<IMetasDTO> {
+    return this.http.get<IMetasDTO>(`${this.apiUrl}/metas`, {
       headers: {
         Authorization: 
           this.userTokenSubject.value
