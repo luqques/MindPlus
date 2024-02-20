@@ -8,6 +8,7 @@ namespace MindPlus.Api.Contracts.Repository
     {
         Task CadastrarEmpresa(EmpresaDto empresa);
         Task<int> ObterQuantidadeAvaliacoesMesAtual();
+        Task CadastrarEmpresa(EmpresaDto empresa);
         Task<EmpresaEntity> ObterPorId(int id);
     }
 }
