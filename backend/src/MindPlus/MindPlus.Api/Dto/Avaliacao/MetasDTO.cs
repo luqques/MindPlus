@@ -15,7 +15,7 @@ namespace MindPlus.Api.Dto.Avaliacao
     class PreenchimentoMes
     {
         public int Preenchimento { get; set; }
-        public string Mes { get; set; }
+        public int Mes { get; set; }
     }
 
     class PreenchimentoAno 
