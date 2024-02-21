@@ -1,4 +1,6 @@
 ﻿
+using MindPlus.Helpers;
+
 namespace Ailos.Foundation.Core.Messaging.Commands
 {
     public class CommandResult : ICommandResult, IMessage
