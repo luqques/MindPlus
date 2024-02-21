@@ -1,8 +1,6 @@
-
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.Service;
+using MindPlus.Api.Dto.Avaliacao;
+using MindPlus.Api.Repository.Avaliacao;
 
 namespace MindPlus.Api.Controllers
 {
@@ -10,17 +8,11 @@ namespace MindPlus.Api.Controllers
     [Route("avaliacoes")]
     public class AvaliacaoController : ControllerBase
     {
-        private readonly AvaliacaoService _avaliacaoService;
-
-        public AvaliacaoController(AvaliacaoService avaliacaoService)
-        {
-            _avaliacaoService = avaliacaoService;
-        }//injeção de dependência
 
         private readonly AvaliacaoRepository repositorio = new AvaliacaoRepository();
 
         [HttpGet("estatisticas")]
-        public async Task<EstatisticasDTO> ObterEstatisticas()
+        public async Task<IActionResult> ObterEstatisticas()
         {
             try
             {
@@ -36,7 +28,7 @@ namespace MindPlus.Api.Controllers
         }
 
         [HttpGet("metas")]
-        public async Task<MetasDTO> ObterMetas()
+        public async Task<IActionResult> ObterMetas()
         {
             try
             {

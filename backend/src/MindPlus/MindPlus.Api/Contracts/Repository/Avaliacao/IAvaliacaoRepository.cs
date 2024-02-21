@@ -1,12 +1,13 @@
-
-using MindPlus.Api.Dto.Empresa;
-using MindPlus.Api.Entity.Empresa;
+using System;
+using System.Threading.Tasks;
+using MindPlus.Api.Dto.Avaliacao;
+using MindPlus.Api.Entity;
 
 namespace MindPlus.Api.Contracts.Repository
 {
     public interface IAvaliacaoRepository
     {
-        Task<EstatisticasDTO> ObterEstatisticas();
+        Task <EstatisticasDTO> ObterEstatisticas();
         Task<MetasDTO> ObterMetas();
     }
 }
