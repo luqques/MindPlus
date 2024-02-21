@@ -1,67 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-</head>
-
-<body>
-
-    <div class="register-container">
-        <div class="div-form">
-
-            <div class="titulo">
-                <h2><b>Cadastro Colaborador</b></h2>
+<div class="container rounded-4 shadow p-4 bg-white mx-auto my-5">
+    <form [formGroup]="usuarioFormGroup" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="form-floating pb-3 container-info">
+                <input type="text" class="form-control" id="nome" formControlName="nome" required>
+                <label class="ms-3" for="nome">Nome</label>
             </div>
-
-
-            <form class="formulario w-30 p-3">
-                <label for="name" class="l-form">Nome:</label>
-                <input type="text" id="name" name="name" required class="i-form" placeholder="Nome colaborador">
-                <span class="error" id="nameError"></span>
-
-                <label for="email" class="l-form">E-mail:</label>
-                <input type="email" id="email" name="email" required class="i-form" placeholder="colaborador@mail.com">
-                <span class="error" id="emailError"></span>
-
-                <label for="contato" class="l-form">Contato:</label>
-                <input type="text" id="contact" name="contact" required class="i-form" placeholder="(00) 0000-0000">
-                <span class="error" id="contactError"></span>
-
-                <label for="endereco" class="l-form">Endereço:</label>
-                <input type="text" id="address" name="address" required class="i-form"
-                    placeholder="Rua, Bairro, Cidade">
-                <span class="error" id="addressError"></span>
-
-                <label for="cargo" class="l-form">Cargo:</label>
-                <input type="text" id="office" name="office" required class="i-form">
-                <span class="error" id="officeError"></span>
-
-                <label for="empresa" class="l-form">Empresa:</label>
-                <input type="text" id="company" name="company" required class="i-form">
-                <span class="error" id="companyError"></span>
-
-                <label for="contratacao" id="mdc">Modelo de contratação:</label>
-                <select name="" id="" class="i-select">
-                    <option selected>Selecione uma opção</option>
-                    <option value="clt">CLT</option>
-                    <option value="pj">PJ</option>
-                    <option value="estagio">Estagiário</option>
+            <div class="form-floating pb-3 container-info">
+                <input type="text" class="form-control" id="email" formControlName="email" required>
+                <label class="ms-3" for="nome">E-mail</label>
+            </div>
+            <div class="form-floating pb-3 container-info">
+                <input type="text" class="form-control" id="telefone" formControlName="telefone" required>
+                <label class="ms-3" for="telefone">Telefone</label>
+            </div>
+            <div class="form-floating pb-3 container-info">
+                <input type="text" class="form-control" id="endereco" formControlName="endereco" required>
+                <label class="ms-3" for="endereco">Endereço</label>
+            </div>
+            <div class="form-floating pb-3 container-info">
+                <input type="text" class="form-control" id="empresaNome" formControlName="empresaNome" required>
+                <label class="ms-3" for="empresaNome">Empresa</label>
+            </div>
+            <div class="pb-3">
+                <select class="form-select" id="funcao" formControlName="funcao" required>
+                    <option selected>Função...</option>
+                    <option value="1">Colaborador</option>
+                    <option value="2">Administrador</option>
                 </select>
-
-                <label for="password" class="l-form" id="pass">Senha:</label>
-                <input type="password" id="password" name="password" required class="i-form">
-                <span class="error" id="passwordError"></span>
-
-                <div class="wrapper">
-                    <button type="button" class="botao-cadastro" onclick="validateForm()">Cadastrar</button>
-                </div>
-            </form>
-
+            </div>
+            <div class="form-floating pb-3 container-info">
+                <input type="text" class="form-control" id="senha" formControlName="senha" required>
+                <label class="ms-3" for="senha">Senha temporária</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary button-save">Cadastrar</button>
+            </div>
         </div>
+    </form>
+    <div *ngIf="isResponseOk; else errorTemplate" class="alert alert-success fade-in-up mt-3" role="alert">
+        Cadastro de colaborador realizado com sucesso!
     </div>
-</body>
-
-</html>
+    <ng-template #errorTemplate>
+        <div *ngIf="isResponseError" class="alert alert-danger mt-3 fade-in-up" role="alert">
+            Algo deu errado! Não foi possível cadastrar o colaborador.
+        </div>
+    </ng-template>
+</div>

@@ -1,4 +1,3 @@
-
 using System;
 using System.Threading.Tasks;
 using MindPlus.Api.Dto.Avaliacao;
