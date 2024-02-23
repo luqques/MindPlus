@@ -2,12 +2,12 @@ using Dapper;
 using MindPlus.Api.Dto.Avaliacao;
 using MindPlus.Api.Infrastructure;
 using MindPlus.Api.Contracts.Repository;
+using MindPlus.Api.Entity.Usuario;
 
 namespace MindPlus.Api.Repository
 {
     public class AvaliacaoRepository : Connection, IAvaliacaoRepository
     {
-
         public async Task<MetasDTO> ObterMetas()
         {
             MetasDTO dto = new MetasDTO();
@@ -174,9 +174,10 @@ namespace MindPlus.Api.Repository
                                                Avaliacao,
                                                Data,
                                                Score) 
-                                       VALUES (
-                                               )";
-
+                                       VALUES (@Usuario_Id
+                                               @Avaliacao,
+                                               @Data,
+                                               @Score)";
             await Execute(sql, avaliacao);
         }
     }

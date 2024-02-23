@@ -48,7 +48,7 @@ namespace MindPlus.Api.Controllers
             }
         }
 
-        [HttpPost("gravar")]
+        [HttpPost("inserir")]
         public async Task<IActionResult> CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
         {
             try
