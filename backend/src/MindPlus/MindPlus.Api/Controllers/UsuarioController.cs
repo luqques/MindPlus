@@ -7,7 +7,7 @@ using MindPlus.Api.Infrastructure;
 using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace MindPlus.Api.Controllers.Usuario
+namespace MindPlus.Api.Controllers
 {
     [ApiController]
     [Route("usuario")]

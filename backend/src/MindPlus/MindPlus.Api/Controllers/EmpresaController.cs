@@ -5,7 +5,7 @@ using MindPlus.Api.Dto.Empresa;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Linq.Expressions;
 
-namespace MindPlus.Api.Controllers.Empresa
+namespace MindPlus.Api.Controllers
 {
     [ApiController]
     [Route("empresa")]
@@ -48,7 +48,7 @@ namespace MindPlus.Api.Controllers.Empresa
             try
             {
                 return Ok(await _empresaRepository.ObterPorId(id));
-            }            
+            }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
