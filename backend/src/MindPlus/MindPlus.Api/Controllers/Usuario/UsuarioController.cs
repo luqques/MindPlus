@@ -47,7 +47,14 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Visualizar todos os usuários ativos", Description = "Lista todos os usuários ativos do sistema.")]
         public async Task<IActionResult> VisualizarUsuariosAtivos()
         {
-            return Ok(await _usuarioRepository.VisualizarUsuariosAtivos());
+            try
+            {
+                return Ok(await _usuarioRepository.VisualizarUsuariosAtivos());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -57,7 +64,14 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Visualizar usuário", Description = "Visualiza um usuário de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterUsuarioPorId(int id)
         {
-            return Ok(await _usuarioRepository.ObterPorId(id));
+            try
+            {
+                return Ok(await _usuarioRepository.ObterPorId(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -68,8 +82,15 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Cadastrar um novo usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> CadastrarUsuario(UsuarioCadastroDto usuario)
         {
-            await _usuarioRepository.CadastrarUsuario(usuario);
-            return Ok(new { message = "Colaborador cadastrado com sucesso!" });
+            try
+            {
+                await _usuarioRepository.CadastrarUsuario(usuario);
+                return Ok(new { message = "Colaborador cadastrado com sucesso!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -80,8 +101,15 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Atualizar informações de um usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> AtualizarUsuario([FromBody] UsuarioEntity usuario)
         {
-            await _usuarioRepository.AtualizarUsuario(usuario);
-            return Ok(new { message = "Usuário atualizado com sucesso!" });
+            try
+            {
+                await _usuarioRepository.AtualizarUsuario(usuario);
+                return Ok(new { message = "Usuário atualizado com sucesso!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -93,8 +121,15 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Atualizar informações do próprio perfil", Description = "Requer autenticação.")]
         public async Task<IActionResult> AtualizarProprioPerfil([FromBody] UsuarioAtualizacaoDto usuario)
         {
-            await _usuarioRepository.AtualizarProprioPerfil(usuario);
-            return Ok(new { message = "Seu perfil foi atualizado com sucesso!" });
+            try
+            {
+                await _usuarioRepository.AtualizarProprioPerfil(usuario);
+                return Ok(new { message = "Seu perfil foi atualizado com sucesso!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -105,8 +140,15 @@ namespace MindPlus.Api.Controllers.Usuario
         [SwaggerOperation(Summary = "Remover um usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> RemoverUsuario(int id)
         {
-            await _usuarioRepository.RemoverUsuario(id);
-            return Ok(new { message = "Usuário removido com sucesso." });
+            try
+            {
+                await _usuarioRepository.RemoverUsuario(id);
+                return Ok(new { message = "Usuário removido com sucesso." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
