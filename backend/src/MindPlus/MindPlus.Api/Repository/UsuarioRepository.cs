@@ -1,10 +1,10 @@
 ﻿using Dapper;
-using MindPlus.Api.Contracts.Repository.Usuario;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity.Usuario;
 using MindPlus.Api.Infrastructure;
 
-namespace MindPlus.Api.Repository.Usuario
+namespace MindPlus.Api.Repository
 {
     public class UsuarioRepository : Connection, IUsuarioRepository
     {

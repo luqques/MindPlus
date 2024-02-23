@@ -7,7 +7,8 @@ namespace MindPlus.Api.Contracts.Repository
 {
     public interface IAvaliacaoRepository
     {
-        Task <EstatisticasDTO> ObterEstatisticas();
+        Task CadastrarAvaliacao(AvaliacaoCadastroDTO cadastroAvaliacaoDTO);
+        Task<EstatisticasDTO> ObterEstatisticas();
         Task<MetasDTO> ObterMetas();
     }
 }

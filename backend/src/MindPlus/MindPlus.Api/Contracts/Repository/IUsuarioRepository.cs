@@ -1,7 +1,7 @@
 ﻿using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity.Usuario;
 
-namespace MindPlus.Api.Contracts.Repository.Usuario
+namespace MindPlus.Api.Contracts.Repository
 {
     public interface IUsuarioRepository
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MindPlus.Api.Contracts.Repository.Usuario;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Usuario;
 using MindPlus.Api.Entity.Usuario;
 using MindPlus.Api.Infrastructure;
@@ -33,7 +33,7 @@ namespace MindPlus.Api.Controllers.Usuario
             {
                 return Ok(await _usuarioRepository.LogIn(usuario));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Unauthorized(new { message = "E-mail ou senha inválidos." });
             }
@@ -53,7 +53,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -70,7 +70,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -89,7 +89,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -108,7 +108,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -128,7 +128,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -147,7 +147,7 @@ namespace MindPlus.Api.Controllers.Usuario
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { message = ex.Message });
             }
         }
     }

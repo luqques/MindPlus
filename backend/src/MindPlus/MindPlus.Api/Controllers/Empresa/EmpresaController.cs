@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MindPlus.Api.Contracts.Repository.Empresa;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Empresa;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Linq.Expressions;
