@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +10,15 @@ import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service
   styleUrls: ['./admin.component.css'],
 })
 
-export class AdminComponent {
+export class AdminComponent implements AfterViewInit{
+
+  @ViewChild('myChartCanvas', { static: false }) myChartCanvas!: ElementRef;
+
+  ngAfterViewInit(): void {
+  this.criarGrafico();
+  }
+
+  
 
   public metas: Object = [];
   public estatisticas: Object = [];
@@ -20,7 +29,6 @@ export class AdminComponent {
 
   constructor() {
     
-    this.inicializarDados()
     
     this.cartaoMetas = [
       { title: 'Preenchimento Atual', numeroPreenchimentos: '152/200' }, //LEMBRETE: adicionar métodos
@@ -37,17 +45,37 @@ export class AdminComponent {
     ];
   }
 
-  private inicializarDados(): void {
-    /*
-      AvaliacaoService.obterMetas().subscribe((dadosDTO) => {
-      // Processar dados conforme necessário
-      this.metas = dadosDTO;
-    });
+  //https://www.chartjs.org/docs/latest/charts/doughnut.html#pie
+  criarGrafico(): void {
+    const canvas = this.myChartCanvas.nativeElement;
+    const ctx = canvas.getContext('2d');
 
-    AvaliacaoService.obterEstatisticas().subscribe((dadosDTO) => {
-      // Processar dados conforme necessário
-      this.estatisticas = dadosDTO;
+
+    canvas.width = 100;
+    canvas.height = 100;
+    canvas.width = 100;
+
+    const myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: [
+          'Red',
+          'Blue',
+          'Yellow'
+        ],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [300, 50, 100],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
+        }]
+      },
     });
-    */
   }
+
+
 } 
