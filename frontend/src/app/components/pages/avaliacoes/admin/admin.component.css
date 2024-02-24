@@ -28,7 +28,7 @@
   width: 29vw;
   margin-top: 1.5%;
   margin-inline: 1%;
-  background: white;
+  background: #F6F8F8;
   border-bottom-right-radius: 0.8em;
   border-bottom-left-radius: 0.8em;
 }
@@ -79,5 +79,5 @@
   align-items: center;
   height: 10vh;
   width: 10vw;
-  background: #e7dc76;
+  background: #F6F8F8;
 }

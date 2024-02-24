@@ -55,27 +55,86 @@ export class AdminComponent implements AfterViewInit {
       canvas.width = 200;
       canvas.height = 200;
 
-      if (index === 0) {
-        // Gráfico para Satisfação Geral
-        new Chart(ctx, {
-          type: 'pie',
-          options: {
-            responsive: false,
-            maintainAspectRatio: false
-          },
-          data: {
-            labels: ['Red', 'Blue', 'Yellow'],
-            datasets: [{
-              label: 'My First Dataset',
-              data: [300, 50, 100],
-              backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
-              hoverOffset: 4
-            }]
-          },
-        });
+      switch (index) {
+        case 0: //SG
+          new Chart(ctx, {
+            type: 'pie',
+            options: {
+              responsive: false,
+              maintainAspectRatio: false
+            },
+            data: {
+              labels: ['Red', 'Blue', 'Yellow'],
+              datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                hoverOffset: 4
+              }]
+            },
+          });
+          break;
+        case 1:
+          new Chart(ctx, {
+            type: 'bar',
+            options: {
+              responsive: false,
+              maintainAspectRatio: false
+            },
+            data: {
+              labels: ['Red', 'Blue', 'Yellow'],
+              datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
+              }]
+            },
+          });
+          break;
+        case 2:
+          new Chart(ctx, {
+            type: 'line',
+            options: {
+              responsive: false,
+              maintainAspectRatio: false
+            },
+            data: {
+              labels: ['Red', 'Blue', 'Yellow'],
+              datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 2,
+                fill: false,
+                pointRadius: 5
+              }]
+            },
+          });
+          break;
+        case 3:
+          new Chart(ctx, {
+            type: 'bar',
+            options: {
+              responsive: false,
+              maintainAspectRatio: false
+            },
+            data: {
+              labels: ['Blue', 'Yellow'],
+              datasets: [{
+                label: 'My First Dataset',
+                data: [50, 100],
+                backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 205, 86)']
+              }]
+            },
+          });
+          break;
+        default:
+          // code block
+          break;
       }
-    } else {
+    }
+    else {
       console.error('O contexto do canvas é nulo.');
     }
-  } 
+  }
 }
