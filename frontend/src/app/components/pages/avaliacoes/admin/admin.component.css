@@ -73,11 +73,3 @@
 
 }
 
-.cartaoChart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-  width: 10vw;
-  background: #F6F8F8;
-}

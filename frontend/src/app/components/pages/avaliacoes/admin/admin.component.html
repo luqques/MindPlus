@@ -7,9 +7,9 @@
     <!--<canvas id="myChart" width="400" height="400"></canvas>-->
 
     <h2 class="titulo1">• Metas •</h2>
-    <div *ngFor="let cartao of cartaoMetas" class="cartao">
+    <div *ngFor="let cartao of cartaoMetas; let i = index" class="cartao">
       <h3 class="titulo2"><!--Preenchimento Atual-->{{cartao.title}}</h3>
-      <div class="cartaoMetas"><!--152/200-->{{ cartao.numeroPreenchimentos }}</div>
+      <canvas #chartCanvasMetas class="cartaoMetas"></canvas>
     </div>
 
   </div>
@@ -20,7 +20,7 @@
     <h2 class="titulo1">• Estatísticas •</h2>
     <div *ngFor="let cartao of cartaoChart; let i = index" class="cartao">
       <h3 class="titulo2"><!--Satisfação Geral-->{{cartao.title2}}</h3>
-      <canvas #chartCanvas class="cartaoChart"></canvas>
+      <canvas #chartCanvasEstatisticas class="cartaoChart"></canvas>
     </div>
 
   </div>
