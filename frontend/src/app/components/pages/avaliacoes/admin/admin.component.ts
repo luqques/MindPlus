@@ -25,9 +25,9 @@ export class AdminComponent implements AfterViewInit {
 
     //Estatisticas
     this.avaliacaoService.obterEstatisticas().subscribe(estatisticas => {
-    if (estatisticas) {
-      this.estatisticasDTO = estatisticas;
-    }
+      if (estatisticas) {
+        this.estatisticasDTO = estatisticas;
+      }
     });
 
     this.chartCanvasesEstatisticas.toArray().forEach((canvas, index) => {
@@ -44,7 +44,7 @@ export class AdminComponent implements AfterViewInit {
 
   constructor(private avaliacaoService: AvaliacaoService) {
 
-    
+
 
     this.cartaoMetas = [
       { title: 'Preenchimento Atual' },
@@ -120,21 +120,26 @@ export class AdminComponent implements AfterViewInit {
 
       switch (index) {
         case 0: //SG
-        // criar lista Data e Labels para cada grafico, nessa lista tera labels 5.4.3.2.1. em data tera o n de pessoas que caiu em cada um desses numeros
+          // criar lista Data e Labels para cada grafico, nessa lista tera labels 5.4.3.2.1. em data tera o n de pessoas que caiu em cada um desses numeros
 
-        //const sgData = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.MediaEscore);
-        //const sgLabels = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.NumeroPessoas);
-        const sgLabels = [estatisticasDTO.EscoresRI[0].MediaEscore,
-                          estatisticasDTO.EscoresRI[1].MediaEscore, 
-                          estatisticasDTO.EscoresRI[2].MediaEscore, 
-                          estatisticasDTO.EscoresRI[3].MediaEscore, 
-                          estatisticasDTO.EscoresRI[4].MediaEscore];
-        const sgData = [(estatisticasDTO.EscoresRI[0].NumeroPessoas + estatisticasDTO.EscoresSP[0].NumeroPessoas + estatisticasDTO.EscoresST[0].NumeroPessoas)/3,
-                        (estatisticasDTO.EscoresRI[1].NumeroPessoas + estatisticasDTO.EscoresSP[1].NumeroPessoas + estatisticasDTO.EscoresST[1].NumeroPessoas)/3,
-                        (estatisticasDTO.EscoresRI[2].NumeroPessoas + estatisticasDTO.EscoresSP[2].NumeroPessoas + estatisticasDTO.EscoresST[2].NumeroPessoas)/3,
-                        (estatisticasDTO.EscoresRI[3].NumeroPessoas + estatisticasDTO.EscoresSP[3].NumeroPessoas + estatisticasDTO.EscoresST[3].NumeroPessoas)/3,
-                        (estatisticasDTO.EscoresRI[4].NumeroPessoas + estatisticasDTO.EscoresSP[4].NumeroPessoas + estatisticasDTO.EscoresST[4].NumeroPessoas)/3];
+          //const sgData = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.MediaEscore);
+          //const sgLabels = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.NumeroPessoas);
+          const sgLabels = [estatisticasDTO.EscoresRI[0].MediaEscore,
+          estatisticasDTO.EscoresRI[1].MediaEscore,
+          estatisticasDTO.EscoresRI[2].MediaEscore,
+          estatisticasDTO.EscoresRI[3].MediaEscore,
+          estatisticasDTO.EscoresRI[4].MediaEscore];
+          const sgData = [Math.round((estatisticasDTO.EscoresRI[0].NumeroPessoas + estatisticasDTO.EscoresSP[0].NumeroPessoas + estatisticasDTO.EscoresST[0].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.EscoresRI[1].NumeroPessoas + estatisticasDTO.EscoresSP[1].NumeroPessoas + estatisticasDTO.EscoresST[1].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.EscoresRI[2].NumeroPessoas + estatisticasDTO.EscoresSP[2].NumeroPessoas + estatisticasDTO.EscoresST[2].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.EscoresRI[3].NumeroPessoas + estatisticasDTO.EscoresSP[3].NumeroPessoas + estatisticasDTO.EscoresST[3].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.EscoresRI[4].NumeroPessoas + estatisticasDTO.EscoresSP[4].NumeroPessoas + estatisticasDTO.EscoresST[4].NumeroPessoas) / 3)];
 
+          const numeroPessoasTotal = estatisticasDTO.EscoresRI[0].NumeroPessoas +
+            estatisticasDTO.EscoresSP[0].NumeroPessoas +
+            estatisticasDTO.EscoresST[0].NumeroPessoas;
+
+          const mediaNumeroPessoas = Math.round(numeroPessoasTotal / 3);
 
           new Chart(ctx, {
             type: 'pie',
@@ -155,14 +160,14 @@ export class AdminComponent implements AfterViewInit {
           break;
         case 1:
 
-        const neData = [
-          estatisticasDTO.NiveisEstresse.MediaGeral,
-          estatisticasDTO.NiveisEstresse.MediaGST,
-          estatisticasDTO.NiveisEstresse.MediaGSP,
-          estatisticasDTO.NiveisEstresse.MediaGRI,
-        ];
+          const neData = [
+            estatisticasDTO.NiveisEstresse.MediaGeral,
+            estatisticasDTO.NiveisEstresse.MediaGST,
+            estatisticasDTO.NiveisEstresse.MediaGSP,
+            estatisticasDTO.NiveisEstresse.MediaGRI,
+          ];
 
-        
+
           new Chart(ctx, {
             type: 'bar',
             options: {
@@ -181,8 +186,8 @@ export class AdminComponent implements AfterViewInit {
           break;
         case 2:
 
-        const ttLabels = estatisticasDTO.TendenciasTemporais.map(tt => tt.Mes);
-        const ttData = estatisticasDTO.TendenciasTemporais.map(tt => tt.MediaEscore);
+          const ttLabels = estatisticasDTO.TendenciasTemporais.map(tt => tt.Mes);
+          const ttData = estatisticasDTO.TendenciasTemporais.map(tt => tt.MediaEscore);
 
           new Chart(ctx, {
             type: 'line',
