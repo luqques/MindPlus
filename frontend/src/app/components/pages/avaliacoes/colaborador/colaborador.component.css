@@ -156,3 +156,14 @@ table{
   padding-top: 1.1em;
   margin-inline: 1.7em;
 }
+
+button{
+  position: relative;
+  left: 3.7em;
+  width: 40vw;
+  border: none;
+  background: #4880a0;
+  color: #F6F8F8;
+  font-weight: bold;
+  font-size: large;
+}
