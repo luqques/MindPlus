@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IEstatisticasDTO} from 'src/app/interfaces/IEstatisticasDTO';
+import { IMetasDTO} from 'src/app/interfaces/IMetasDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -33,12 +34,14 @@ export class AvaliacaoService {
     });
   }
 
-  public obterMetas(): Observable<Object> {
-    return this.http.get<Object>(`${this.apiUrl}/metas`, {
+  public obterMetas(): Observable<IMetasDTO> {
+    return this.http.get<IMetasDTO>(`${this.apiUrl}/metas`, {
       headers: {
         Authorization: 
           this.userTokenSubject.value
       }
     });
   }
+
+ 
 }
