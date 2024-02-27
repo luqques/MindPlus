@@ -56,6 +56,8 @@ export class ColaboradorComponent {
     "Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?"
   ]
 
+  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3, this.perguntasST4]
+
   /* Satisfação Pessoal */
   perguntasSP1 = [
     "Como você avalia a política de saúde e bem-estar oferecida pela empresa?",
@@ -81,6 +83,8 @@ export class ColaboradorComponent {
     "Existe uma cultura de apoio mútuo entre os colegas de trabalho?"
   ];
 
+  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3, this.perguntasSP4];
+
   /* Relações Interpessoais */
   perguntasRI1 = [
     "A qualidade das suas relações interpessoais em seu círculo social é satisfatória.",
@@ -105,4 +109,6 @@ export class ColaboradorComponent {
     "Sua contribuição para um ambiente positivo nas suas relações interpessoais é percebida por outros?",
     "Como você lida com desafios de comunicação em seu círculo social?"
   ];
+
+  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3, this.perguntasRI4];
 }

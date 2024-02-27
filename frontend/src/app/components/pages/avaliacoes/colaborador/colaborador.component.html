@@ -56,3 +56,193 @@
       </div>
     </div>
 
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Cultura organizacional</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasST3; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div> 
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Oportunidades de Crescimento</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasST4; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div> 
+  </table>
+
+  <!--Satisfação Pessoal-->
+  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'satisfacao-pessoal'">
+    <div class="mx-4">
+      <h2>Satisfação Pessoal</h2>
+      <h6>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio
+        trabalho-vida, como saúde, autocuidado, relacionamentos no ambiente doméstico, tempo de descanso e atividades de lazer.</h6>
+    </div>
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Saúde e Autocuidado</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasSP1; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div>
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Tempo de Descanso</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasSP2; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div>
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Hobbies e Interesses</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasSP3; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div> 
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Apoio</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasSP4; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div> 
+  </table>
+
+  <!--Relações Interpessoais-->
+  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'relacoes-interpessoais'">
+    <div class="mx-5">
+      <h2>Relações Interpessoais</h2>
+      <h6>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte social.</h6>
+    </div>
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Conexões Pessoais</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasRI1; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div>
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Bem-Estar no Ambiente de Trabalho</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasRI2; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div>
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Apoio Emocional</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasRI3; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div> 
+
+    <nav class="navbar cabecalho-topicos">
+      <div class="container-fluid">
+        <a class="navbar-brand">Interações Diárias</a>
+      </div>
+    </nav>
+    <div *ngFor="let pergunta of perguntasRI4; let i = index">
+      <p class="mt-5">{{ pergunta }}</p>
+      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <div class="row descricao-concordancia">
+        <div class="col">Discordo totalmente</div>
+        <div class="col">Discordo</div>
+        <div class="col">Indiferente</div>
+        <div class="col">Concordo</div>
+        <div class="col">Concordo totalmente</div>
+      </div>
+    </div> 
+  </table>
+
+  <button class="btn btn-primary mt-4" (click)="salvarResultados()">Salvar Resultados</button>
+</div>
