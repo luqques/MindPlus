@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, AfterViewInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
-import Chart from 'chart.js/auto';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin',

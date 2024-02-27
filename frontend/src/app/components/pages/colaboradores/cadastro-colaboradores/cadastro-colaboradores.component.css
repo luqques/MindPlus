@@ -65,25 +65,25 @@
   border-radius: 10px;
 }
 
-.wrapper{
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 10px;
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
 }
 
 .botao-cadastro {
-    border-color: rgb(32, 78, 204);
-    border-radius: 10px;
-    width: 30%;
-    background-color:rgb(32, 78, 204);
-    color: white;
-    padding: 5px;
+  border-color: rgb(32, 78, 204);
+  border-radius: 10px;
+  width: 30%;
+  background-color: rgb(32, 78, 204);
+  color: white;
+  padding: 5px;
 }
 
 .botao-cadastro:hover {
   background-color: rgb(16, 80, 255);
-  border-color:  rgb(16, 80, 255);
+  border-color: rgb(16, 80, 255);
   transition: 1s;
 
 }

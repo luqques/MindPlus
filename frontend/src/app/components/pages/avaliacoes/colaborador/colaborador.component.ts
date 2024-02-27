@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ColaboradorComponent {
 
-  /* Perguntas e radio button */
+  currentTab: string = 'openST';
+  
+  changeTab(tab: string): void {
+    this.currentTab = tab;
+  }
 
   /* Satisfação no Trabalho */
   perguntasST1 = [
@@ -101,29 +105,29 @@ export class ColaboradorComponent {
     5
   ];
 
-  /* Abrir respectiva avaliação */
+  // /* Abrir respectiva avaliação */
 
-  openST = true;
-  openSP = false;
-  openRI = false;
+  // openST = true;
+  // openSP = false;
+  // openRI = false;
 
-  constructor() { }
+  // constructor() { }
 
-  openForm(formName: string): void {
+  // openForm(formName: string): void {
 
-    this.openST = false;
-    this.openSP = false;
-    this.openRI = false;
+  //   this.openST = false;
+  //   this.openSP = false;
+  //   this.openRI = false;
 
-    if (formName === 'ST') {
-      this.openST = true;
-    } else if (formName === 'SP') {
-      this.openSP = true;
-    } else if (formName === 'RI') {
-      this.openRI = true;
-    }
+  //   if (formName === 'ST') {
+  //     this.openST = true;
+  //   } else if (formName === 'SP') {
+  //     this.openSP = true;
+  //   } else if (formName === 'RI') {
+  //     this.openRI = true;
+  //   }
 
-    //console.log(evt + formName);
+  //   //console.log(evt + formName);
 
-  }
+  // }
 }
