@@ -1,157 +1,159 @@
+[19:38] PAOLA KLOCH
 .homepage {
+  height: 70vh;
+  background-color: #f6f8f8;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.small-bar {
+  display: flex;
+  background-color: #185476;
+  height: 6px;
+  width: 720px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+ 
+.secondHeader {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #18537638;
+ 
+  h4,
+  h1 {
+    font-weight: BOLDER;
+    font-family: Barlow;
+    color: #185476;
+  }
+}
+h5 {
+  display: flex;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 700;
+}
+ 
+h2 {
+  display: flex;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 900;
+}
+.icon {
+  margin-top: 15px;
+}
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+ 
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 250px;
+  border-radius: 4px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  background-color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #13384e;
+  margin-top: -20px;
+  border-radius: 2px;
+  border-radius: 2px;
+  border: transparent;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+ 
+/* .container {
+  border-radius: 4px;
+} */
+ 
+/* .container h1 {
+  font-size: 20px;
+  font-family: Hammersmith-One;
+  text-align: center;
+  margin-bottom: 80px;
+  color: #004aad;
+} */
+ 
+/* .container p {
+  text-align: left;
+} */
+ 
+@media (max-width: 430px) {
+  homepage {
     height: 70vh;
-    background-color: aliceblue;
-}
-
-.grid {
+    background-color: #e8e8e8;
+  }
+ 
+  .secondHeader {
+    height: 300px;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-}
-
-.card {
+    align-items: center;
+    text-align: center;
+    background-color: #18537638;
+ 
+    h4,
+    h1 {
+      font-weight: BOLDER;
+      font-family: Barlow;
+      color: #185476;
+    }
+  }
+  .icon {
+    margin-top: 15px;
+  }
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+  }
+ 
+  .col {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    height: 100px;
     border-radius: 4px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: #f7fbfce0;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    padding: 10px;
-}
-
-.card h2 {
-    font-size: 20px;
-    text-align: center;
-    font-weight: lighter;
-}
-
-.card p {
-    height: 150px;
-    margin-bottom: 30px;
-    padding: 20px;
-    color: #66666692;
-}
-
-.card button {
-    text-align: center;
-    border: none;
-    margin: 10px;
-    height: 30px;
-    width: 90%;
-    font-size: 16px;
-    color: #fff;
-    background-color: #0856bcc5;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.card button:hover {
-    background-color: #004aad;
-    color: white;
-}
-
-.container {
-    border-radius: 4px;
-}
-
-.container h1 {
-    font-size: 20px;
-    font-family: Hammersmith-One;
-    text-align: center;
-    margin-bottom: 80px;
-    color: #004aad;
-}
-
-.container p {
-    text-align: left;
-}
-
-.card {
-    margin: 40px;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #13384e;
+    margin-top: 30px;
     border-radius: 2px;
+    border-radius: 2px;
+    border: transparent;
+  }
 }
-
-@media (max-width: 430px) {
-    .homepage-frase {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 30vh;
-        background-size: cover;
-        background-position: center;
-        background-image: url("https://images.pexels.com/photos/8822081/pexels-photo-8822081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    }
-
-    .homepage-square {
-        width: 400px;
-        height: 100px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 7px;
-        padding: 10px;
-        box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
-        gap: 5px;
-    }
-
-    .homepage-square h2 {
-        font-size: 20px;
-        text-align: center;
-        color: #fff;
-    }
-
-    .homepage-square h4 {
-        font-size: 10px;
-    }
-
-    .grid {
-        display: inline-block;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .grid .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4px;
-        border-style: none;
-        height: 350px;
-        width: 350px;
-        margin-bottom: 50px;
-        background-color: #004badcf;
-        border-radius: 20px;
-    }
-
-    .grid .card h2 {
-        margin-bottom: 20px;
-        text-align: center;
-        color: #fff;
-    }
-
-    .grid .card p {
-        text-align: left;
-        font-size: 18px;
-        font-family: hammersmith-one;
-        padding-left: 50px;
-        padding-right: 50px;
-        color: #fff;
-    }
-
-    .grid .card button {
-        text-align: left;
-        font-size: 16px;
-        color: #fff;
-        background-color: transparent;
-        cursor: pointer;
-    }
-}
+ 
