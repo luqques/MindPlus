@@ -22,12 +22,3 @@ export class TendenciasTemporais {
     Mes: number = 0;
     MediaEscore: number = 0;
 }
-
-
-    // Descomente se precisar desta classe
-    /*
-    export class EquilibrioVida {
-        // public Categoria: string;
-        // public MediaGeral: number;
-    }
-    */
