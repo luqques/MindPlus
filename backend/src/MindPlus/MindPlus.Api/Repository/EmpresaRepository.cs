@@ -1,10 +1,10 @@
 ﻿using Dapper;
-using MindPlus.Api.Contracts.Repository.Empresa;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Empresa;
 using MindPlus.Api.Entity.Empresa;
 using MindPlus.Api.Infrastructure;
 
-namespace MindPlus.Api.Repository.Empresa
+namespace MindPlus.Api.Repository
 {
     public class EmpresaRepository : Connection, IEmpresaRepository
     {

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
 
 @Component({
   selector: 'app-colaborador',
@@ -7,7 +9,27 @@ import { Component } from '@angular/core';
 })
 export class ColaboradorComponent {
 
-  /* Perguntas e radio button */
+  constructor(private http: HttpClient, private avaliacoesService: AvaliacaoService) {}
+
+  currentTab: string = 'satisfacao-no-trabalho';
+  sections = [
+    { id: 'satisfacao-no-trabalho', title: 'Satisfação no Trabalho' },
+    { id: 'satisfacao-pessoal', title: 'Satisfação Pessoal' },
+    { id: 'relacoes-interpessoais', title: 'Relações Interpessoais' }
+  ];
+
+  changeTab(tabId: string) {
+    this.currentTab = tabId;
+  }
+
+  salvarResultados() {
+    const resultados = 1; //TODO: pegar a média dos valores do reactive forms para enviar para o payload.
+    this.avaliacoesService.salvarResultados(resultados).subscribe(response => {
+        console.log(response);
+      }
+    );
+  }
+
 
   /* Satisfação no Trabalho */
   perguntasST1 = [
@@ -34,9 +56,6 @@ export class ColaboradorComponent {
     "Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?"
   ]
 
-  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3, this.perguntasST4]
-
-
   /* Satisfação Pessoal */
   perguntasSP1 = [
     "Como você avalia a política de saúde e bem-estar oferecida pela empresa?",
@@ -62,9 +81,6 @@ export class ColaboradorComponent {
     "Existe uma cultura de apoio mútuo entre os colegas de trabalho?"
   ];
 
-  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3, this.perguntasSP4];
-
-
   /* Relações Interpessoais */
   perguntasRI1 = [
     "A qualidade das suas relações interpessoais em seu círculo social é satisfatória.",
@@ -89,41 +105,4 @@ export class ColaboradorComponent {
     "Sua contribuição para um ambiente positivo nas suas relações interpessoais é percebida por outros?",
     "Como você lida com desafios de comunicação em seu círculo social?"
   ];
-
-  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3, this.perguntasRI4];
-
-
-  valores = [
-    1,
-    2,
-    3,
-    4,
-    5
-  ];
-
-  /* Abrir respectiva avaliação */
-
-  openST = true;
-  openSP = false;
-  openRI = false;
-
-  constructor() { }
-
-  openForm(formName: string): void {
-
-    this.openST = false;
-    this.openSP = false;
-    this.openRI = false;
-
-    if (formName === 'ST') {
-      this.openST = true;
-    } else if (formName === 'SP') {
-      this.openSP = true;
-    } else if (formName === 'RI') {
-      this.openRI = true;
-    }
-
-    //console.log(evt + formName);
-
-  }
 }

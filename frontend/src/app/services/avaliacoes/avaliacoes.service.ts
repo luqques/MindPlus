@@ -37,13 +37,22 @@ export class AvaliacaoService {
   public obterMetas(): Observable<IMetasDTO> {
     return this.http.get<IMetasDTO>(`${this.apiUrl}/metas`, {
       headers: {
+        'Content-Type': 'application/json',
         Authorization: 
           this.userTokenSubject.value
       }
     });
   }
 
- 
+  public salvarResultados(payload: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/inserir`, payload, {
+      headers: {
+        Authorization:
+          this.userTokenSubject.value
+      }
+    });
+  }
+
 }
 
-//;
+
