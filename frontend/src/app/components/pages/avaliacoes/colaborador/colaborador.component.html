@@ -3,19 +3,20 @@
   <!-- Abas -->
   <ul class="nav nav-tabs nav-fill pt-3 tabs">
     <h3 class="px-5">Avaliações</h3>
-    <li class="nav-item">
-      <a class="nav-link" (click)="changeTab('openST')" [class.active]="currentTab === 'openST'">Satisfação no Trabalho</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="changeTab('openSP')" [class.active]="currentTab === 'openSP'">Satisfação Pessoal</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="changeTab('openRI')" [class.active]="currentTab === 'openRI'">Relações Interpessoais</a>
+    <li class="nav-item" *ngFor="let section of sections">
+      <a class="nav-link" (click)="changeTab(section.id)" [class.active]="currentTab === section.id">{{ section.title }}</a>
     </li>
   </ul>
   
+  <!-- Conteúdo das abas -->
+  <div *ngFor="let section of sections">
+    <table id="{{ section.id }}" class="container text-center mt-5" *ngIf="currentTab === section.id">
+      <!-- ... seu conteúdo existente ... -->
+    </table>
+  </div>
+
   <!--Satisfação no Trabalho-->
-  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'openST'">
+  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'satisfacao-no-trabalho'">
     <div class="mx-4">
       <h2>Satisfação no Trabalho</h2>
       <h6>Avalia a satisfação dos colaboradores no ambiente profissional, focando em aspectos como gestão interna, benefícios, cultura organizacional e oportunidades de crescimento.</h6>
@@ -91,7 +92,7 @@
   </table>
 
   <!--Satisfação Pessoal-->
-  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'openSP'">
+  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'satisfacao-pessoal'">
     <div class="mx-4">
       <h2>Satisfação Pessoal</h2>
       <h6>Explora aspectos a respeito da qualidade de vida pessoal que podem influenciar o equilíbrio
@@ -168,7 +169,7 @@
   </table>
 
   <!--Relações Interpessoais-->
-  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'openRI'">
+  <table id="satisfacao-no-trabalho" class="container text-center mt-5" *ngIf="currentTab === 'relacoes-interpessoais'">
     <div class="mx-5">
       <h2>Relações Interpessoais</h2>
       <h6>Avalia a qualidade das relações no trabalho e na vida pessoal, com foco em comunicação, colaboração e suporte social.</h6>
@@ -242,4 +243,6 @@
       </div>
     </div> 
   </table>
+
+  <button class="btn btn-primary mt-4" (click)="salvarResultados()">Salvar Resultados</button>
 </div>

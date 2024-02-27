@@ -35,7 +35,17 @@ export class AvaliacaoService {
   public obterMetas(): Observable<Object> {
     return this.http.get<Object>(`${this.apiUrl}/metas`, {
       headers: {
+        'Content-Type': 'application/json',
         Authorization: 
+          this.userTokenSubject.value
+      }
+    });
+  }
+
+  public salvarResultados(payload: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/inserir`, payload, {
+      headers: {
+        Authorization:
           this.userTokenSubject.value
       }
     });
