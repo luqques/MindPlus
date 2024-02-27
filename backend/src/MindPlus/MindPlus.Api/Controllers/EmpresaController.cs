@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MindPlus.Api.Contracts.Repository.Empresa;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Empresa;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Linq.Expressions;
 
-namespace MindPlus.Api.Controllers.Empresa
+namespace MindPlus.Api.Controllers
 {
     [ApiController]
     [Route("empresa")]
@@ -25,8 +26,15 @@ namespace MindPlus.Api.Controllers.Empresa
         [SwaggerOperation(Summary = "Cadastrar uma empresa", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> CadastrarEmpresa(EmpresaDto empresa)
         {
-            await _empresaRepository.CadastrarEmpresa(empresa);
-            return Ok(new { message = "Empresa cadastrada com sucesso!" });
+            try
+            {
+                await _empresaRepository.CadastrarEmpresa(empresa);
+                return Ok(new { message = "Empresa cadastrada com sucesso!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -37,7 +45,14 @@ namespace MindPlus.Api.Controllers.Empresa
         [SwaggerOperation(Summary = "Visualizar empresa", Description = "Visualiza uma empresa de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterEmpresaPorId(int id)
         {
-            return Ok(await _empresaRepository.ObterPorId(id));
+            try
+            {
+                return Ok(await _empresaRepository.ObterPorId(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

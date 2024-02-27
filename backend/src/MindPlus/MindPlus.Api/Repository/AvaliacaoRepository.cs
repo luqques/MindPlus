@@ -1,20 +1,13 @@
-
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System;
-
 using Dapper;
-using MindPlus.Api.Entity;
 using MindPlus.Api.Dto.Avaliacao;
-using MindPlus.Api.Entity.Avaliacao;
 using MindPlus.Api.Infrastructure;
 using MindPlus.Api.Contracts.Repository;
+using MindPlus.Api.Entity.Usuario;
 
-namespace MindPlus.Api.Repository.Avaliacao
+namespace MindPlus.Api.Repository
 {
     public class AvaliacaoRepository : Connection, IAvaliacaoRepository
     {
-
         public async Task<MetasDTO> ObterMetas()
         {
             MetasDTO dto = new MetasDTO();
@@ -76,76 +69,76 @@ namespace MindPlus.Api.Repository.Avaliacao
         public async Task<EstatisticasDTO> ObterEstatisticas()
         {
             EstatisticasDTO dto = new EstatisticasDTO();
-            dto.EscoresST = new List<EscoreAvaliacao>();
-            dto.EscoresSP = new List<EscoreAvaliacao>();
-            dto.EscoresRI = new List<EscoreAvaliacao>();
+            dto.ScoresST = new List<ScoreAvaliacao>();
+            dto.ScoresSP = new List<ScoreAvaliacao>();
+            dto.ScoresRI = new List<ScoreAvaliacao>();
 
             for (int i = 0; i < 5; i++)
             {
-                var avaliacao = new EscoreAvaliacao();
-                avaliacao.MediaEscore = i + 1;
+                var avaliacao = new ScoreAvaliacao();
+                avaliacao.MediaScore = i + 1;
 
                 string sqlNumeroPessoas = @$"SELECT COUNT(DISTINCT USUARIO_Id) 
                                             FROM avaliacao 
                                             WHERE MONTH(`Data`) = MONTH(NOW()) 
                                             AND YEAR(`Data`) = YEAR(NOW())
-                                            AND Escore > {i + 0.1} AND Escore < {i + 1}
+                                            AND Score > {i + 0.1} AND Score < {i + 1}
                                             AND Avaliacao = 1";
                 avaliacao.NumeroPessoas = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlNumeroPessoas);
 
-                dto.EscoresST.Add(avaliacao);
+                dto.ScoresST.Add(avaliacao);
 
             }
 
 
             for (int i = 0; i < 5; i++)
             {
-                var avaliacao = new EscoreAvaliacao();
-                avaliacao.MediaEscore = i + 1;
+                var avaliacao = new ScoreAvaliacao();
+                avaliacao.MediaScore = i + 1;
 
                 string sqlNumeroPessoas = @$"SELECT COUNT(DISTINCT USUARIO_Id) 
                                             FROM avaliacao 
                                             WHERE MONTH(`Data`) = MONTH(NOW()) 
                                             AND YEAR(`Data`) = YEAR(NOW())
-                                            AND Escore > {i + 0.1} AND Escore < {i + 1}
+                                            AND Score > {i + 0.1} AND Score < {i + 1}
                                             AND Avaliacao = 2";
                 avaliacao.NumeroPessoas = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlNumeroPessoas);
 
-                dto.EscoresSP.Add(avaliacao);
+                dto.ScoresSP.Add(avaliacao);
 
             }
 
             for (int i = 0; i < 5; i++)
             {
-                var avaliacao = new EscoreAvaliacao();
-                avaliacao.MediaEscore = i + 1;
+                var avaliacao = new ScoreAvaliacao();
+                avaliacao.MediaScore = i + 1;
 
                 string sqlNumeroPessoas = @$"SELECT COUNT(DISTINCT USUARIO_Id) 
                                             FROM avaliacao 
                                             WHERE MONTH(`Data`) = MONTH(NOW()) 
                                             AND YEAR(`Data`) = YEAR(NOW())
-                                            AND Escore > {i + 0.1} AND Escore < {i + 1}
+                                            AND Score > {i + 0.1} AND Score < {i + 1}
                                             AND Avaliacao = 3";
                 avaliacao.NumeroPessoas = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlNumeroPessoas);
 
 
-                dto.EscoresRI.Add(avaliacao);
+                dto.ScoresRI.Add(avaliacao);
             }
 
             string sqlMediaGST = @"
-            SELECT avg(Escore)
+            SELECT avg(Score)
             FROM mp.avaliacao
             WHERE Avaliacao = 1 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGST = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGST);
 
             string sqlMediaGSP = @"
-            SELECT avg(Escore)
+            SELECT avg(Score)
             FROM mp.avaliacao
             WHERE Avaliacao = 2 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGSP = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGSP);
 
             string sqlMediaGRI = @"
-            SELECT avg(Escore)
+            SELECT avg(Score)
             FROM mp.avaliacao
             WHERE Avaliacao = 3 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGRI = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGRI);
@@ -161,17 +154,31 @@ namespace MindPlus.Api.Repository.Avaliacao
                 mes.Mes = i;
 
                 string sqlTendenciasTemporais = @$"
-                SELECT avg(Escore)
+                SELECT avg(Score)
                 FROM mp.avaliacao
                 WHERE YEAR(`Data`) = {DateTime.Today.Year} AND
                 MONTH(`Data`) = {i}";
-                mes.MediaEscore = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlTendenciasTemporais);
+                mes.MediaScore = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlTendenciasTemporais);
 
                 dto.TendenciasTemporais.Add(mes);
             }
             //Equilíbrio Vida Pessoal será no front
             return dto;
 
+        }
+
+        public async Task CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
+        {
+            string sql = @"
+                        INSERT INTO AVALIACAO (Usuario_Id,
+                                               Avaliacao,
+                                               Data,
+                                               Score) 
+                                       VALUES (@Usuario_Id
+                                               @Avaliacao,
+                                               @Data,
+                                               @Score)";
+            await Execute(sql, avaliacao);
         }
     }
 }

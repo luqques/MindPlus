@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MindPlus.Api.Contracts.Repository.Empresa;
-using MindPlus.Api.Contracts.Repository.Usuario;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Entity;
 using MindPlus.Api.Infrastructure;
-using MindPlus.Api.Repository.Empresa;
-using MindPlus.Api.Repository.Usuario;
+using MindPlus.Api.Repository;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);

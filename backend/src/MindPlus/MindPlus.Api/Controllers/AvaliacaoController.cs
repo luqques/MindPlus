@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using MindPlus.Api.Contracts.Repository;
 using MindPlus.Api.Dto.Avaliacao;
-using MindPlus.Api.Repository.Avaliacao;
 
 namespace MindPlus.Api.Controllers
 {
@@ -9,14 +9,19 @@ namespace MindPlus.Api.Controllers
     public class AvaliacaoController : ControllerBase
     {
 
-        private readonly AvaliacaoRepository repositorio = new AvaliacaoRepository();
+        private readonly IAvaliacaoRepository _repository;
+
+        public AvaliacaoController(IAvaliacaoRepository repository)
+        {
+            _repository = repository;
+        }
 
         [HttpGet("estatisticas")]
         public async Task<IActionResult> ObterEstatisticas()
         {
             try
             {
-                var EstatisticasDTO = await repositorio.ObterEstatisticas();
+                var EstatisticasDTO = await _repository.ObterEstatisticas();
 
                 return Ok(EstatisticasDTO);
             }
@@ -32,7 +37,7 @@ namespace MindPlus.Api.Controllers
         {
             try
             {
-                var MetasDTO = await repositorio.ObterMetas();
+                var MetasDTO = await _repository.ObterMetas();
 
                 return Ok(MetasDTO);
             }
@@ -43,5 +48,18 @@ namespace MindPlus.Api.Controllers
             }
         }
 
+        [HttpPost("inserir")]
+        public async Task<IActionResult> CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
+        {
+            try
+            {
+                await _repository.CadastrarAvaliacao(avaliacao);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }
