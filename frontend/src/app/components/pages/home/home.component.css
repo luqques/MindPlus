@@ -1,40 +1,26 @@
-.homepage {
-  height: 70vh;
-  background-color: #f6f8f8;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .text-box {
   width: 900px;
 }
+
 .small-bar {
   display: flex;
+  text-align: center;
+  align-items: center;
   background-color: #185476;
   height: 6px;
-  width: 720px;
+  width: 100%;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.secondHeader {
-  height: 300px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.second-header {
+  height: 18em;
+  padding-top: 5em;
   text-align: center;
   background-color: #18537638;
-
-  h4,
-  h1 {
-    font-weight: BOLDER;
-    font-family: Barlow;
-    color: #185476;
-  }
+  color: #185476;
 }
+
 h5 {
   display: flex;
   text-align: center;
@@ -48,9 +34,11 @@ h2 {
   margin-top: 10px;
   font-weight: 900;
 }
+
 .icon {
   margin-top: 15px;
 }
+
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined";
   font-weight: normal;
@@ -106,14 +94,17 @@ h2 {
     height: 70vh;
     background-color: #e8e8e8;
   }
+
   .small-bar {
     display: flex;
+    text-align: center;
     background-color: #185476;
     height: 6px;
-    width: 100px;
+    width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
   .secondHeader {
     height: 300px;
     width: 100%;
@@ -130,9 +121,11 @@ h2 {
       color: #185476;
     }
   }
+
   .icon {
     margin-top: 15px;
   }
+
   .material-symbols-outlined {
     font-family: "Material Symbols Outlined";
     font-weight: normal;
@@ -163,6 +156,7 @@ h2 {
     border-radius: 2px;
     border: transparent;
   }
+
   .text-box {
     width: 400px;
   }
