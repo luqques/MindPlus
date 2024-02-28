@@ -17,6 +17,9 @@ export class AdminComponent implements AfterViewInit {
   @ViewChildren('chartCanvasMetas') chartCanvasesMetas!: QueryList<ElementRef>;
   @ViewChildren('chartCanvasEstatisticas') chartCanvasesEstatisticas!: QueryList<ElementRef>;
 
+  //estatisticasDTO!: IEstatisticasDTO;
+  //metasDTO!: IMetasDTO;
+
   estatisticasDTO: IEstatisticasDTO = {
     EscoresST: [{ MediaEscore: 1, NumeroPessoas: 5 },
       { MediaEscore: 2, NumeroPessoas: 10 },
@@ -88,7 +91,7 @@ export class AdminComponent implements AfterViewInit {
     //this.metas.ColaboradorTotalAtual
 
     this.cartaoChart = [
-      { title2: 'Satisfação Geral' },
+      { title2: 'Satisfação Geral dos Colaboradores' },
       { title2: 'Níveis de Estresse' },
       { title2: 'Tendências Temporais' },
       { title2: 'Equilíbrio de Vida Pessoal/Profissional' },
@@ -100,8 +103,8 @@ export class AdminComponent implements AfterViewInit {
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      canvas.width = 200;
-      canvas.height = 200;
+      //canvas.width = 515;
+      //canvas.height = 235;
 
       switch (index) {
         case 0: 
@@ -132,7 +135,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: pmesLabels,
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Quantidade de preenchimentos por mês',
                 data: pmesData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
@@ -161,7 +164,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: panoLabels,
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Quantidade de preenchimentos por ano',
                 data: panoData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
@@ -187,8 +190,8 @@ export class AdminComponent implements AfterViewInit {
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      canvas.width = 200;
-      canvas.height = 200;
+      canvas.width = 515;
+      canvas.height = 235;
 
       switch (index) {
         case 0: //SG
@@ -219,16 +222,16 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: sgLabels,
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Quantidade colaboradores',
                 data: sgData,
-                backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                backgroundColor: ['#C43030', '#ED944B', '#E8E766', '#5C93AD','#84BD57'],
                 hoverOffset: 4
               }]
             },
           });
           break;
-        case 1:
 
+        case 1: //NE
           const neData = [
             estatisticasDTO.NiveisEstresse.MediaGeral,
             estatisticasDTO.NiveisEstresse.MediaGST,
@@ -236,17 +239,23 @@ export class AdminComponent implements AfterViewInit {
             estatisticasDTO.NiveisEstresse.MediaGRI,
           ];
 
-
           new Chart(ctx, {
             type: 'bar',
             options: {
               responsive: false,
-              maintainAspectRatio: false
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true, 
+                  max: 5,
+                  reverse: true
+                }
+              }
             },
             data: {
-              labels: ['Geral', 'GST', 'GSP', 'GRI'],
+              labels: ['Geral', 'Satisfação no Trabalho', 'Satisfação Pessoal', 'Relações Interpessoais'],
               datasets: [{
-                label: 'Média de Estresse',
+                label: 'Média de estresse geral e por avaliação',
                 data: neData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
@@ -267,7 +276,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: ttLabels,
               datasets: [{
-                label: 'Média de Escore',
+                label: 'Média de escore ao longo do tempo',
                 data: ttData,
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 2,
@@ -291,9 +300,9 @@ export class AdminComponent implements AfterViewInit {
               maintainAspectRatio: false
             },
             data: {
-              labels: ['GST', 'GSP'],
+              labels: ['Satisfação no Trabalho', 'Satisfação Pessoal'],
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Média de escore entre as duas avaliações',
                 data: evpData,
                 backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]

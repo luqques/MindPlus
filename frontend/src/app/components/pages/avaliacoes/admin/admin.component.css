@@ -17,36 +17,59 @@
   left: 50%;
   transform: translate(-50%, 5%);
   background-color: #F6F8F8D9;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
+  margin-bottom: 4em;
+  border-radius: 1em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 
 }
 
 .cartao {
   display: inline-block;
   height: 39vh;
-  width: 29vw;
+  width: 39vw;
   margin-top: 1.5%;
   margin-inline: 1%;
-  background: #F6F8F8;
-  border-bottom-right-radius: 0.8em;
-  border-bottom-left-radius: 0.8em;
+  background: #ecf3f3;
+  border-radius: 0.6em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.cartaoChart{
+  margin: 0 auto;
+}
+
+.cartaoMetas{
+  margin: 0 auto;
+  height: 95%;
+  width: 90%;
+}
 
 @media (max-width: 55rem) {
   .fundo {
     flex-direction: column;
-    padding-bottom: 0em;
-    margin-bottom: 2em;
-    border-bottom-right-radius: 0.8em;
-    border-bottom-left-radius: 0.8em;
+    padding-bottom: 1em;
+    margin-bottom: 4em;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
   }
 
   .cartao {
-    flex: none;
-    width: 100%;
+    overflow: hidden;
+    height: 90%;
+    width: 90%;
     transform: translate(-1%);
+  }
+
+  .cartaoChart{
+    
+  }
+  
+  .cartaoMetas{
+
+    height: 85%;
+    width: 90%;
   }
 }
 
@@ -56,7 +79,9 @@
   text-align: start;
   height: 1.7em;
   color: #F6F8F8;
-  background-image: linear-gradient(to right, #185376, #5C93AD);
+  background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
+  border-top-right-radius: 0.5em;
+  border-top-left-radius: 0.5em;
 }
 
 .titulo2 {
@@ -66,10 +91,12 @@
   text-align: left;
   height: 3.5vh;
   min-width: 29vw;
-  padding-top: 0.07em;
-  padding-left: 0.7em;
+  padding-left: 0.5em;
+  padding-top:0.1em ;
   color: #F6F8F8;
-  background-image: linear-gradient(to right, #185376, #5C93AD, #e5f3f3);
+  background-image: linear-gradient(to right, #185376, #5C93AD);
+  border-top-right-radius: 0.5em;
+  border-top-left-radius: 0.5em;
 
 }
 
