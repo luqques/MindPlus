@@ -2,6 +2,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
+import { IAvaliacaoEntity } from 'src/app/interfaces/IAvaliacaoEntity';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-colaborador',
@@ -14,52 +17,54 @@ export class ColaboradorComponent {
 
   constructor(
     private http: HttpClient,
+    private localStorage: LocalStorageService,
     private avaliacoesService: AvaliacaoService,
     private formBuilder: FormBuilder) {
     this.avaliacaoFormGroup = this.formBuilder.group({
-      perguntaST10: [0],
-      perguntaST11: [0],
-      perguntaST12: [0],
-      perguntaST20: [0],
-      perguntaST21: [0],
-      perguntaST22: [0],
-      perguntaST30: [0],
-      perguntaST31: [0],
-      perguntaST32: [0],
-      perguntaSP10: [0],
-      perguntaSP11: [0],
-      perguntaSP12: [0],
-      perguntaSP20: [0],
-      perguntaSP21: [0],
-      perguntaSP22: [0],
-      perguntaSP30: [0],
-      perguntaSP31: [0],
-      perguntaSP32: [0],
-      perguntaRI10: [0],
-      perguntaRI11: [0],
-      perguntaRI12: [0],
-      perguntaRI20: [0],
-      perguntaRI21: [0],
-      perguntaRI22: [0],
-      perguntaRI30: [0],
-      perguntaRI31: [0],
-      perguntaRI32: [0],
+      perguntaST10: [3],
+      perguntaST12: [3],
+      perguntaST11: [3],
+      perguntaST20: [3],
+      perguntaST21: [3],
+      perguntaST22: [3],
+      perguntaST30: [3],
+      perguntaST31: [3],
+      perguntaST32: [3],
+      perguntaSP10: [3],
+      perguntaSP11: [3],
+      perguntaSP12: [3],
+      perguntaSP20: [3],
+      perguntaSP21: [3],
+      perguntaSP22: [3],
+      perguntaSP30: [3],
+      perguntaSP31: [3],
+      perguntaSP32: [3],
+      perguntaRI10: [3],
+      perguntaRI11: [3],
+      perguntaRI12: [3],
+      perguntaRI20: [3],
+      perguntaRI21: [3],
+      perguntaRI22: [3],
+      perguntaRI30: [3],
+      perguntaRI31: [3],
+      perguntaRI32: [3],
     });
   }
 
-  
-  currentTab: string = 'satisfacao-no-trabalho';
+  currentTab: number = 1;
   sections = [
-    { id: 'satisfacao-no-trabalho', title: 'Satisfação no Trabalho' },
-    { id: 'satisfacao-pessoal', title: 'Satisfação Pessoal' },
-    { id: 'relacoes-interpessoais', title: 'Relações Interpessoais' }
+    { id: 1, title: 'Satisfação no Trabalho' },
+    { id: 2, title: 'Satisfação Pessoal' },
+    { id: 3, title: 'Relações Interpessoais' }
   ];
 
-  changeTab(tabId: string) {
+  changeTab(tabId: number) {
     this.currentTab = tabId;
   }
 
-  salvarResultados() {
+  usuarioData = this.localStorage.get("usuarioData")
+
+  salvarResultados(idAvaliacao: number) {
     let pontuacoes =
       this.avaliacaoFormGroup.controls['perguntaST10'].value
       + this.avaliacaoFormGroup.controls['perguntaST11'].value
@@ -70,14 +75,20 @@ export class ColaboradorComponent {
       + this.avaliacaoFormGroup.controls['perguntaST30'].value
       + this.avaliacaoFormGroup.controls['perguntaST31'].value
       + this.avaliacaoFormGroup.controls['perguntaST32'].value;
-      
+
     let score = pontuacoes / 9;
     console.log(score);
 
-    const payload = {
-
+    const payload: IAvaliacaoEntity = {
+      usuarioId: this.usuarioData.id,
+      avaliacao: idAvaliacao,
+      date: new Date(),
+      score: score
     }
-    this.avaliacoesService.salvarResultados(score).subscribe(response => {
+
+    console.log(payload);
+    
+    this.avaliacoesService.salvarAvaliacao(payload).subscribe(response => {
         console.log(response);
       }
     );
@@ -102,8 +113,6 @@ export class ColaboradorComponent {
     "Você percebe estímulos à inovação e criatividade na cultura organizacional?",
   ]
 
-  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3]
-
   /* Satisfação Pessoal */
   perguntasSP1 = [
     "Como você avalia a política de saúde e bem-estar oferecida pela empresa?",
@@ -123,8 +132,6 @@ export class ColaboradorComponent {
     "A empresa oferece atividades que promovem o engajamento e a satisfação pessoal?"
   ];
 
-  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3];
-
   /* Relações Interpessoais */
   perguntasRI1 = [
     "A qualidade das suas relações interpessoais em seu círculo social é satisfatória.",
@@ -143,6 +150,4 @@ export class ColaboradorComponent {
     "Como você promove a diversidade de perspectivas e experiências em seus círculos sociais?",
     "Quais práticas você considera importantes para manter um ambiente inclusivo em suas relações?"
   ];
-
-  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3];
 }

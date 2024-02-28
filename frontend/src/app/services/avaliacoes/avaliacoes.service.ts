@@ -44,7 +44,7 @@ export class AvaliacaoService {
     });
   }
 
-  public salvarResultados(payload: any): Observable<any> {
+  public salvarAvaliacao(payload: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/inserir`, payload, {
       headers: {
         Authorization:
