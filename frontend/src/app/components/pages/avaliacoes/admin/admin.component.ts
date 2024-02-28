@@ -103,8 +103,8 @@ export class AdminComponent implements AfterViewInit {
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      //canvas.width = 515;
-      //canvas.height = 235;
+      canvas.width = 515;
+      canvas.height = 235;
 
       switch (index) {
         case 0: 
