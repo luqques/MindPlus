@@ -21,21 +21,21 @@ export class AdminComponent implements AfterViewInit {
   //metasDTO!: IMetasDTO;
 
   estatisticasDTO: IEstatisticasDTO = {
-    EscoresST: [{ MediaEscore: 1, NumeroPessoas: 5 },
-      { MediaEscore: 2, NumeroPessoas: 10 },
-      { MediaEscore: 3, NumeroPessoas: 15 },
-      { MediaEscore: 4, NumeroPessoas: 20 },
-      { MediaEscore: 5, NumeroPessoas: 25 }],
-    EscoresSP: [{ MediaEscore: 1, NumeroPessoas: 5 },
-      { MediaEscore: 2, NumeroPessoas: 10 },
-      { MediaEscore: 3, NumeroPessoas: 15 },
-      { MediaEscore: 4, NumeroPessoas: 20 },
-      { MediaEscore: 5, NumeroPessoas: 25 }],
-    EscoresRI: [{ MediaEscore: 1, NumeroPessoas: 5 },
-      { MediaEscore: 2, NumeroPessoas: 10 },
-      { MediaEscore: 3, NumeroPessoas: 15 },
-      { MediaEscore: 4, NumeroPessoas: 20 },
-      { MediaEscore: 5, NumeroPessoas: 25 }],
+    ScoresST: [{ MediaScore: 1, NumeroPessoas: 5 },
+      { MediaScore: 2, NumeroPessoas: 10 },
+      { MediaScore: 3, NumeroPessoas: 15 },
+      { MediaScore: 4, NumeroPessoas: 20 },
+      { MediaScore: 5, NumeroPessoas: 25 }],
+    ScoresSP: [{ MediaScore: 1, NumeroPessoas: 5 },
+      { MediaScore: 2, NumeroPessoas: 10 },
+      { MediaScore: 3, NumeroPessoas: 15 },
+      { MediaScore: 4, NumeroPessoas: 20 },
+      { MediaScore: 5, NumeroPessoas: 25 }],
+    ScoresRI: [{ MediaScore: 1, NumeroPessoas: 5 },
+      { MediaScore: 2, NumeroPessoas: 10 },
+      { MediaScore: 3, NumeroPessoas: 15 },
+      { MediaScore: 4, NumeroPessoas: 20 },
+      { MediaScore: 5, NumeroPessoas: 25 }],
     NiveisEstresse: new NiveisEstresse(),
     TendenciasTemporais: []
   };
@@ -340,7 +340,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: ['Satisfação no Trabalho', 'Satisfação Pessoal'],
               datasets: [{
-                label: 'Média de escore entre as duas avaliações',
+                label: 'Média de Score entre as duas avaliações',
                 data: evpData,
                 backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
