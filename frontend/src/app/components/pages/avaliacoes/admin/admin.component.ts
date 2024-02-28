@@ -18,7 +18,14 @@ export class AdminComponent implements AfterViewInit {
   @ViewChildren('chartCanvasEstatisticas') chartCanvasesEstatisticas!: QueryList<ElementRef>;
 
   estatisticasDTO!: IEstatisticasDTO;
-  metasDTO!: IMetasDTO;
+
+  // TODO: Pegar esses dados da API mais tarde :D
+  metasDTO: IMetasDTO = {
+    PreenchimentoTotalAtual: 0,
+    ColaboradorTotalAtual: 0,
+    PreenchimentosAno: [],
+    PreenchimentosMes: []
+  };
 
   ngAfterViewInit(): void {
 
@@ -43,6 +50,16 @@ export class AdminComponent implements AfterViewInit {
     this.chartCanvasesEstatisticas.toArray().forEach((canvas, index) => {
       this.criarEstatisticas(canvas.nativeElement, index, this.estatisticasDTO);
     });
+
+
+
+
+
+
+
+
+
+
   }
 
   public metas: Object = [];
@@ -54,7 +71,8 @@ export class AdminComponent implements AfterViewInit {
 
   constructor(private avaliacaoService: AvaliacaoService) {
 
-
+    
+ 
 
     this.cartaoMetas = [
       { title: 'Preenchimento Atual' },
@@ -116,6 +134,18 @@ export class AdminComponent implements AfterViewInit {
           });
           break;
         case 2: //PAno
+
+        const panoLabels: number[] = [];
+        const panoData: number[] = [];
+
+        metasDTO.PreenchimentosAno.forEach(item => {
+          panoData.push(item.Preenchimento);
+        
+          // Faça o mapeamento do número do mês para o nome do mês
+          const nomeAno = item.Ano;
+          panoLabels.push(nomeAno);
+        });
+
           new Chart(ctx, {
             type: 'bar',
             options: {
@@ -123,10 +153,10 @@ export class AdminComponent implements AfterViewInit {
               maintainAspectRatio: false
             },
             data: {
-              labels: ['Red', 'Blue', 'Yellow'],
+              labels: panoLabels,
               datasets: [{
                 label: 'My First Dataset',
-                data: [300, 50, 100],
+                data: panoData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
             },
