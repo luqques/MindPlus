@@ -29,7 +29,9 @@
     </nav>
     <div *ngFor="let pergunta of perguntasST1; let i = index">
       <p class="mt-5">{{ pergunta }}</p>
-      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <form  [formGroup]="avaliacaoFormGroup" (ngSubmit)="salvarResultados()">
+        <input type="range" class="form-range range-concordancia" formControlName="perguntaST1{{i}}" min="1" max="5" value="3">
+      </form>
       <div class="row descricao-concordancia">
         <div class="col">Discordo totalmente</div>
         <div class="col">Discordo</div>
@@ -46,7 +48,9 @@
     </nav>
     <div *ngFor="let pergunta of perguntasST2; let i = index">
       <p class="mt-5">{{ pergunta }}</p>
-      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <form  [formGroup]="avaliacaoFormGroup" (ngSubmit)="salvarResultados()">
+        <input type="range" class="form-range range-concordancia" formControlName="perguntaST2{{i}}" min="1" max="5" value="3">
+      </form>
       <div class="row descricao-concordancia">
         <div class="col">Discordo totalmente</div>
         <div class="col">Discordo</div>
@@ -63,7 +67,7 @@
     </nav>
     <div *ngFor="let pergunta of perguntasST3; let i = index">
       <p class="mt-5">{{ pergunta }}</p>
-      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <input type="range" class="form-range range-concordancia" min="1" max="5" value="3">
       <div class="row descricao-concordancia">
         <div class="col">Discordo totalmente</div>
         <div class="col">Discordo</div>
@@ -80,7 +84,7 @@
     </nav>
     <div *ngFor="let pergunta of perguntasST4; let i = index">
       <p class="mt-5">{{ pergunta }}</p>
-      <input type="range" class="form-range range-concordancia" min="1" max="5">
+      <input type="range" class="form-range range-concordancia" min="1" max="5" value="3">
       <div class="row descricao-concordancia">
         <div class="col">Discordo totalmente</div>
         <div class="col">Discordo</div>
@@ -243,6 +247,7 @@
       </div>
     </div> 
   </table>
-
-  <button class="btn btn-primary mt-4" (click)="salvarResultados()">Salvar Resultados</button>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary mt-4" (click)="salvarResultados(currentTab)">Salvar Resultados</button>
+  </div>
 </div>
