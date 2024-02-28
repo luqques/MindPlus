@@ -67,9 +67,9 @@ export class ColaboradorComponent {
   salvarResultados(idAvaliacao: number) {
     
     let pontuacoes = 0;
-    switch(this.currentTab) { 
+    switch(idAvaliacao) { 
       case 1: { 
-        let pontuacoes =
+        pontuacoes =
         this.avaliacaoFormGroup.controls['perguntaST10'].value
         + this.avaliacaoFormGroup.controls['perguntaST11'].value
         + this.avaliacaoFormGroup.controls['perguntaST12'].value
@@ -82,7 +82,7 @@ export class ColaboradorComponent {
         break; 
       } 
       case 2: { 
-        let pontuacoes =
+        pontuacoes =
         this.avaliacaoFormGroup.controls['perguntaSP10'].value
         + this.avaliacaoFormGroup.controls['perguntaSP11'].value
         + this.avaliacaoFormGroup.controls['perguntaSP12'].value
@@ -95,7 +95,7 @@ export class ColaboradorComponent {
         break;
       } 
       case 3: {
-        let pontuacoes =
+        pontuacoes =
         this.avaliacaoFormGroup.controls['perguntaRI10'].value
         + this.avaliacaoFormGroup.controls['perguntaRI11'].value
         + this.avaliacaoFormGroup.controls['perguntaRI12'].value
@@ -108,7 +108,7 @@ export class ColaboradorComponent {
         break;
       }
       default: { 
-        let pontuacoes = 0
+        pontuacoes = 0
         break; 
       } 
    } 
@@ -116,10 +116,11 @@ export class ColaboradorComponent {
     let score = pontuacoes / 9;
     console.log(score);
 
+    let _date = new Date();
     const payload: IAvaliacaoEntity = {
       usuarioId: this.usuarioData.id,
       avaliacao: idAvaliacao,
-      date: new Date(),
+      date: new Date().toISOString().slice(0, 10).replace('T', ' '),
       score: score
     }
 

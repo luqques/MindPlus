@@ -170,12 +170,12 @@ namespace MindPlus.Api.Repository
         public async Task CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
         {
             string sql = @"
-                        INSERT INTO AVALIACAO (Id,
-                                               UsuarioId,
+                        INSERT INTO AVALIACAO (UsuarioId,
+                                               Avaliacao,
                                                Data,
                                                Score) 
-                                       VALUES (@Id
-                                               @UsuarioId
+                                       VALUES (@UsuarioId,
+                                               @Avaliacao,
                                                @Data,
                                                @Score)";
             await Execute(sql, avaliacao);

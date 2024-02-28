@@ -1,6 +1,6 @@
 export interface IAvaliacaoEntity {
     usuarioId: number,
     avaliacao: number,
-    date: Date,
+    date: string,
     score: number
 }

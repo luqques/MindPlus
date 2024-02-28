@@ -54,7 +54,7 @@ namespace MindPlus.Api.Controllers
             try
             {
                 await _repository.CadastrarAvaliacao(avaliacao);
-                return Ok();
+                return Ok(new { message = "Avaliação inserida com sucesso!" });
             }
             catch (Exception ex)
             {
