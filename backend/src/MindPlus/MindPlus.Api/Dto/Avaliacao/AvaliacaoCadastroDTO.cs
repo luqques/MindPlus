@@ -5,6 +5,6 @@
         public int USUARIO_Id { get; set; }
         public int Avaliacao { get; set; }
         public DateTime Data { get; set; }
-        public double Escore { get; set; }
+        public double Score { get; set; }
     }
 }
