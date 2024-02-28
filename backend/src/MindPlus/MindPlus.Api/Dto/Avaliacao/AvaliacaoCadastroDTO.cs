@@ -2,9 +2,9 @@
 {
     public class AvaliacaoCadastroDTO
     {
-        public string Usuario_Id { get; set; }
-        public string Avaliacao { get; set; }
-        public string Data { get; set; }
-        public string Score { get; set; }
+        public int USUARIO_Id { get; set; }
+        public int Avaliacao { get; set; }
+        public DateTime Data { get; set; }
+        public double Escore { get; set; }
     }
 }
