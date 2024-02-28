@@ -17,7 +17,25 @@ export class AdminComponent implements AfterViewInit {
   @ViewChildren('chartCanvasMetas') chartCanvasesMetas!: QueryList<ElementRef>;
   @ViewChildren('chartCanvasEstatisticas') chartCanvasesEstatisticas!: QueryList<ElementRef>;
 
-  estatisticasDTO!: IEstatisticasDTO;
+  estatisticasDTO: IEstatisticasDTO = {
+    EscoresST: [{ MediaEscore: 1, NumeroPessoas: 5 },
+      { MediaEscore: 2, NumeroPessoas: 10 },
+      { MediaEscore: 3, NumeroPessoas: 15 },
+      { MediaEscore: 4, NumeroPessoas: 20 },
+      { MediaEscore: 5, NumeroPessoas: 25 }],
+    EscoresSP: [{ MediaEscore: 1, NumeroPessoas: 5 },
+      { MediaEscore: 2, NumeroPessoas: 10 },
+      { MediaEscore: 3, NumeroPessoas: 15 },
+      { MediaEscore: 4, NumeroPessoas: 20 },
+      { MediaEscore: 5, NumeroPessoas: 25 }],
+    EscoresRI: [{ MediaEscore: 1, NumeroPessoas: 5 },
+      { MediaEscore: 2, NumeroPessoas: 10 },
+      { MediaEscore: 3, NumeroPessoas: 15 },
+      { MediaEscore: 4, NumeroPessoas: 20 },
+      { MediaEscore: 5, NumeroPessoas: 25 }],
+    NiveisEstresse: new NiveisEstresse(),
+    TendenciasTemporais: []
+  };
 
   // TODO: Pegar esses dados da API mais tarde :D
   metasDTO: IMetasDTO = {
@@ -51,15 +69,6 @@ export class AdminComponent implements AfterViewInit {
       this.criarEstatisticas(canvas.nativeElement, index, this.estatisticasDTO);
     });
 
-
-
-
-
-
-
-
-
-
   }
 
   public metas: Object = [];
@@ -70,9 +79,6 @@ export class AdminComponent implements AfterViewInit {
   @Input() cartaoChart: { title2: string }[] = [];
 
   constructor(private avaliacaoService: AvaliacaoService) {
-
-    
- 
 
     this.cartaoMetas = [
       { title: 'Preenchimento Atual' },
@@ -186,10 +192,12 @@ export class AdminComponent implements AfterViewInit {
 
       switch (index) {
         case 0: //SG
+        
           // criar lista Data e Labels para cada grafico, nessa lista tera labels 5.4.3.2.1. em data tera o n de pessoas que caiu em cada um desses numeros
 
           //const sgData = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.MediaEscore);
           //const sgLabels = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.NumeroPessoas);
+
           const sgLabels = [estatisticasDTO.EscoresRI[0].MediaEscore,
           estatisticasDTO.EscoresRI[1].MediaEscore,
           estatisticasDTO.EscoresRI[2].MediaEscore,
@@ -211,7 +219,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: sgLabels,
               datasets: [{
-                //label: 'My First Dataset',
+                label: 'My First Dataset',
                 data: sgData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                 hoverOffset: 4
