@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
@@ -9,8 +10,44 @@ import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service
 })
 export class ColaboradorComponent {
 
-  constructor(private http: HttpClient, private avaliacoesService: AvaliacaoService) {}
+  avaliacaoFormGroup!: FormGroup;
 
+  constructor(
+    private http: HttpClient,
+    private avaliacoesService: AvaliacaoService,
+    private formBuilder: FormBuilder) {
+    this.avaliacaoFormGroup = this.formBuilder.group({
+      perguntaST10: [0],
+      perguntaST11: [0],
+      perguntaST12: [0],
+      perguntaST20: [0],
+      perguntaST21: [0],
+      perguntaST22: [0],
+      perguntaST30: [0],
+      perguntaST31: [0],
+      perguntaST32: [0],
+      perguntaSP10: [0],
+      perguntaSP11: [0],
+      perguntaSP12: [0],
+      perguntaSP20: [0],
+      perguntaSP21: [0],
+      perguntaSP22: [0],
+      perguntaSP30: [0],
+      perguntaSP31: [0],
+      perguntaSP32: [0],
+      perguntaRI10: [0],
+      perguntaRI11: [0],
+      perguntaRI12: [0],
+      perguntaRI20: [0],
+      perguntaRI21: [0],
+      perguntaRI22: [0],
+      perguntaRI30: [0],
+      perguntaRI31: [0],
+      perguntaRI32: [0],
+    });
+  }
+
+  
   currentTab: string = 'satisfacao-no-trabalho';
   sections = [
     { id: 'satisfacao-no-trabalho', title: 'Satisfação no Trabalho' },
@@ -23,13 +60,28 @@ export class ColaboradorComponent {
   }
 
   salvarResultados() {
-    const resultados = 1; //TODO: pegar a média dos valores do reactive forms para enviar para o payload.
-    this.avaliacoesService.salvarResultados(resultados).subscribe(response => {
+    let pontuacoes =
+      this.avaliacaoFormGroup.controls['perguntaST10'].value
+      + this.avaliacaoFormGroup.controls['perguntaST11'].value
+      + this.avaliacaoFormGroup.controls['perguntaST12'].value
+      + this.avaliacaoFormGroup.controls['perguntaST20'].value
+      + this.avaliacaoFormGroup.controls['perguntaST21'].value
+      + this.avaliacaoFormGroup.controls['perguntaST22'].value
+      + this.avaliacaoFormGroup.controls['perguntaST30'].value
+      + this.avaliacaoFormGroup.controls['perguntaST31'].value
+      + this.avaliacaoFormGroup.controls['perguntaST32'].value;
+      
+    let score = pontuacoes / 9;
+    console.log(score);
+
+    const payload = {
+
+    }
+    this.avaliacoesService.salvarResultados(score).subscribe(response => {
         console.log(response);
       }
     );
   }
-
 
   /* Satisfação no Trabalho */
   perguntasST1 = [
@@ -50,13 +102,7 @@ export class ColaboradorComponent {
     "Você percebe estímulos à inovação e criatividade na cultura organizacional?",
   ]
 
-  perguntasST4 = [
-    "A empresa fornece feedback pessoal construtivo para promover o desenvolvimento profissional.",
-    "Como você avalia as oportunidades de avanço na sua carreira dentro da empresa?",
-    "Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?"
-  ]
-
-  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3, this.perguntasST4]
+  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3]
 
   /* Satisfação Pessoal */
   perguntasSP1 = [
@@ -77,13 +123,7 @@ export class ColaboradorComponent {
     "A empresa oferece atividades que promovem o engajamento e a satisfação pessoal?"
   ];
 
-  perguntasSP4 = [
-    "Você se sente apoiado(a) emocionalmente pela equipe e liderança?",
-    "A empresa possui programas ou recursos para lidar com situações emocionais desafiadoras?",
-    "Existe uma cultura de apoio mútuo entre os colegas de trabalho?"
-  ];
-
-  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3, this.perguntasSP4];
+  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3];
 
   /* Relações Interpessoais */
   perguntasRI1 = [
@@ -104,11 +144,5 @@ export class ColaboradorComponent {
     "Quais práticas você considera importantes para manter um ambiente inclusivo em suas relações?"
   ];
 
-  perguntasRI4 = [
-    "As interações diárias que você considera mais significativas para o seu bem-estar social são consistentemente positivas.",
-    "Sua contribuição para um ambiente positivo nas suas relações interpessoais é percebida por outros?",
-    "Como você lida com desafios de comunicação em seu círculo social?"
-  ];
-
-  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3, this.perguntasRI4];
+  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3];
 }
