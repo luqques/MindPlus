@@ -108,9 +108,48 @@ export class AdminComponent implements AfterViewInit {
 
       switch (index) {
         case 0: 
-          const cAtual = metasDTO.ColaboradorTotalAtual;
-          const pAtual = metasDTO.PreenchimentoTotalAtual;
+        const cAtual = 200;//metasDTO.ColaboradorTotalAtual;
+        const pAtual = 180;//metasDTO.PreenchimentoTotalAtual;
+        console.log(`Colaborador Total Atual: ${cAtual}, Preenchimento Total Atual: ${pAtual}`);
 
+        const data = {
+          labels: ['Total Atual'],
+          datasets: [{
+            label: 'Preenchimento',
+            data: [pAtual],
+            backgroundColor: '#BBED94',
+            //categoryPercentage: 0.7,
+            barThickness: 55,
+            //barPercentage: 0.4,
+          }, {
+            label: 'Colaborador',
+            data: [cAtual],
+            backgroundColor: '#88BBCC',
+            barThickness: 55,
+          }]
+        };
+      
+        new Chart(ctx, {
+          type: 'bar',
+          options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                
+                stacked: true,
+
+              },
+              y: {
+                beginAtZero: true,
+                
+              },
+            },
+  
+          
+          },
+          data: data,
+        });
           break;
 
         case 1: //PMes
