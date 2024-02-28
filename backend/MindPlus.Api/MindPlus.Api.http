@@ -1,0 +1,6 @@
+@MindPlus.Api_HostAddress = http://localhost:5074
+
+GET {{MindPlus.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

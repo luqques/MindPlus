@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mappings\**" />
+    <EmbeddedResource Remove="Mappings\**" />
+    <EntityDeploy Remove="Mappings\**" />
+    <None Remove="Mappings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MindPlus.Core\MindPlus.Core.csproj" />
+    <ProjectReference Include="..\MindPlus.Domain\MindPlus.Domain.csproj" />
+    <ProjectReference Include="..\MindPlus.Infrastructure\MindPlus.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
