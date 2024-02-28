@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'colaborador', component: ColaboradorComponent },
+  { path: 'estatisticas', component: AdminComponent },
+  { path: 'avaliacao', component: ColaboradorComponent },
   { path: 'colaboradores', component: ColaboradoresComponent },
   { path: 'cadastroColaborador', component: CadastroColaboradoresComponent },
 ];

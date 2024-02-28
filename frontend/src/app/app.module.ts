@@ -13,6 +13,7 @@ import { AdminComponent } from './components/pages/avaliacoes/admin/admin.compon
 import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
 import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
 import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
+import { DatePipe } from '@angular/common'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -28,7 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ColaboradoresComponent,
         CadastroColaboradoresComponent,
     ],
-    providers: [],
+    providers: [DatePipe],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

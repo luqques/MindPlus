@@ -117,7 +117,7 @@ namespace MindPlus.Api.Repository
                                             FROM avaliacao 
                                             WHERE MONTH(`Data`) = MONTH(NOW()) 
                                             AND YEAR(`Data`) = YEAR(NOW())
-                                            AND Escore > {i + 0.1} AND Escore < {i + 1}
+                                            AND Score > {i + 0.1} AND Score < {i + 1}
                                             AND Avaliacao = 3";
                 avaliacao.NumeroPessoas = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlNumeroPessoas);
 
@@ -126,19 +126,19 @@ namespace MindPlus.Api.Repository
             }
 
             string sqlMediaGST = @"
-            SELECT avg(Escore)
+            SELECT avg(Score)
             FROM avaliacao
             WHERE Avaliacao = 1 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGST = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGST);
 
             string sqlMediaGSP = @"
-            SELECT avg(Escore)
+            SELECT avg(Score)
             FROM avaliacao
             WHERE Avaliacao = 2 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGSP = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGSP);
 
             string sqlMediaGRI = @"
-            SELECT avg(Escore)
+            SELECT avg(Score)
             FROM avaliacao
             WHERE Avaliacao = 3 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGRI = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGRI);
@@ -154,7 +154,7 @@ namespace MindPlus.Api.Repository
                 mes.Mes = i;
 
                 string sqlTendenciasTemporais = @$"
-                SELECT avg(Escore)
+                SELECT avg(Score)
                 FROM mp.avaliacao
                 WHERE YEAR(`Data`) = {DateTime.Today.Year} AND
                 MONTH(`Data`) = {i}";
@@ -170,14 +170,14 @@ namespace MindPlus.Api.Repository
         public async Task CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
         {
             string sql = @"
-                        INSERT INTO AVALIACAO (USUARIO_Id,
+                        INSERT INTO AVALIACAO (Usuario_Id,
                                                Avaliacao,
                                                Data,
-                                               Escore) 
-                                       VALUES (@USUARIO_Id
+                                               Score) 
+                                       VALUES (@Usuario_Id,
                                                @Avaliacao,
                                                @Data,
-                                               @Escore)";
+                                               @Score)";
             await Execute(sql, avaliacao);
         }
     }

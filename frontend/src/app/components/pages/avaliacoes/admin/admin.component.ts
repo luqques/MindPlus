@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input, AfterViewInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
-import { IEstatisticasDTO, EscoreAvaliacao, NiveisEstresse, TendenciasTemporais } from 'src/app/interfaces/IEstatisticasDTO';
+import { IEstatisticasDTO, ScoreAvaliacao, NiveisEstresse, TendenciasTemporais } from 'src/app/interfaces/IEstatisticasDTO';
 import { IMetasDTO, PreenchimentoMes, PreenchimentoAno } from 'src/app/interfaces/IMetasDTO';
 import Chart from 'chart.js/auto';
 
@@ -237,20 +237,19 @@ export class AdminComponent implements AfterViewInit {
         
           // criar lista Data e Labels para cada grafico, nessa lista tera labels 5.4.3.2.1. em data tera o n de pessoas que caiu em cada um desses numeros
 
-          //const sgData = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.MediaEscore);
-          //const sgLabels = estatisticasDTO.EscoresST.map((escore: EscoreAvaliacao) => escore.NumeroPessoas);
+          //const sgData = estatisticasDTO.ScoresST.map((Score: ScoreAvaliacao) => Score.MediaScore);
+          //const sgLabels = estatisticasDTO.ScoresST.map((Score: ScoreAvaliacao) => Score.NumeroPessoas);
+          const sgLabels = [estatisticasDTO.ScoresRI[0].MediaScore,
+          estatisticasDTO.ScoresRI[1].MediaScore,
+          estatisticasDTO.ScoresRI[2].MediaScore,
+          estatisticasDTO.ScoresRI[3].MediaScore,
+          estatisticasDTO.ScoresRI[4].MediaScore];
 
-          const sgLabels = [estatisticasDTO.EscoresRI[0].MediaEscore,
-          estatisticasDTO.EscoresRI[1].MediaEscore,
-          estatisticasDTO.EscoresRI[2].MediaEscore,
-          estatisticasDTO.EscoresRI[3].MediaEscore,
-          estatisticasDTO.EscoresRI[4].MediaEscore];
-
-          const sgData = [Math.round((estatisticasDTO.EscoresRI[0].NumeroPessoas + estatisticasDTO.EscoresSP[0].NumeroPessoas + estatisticasDTO.EscoresST[0].NumeroPessoas) / 3),
-          Math.round((estatisticasDTO.EscoresRI[1].NumeroPessoas + estatisticasDTO.EscoresSP[1].NumeroPessoas + estatisticasDTO.EscoresST[1].NumeroPessoas) / 3),
-          Math.round((estatisticasDTO.EscoresRI[2].NumeroPessoas + estatisticasDTO.EscoresSP[2].NumeroPessoas + estatisticasDTO.EscoresST[2].NumeroPessoas) / 3),
-          Math.round((estatisticasDTO.EscoresRI[3].NumeroPessoas + estatisticasDTO.EscoresSP[3].NumeroPessoas + estatisticasDTO.EscoresST[3].NumeroPessoas) / 3),
-          Math.round((estatisticasDTO.EscoresRI[4].NumeroPessoas + estatisticasDTO.EscoresSP[4].NumeroPessoas + estatisticasDTO.EscoresST[4].NumeroPessoas) / 3)];
+          const sgData = [Math.round((estatisticasDTO.ScoresRI[0].NumeroPessoas + estatisticasDTO.ScoresSP[0].NumeroPessoas + estatisticasDTO.ScoresST[0].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.ScoresRI[1].NumeroPessoas + estatisticasDTO.ScoresSP[1].NumeroPessoas + estatisticasDTO.ScoresST[1].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.ScoresRI[2].NumeroPessoas + estatisticasDTO.ScoresSP[2].NumeroPessoas + estatisticasDTO.ScoresST[2].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.ScoresRI[3].NumeroPessoas + estatisticasDTO.ScoresSP[3].NumeroPessoas + estatisticasDTO.ScoresST[3].NumeroPessoas) / 3),
+          Math.round((estatisticasDTO.ScoresRI[4].NumeroPessoas + estatisticasDTO.ScoresSP[4].NumeroPessoas + estatisticasDTO.ScoresST[4].NumeroPessoas) / 3)];
 
           new Chart(ctx, {
             type: 'pie',
@@ -304,7 +303,7 @@ export class AdminComponent implements AfterViewInit {
         case 2:
 
           const ttLabels = estatisticasDTO.TendenciasTemporais.map(tt => tt.Mes);
-          const ttData = estatisticasDTO.TendenciasTemporais.map(tt => tt.MediaEscore);
+          const ttData = estatisticasDTO.TendenciasTemporais.map(tt => tt.MediaScore);
 
           new Chart(ctx, {
             type: 'line',
@@ -315,7 +314,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: ttLabels,
               datasets: [{
-                label: 'Média de escore ao longo do tempo',
+                label: 'Média de score ao longo do tempo',
                 data: ttData,
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 2,

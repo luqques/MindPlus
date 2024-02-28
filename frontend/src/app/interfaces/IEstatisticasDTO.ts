@@ -1,13 +1,13 @@
 export interface IEstatisticasDTO {
-    EscoresST: EscoreAvaliacao[];
-    EscoresSP: EscoreAvaliacao[];
-    EscoresRI: EscoreAvaliacao[];
+    ScoresST: ScoreAvaliacao[];
+    ScoresSP: ScoreAvaliacao[];
+    ScoresRI: ScoreAvaliacao[];
     NiveisEstresse: NiveisEstresse;
     TendenciasTemporais: TendenciasTemporais[];
 }
 
-export class EscoreAvaliacao {
-    MediaEscore: number = 0;
+export class ScoreAvaliacao {
+    MediaScore: number = 0;
     NumeroPessoas: number = 0;
 }
 
@@ -20,5 +20,5 @@ export class NiveisEstresse {
 
 export class TendenciasTemporais {
     Mes: number = 0;
-    MediaEscore: number = 0;
+    MediaScore: number = 0;
 }
