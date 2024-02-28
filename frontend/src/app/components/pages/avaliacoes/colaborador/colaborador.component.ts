@@ -1,6 +1,10 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service';
+import { IAvaliacaoEntity } from 'src/app/interfaces/IAvaliacaoEntity';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-colaborador',
@@ -9,27 +13,86 @@ import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service
 })
 export class ColaboradorComponent {
 
-  constructor(private http: HttpClient, private avaliacoesService: AvaliacaoService) {}
+  avaliacaoFormGroup!: FormGroup;
 
-  currentTab: string = 'satisfacao-no-trabalho';
+  constructor(
+    private http: HttpClient,
+    private localStorage: LocalStorageService,
+    private avaliacoesService: AvaliacaoService,
+    private formBuilder: FormBuilder) {
+    this.avaliacaoFormGroup = this.formBuilder.group({
+      perguntaST10: [3],
+      perguntaST12: [3],
+      perguntaST11: [3],
+      perguntaST20: [3],
+      perguntaST21: [3],
+      perguntaST22: [3],
+      perguntaST30: [3],
+      perguntaST31: [3],
+      perguntaST32: [3],
+      perguntaSP10: [3],
+      perguntaSP11: [3],
+      perguntaSP12: [3],
+      perguntaSP20: [3],
+      perguntaSP21: [3],
+      perguntaSP22: [3],
+      perguntaSP30: [3],
+      perguntaSP31: [3],
+      perguntaSP32: [3],
+      perguntaRI10: [3],
+      perguntaRI11: [3],
+      perguntaRI12: [3],
+      perguntaRI20: [3],
+      perguntaRI21: [3],
+      perguntaRI22: [3],
+      perguntaRI30: [3],
+      perguntaRI31: [3],
+      perguntaRI32: [3],
+    });
+  }
+
+  currentTab: number = 1;
   sections = [
-    { id: 'satisfacao-no-trabalho', title: 'Satisfação no Trabalho' },
-    { id: 'satisfacao-pessoal', title: 'Satisfação Pessoal' },
-    { id: 'relacoes-interpessoais', title: 'Relações Interpessoais' }
+    { id: 1, title: 'Satisfação no Trabalho' },
+    { id: 2, title: 'Satisfação Pessoal' },
+    { id: 3, title: 'Relações Interpessoais' }
   ];
 
-  changeTab(tabId: string) {
+  changeTab(tabId: number) {
     this.currentTab = tabId;
   }
 
-  salvarResultados() {
-    const resultados = 1; //TODO: pegar a média dos valores do reactive forms para enviar para o payload.
-    this.avaliacoesService.salvarResultados(resultados).subscribe(response => {
+  usuarioData = this.localStorage.get("usuarioData")
+
+  salvarResultados(idAvaliacao: number) {
+    let pontuacoes =
+      this.avaliacaoFormGroup.controls['perguntaST10'].value
+      + this.avaliacaoFormGroup.controls['perguntaST11'].value
+      + this.avaliacaoFormGroup.controls['perguntaST12'].value
+      + this.avaliacaoFormGroup.controls['perguntaST20'].value
+      + this.avaliacaoFormGroup.controls['perguntaST21'].value
+      + this.avaliacaoFormGroup.controls['perguntaST22'].value
+      + this.avaliacaoFormGroup.controls['perguntaST30'].value
+      + this.avaliacaoFormGroup.controls['perguntaST31'].value
+      + this.avaliacaoFormGroup.controls['perguntaST32'].value;
+
+    let score = pontuacoes / 9;
+    console.log(score);
+
+    const payload: IAvaliacaoEntity = {
+      usuarioId: this.usuarioData.id,
+      avaliacao: idAvaliacao,
+      date: new Date(),
+      score: score
+    }
+
+    console.log(payload);
+    
+    this.avaliacoesService.salvarAvaliacao(payload).subscribe(response => {
         console.log(response);
       }
     );
   }
-
 
   /* Satisfação no Trabalho */
   perguntasST1 = [
@@ -50,14 +113,6 @@ export class ColaboradorComponent {
     "Você percebe estímulos à inovação e criatividade na cultura organizacional?",
   ]
 
-  perguntasST4 = [
-    "A empresa fornece feedback pessoal construtivo para promover o desenvolvimento profissional.",
-    "Como você avalia as oportunidades de avanço na sua carreira dentro da empresa?",
-    "Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?"
-  ]
-
-  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3, this.perguntasST4]
-
   /* Satisfação Pessoal */
   perguntasSP1 = [
     "Como você avalia a política de saúde e bem-estar oferecida pela empresa?",
@@ -77,14 +132,6 @@ export class ColaboradorComponent {
     "A empresa oferece atividades que promovem o engajamento e a satisfação pessoal?"
   ];
 
-  perguntasSP4 = [
-    "Você se sente apoiado(a) emocionalmente pela equipe e liderança?",
-    "A empresa possui programas ou recursos para lidar com situações emocionais desafiadoras?",
-    "Existe uma cultura de apoio mútuo entre os colegas de trabalho?"
-  ];
-
-  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3, this.perguntasSP4];
-
   /* Relações Interpessoais */
   perguntasRI1 = [
     "A qualidade das suas relações interpessoais em seu círculo social é satisfatória.",
@@ -103,12 +150,4 @@ export class ColaboradorComponent {
     "Como você promove a diversidade de perspectivas e experiências em seus círculos sociais?",
     "Quais práticas você considera importantes para manter um ambiente inclusivo em suas relações?"
   ];
-
-  perguntasRI4 = [
-    "As interações diárias que você considera mais significativas para o seu bem-estar social são consistentemente positivas.",
-    "Sua contribuição para um ambiente positivo nas suas relações interpessoais é percebida por outros?",
-    "Como você lida com desafios de comunicação em seu círculo social?"
-  ];
-
-  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3, this.perguntasRI4];
 }
