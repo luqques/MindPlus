@@ -17,7 +17,28 @@ export class AdminComponent implements AfterViewInit {
   @ViewChildren('chartCanvasMetas') chartCanvasesMetas!: QueryList<ElementRef>;
   @ViewChildren('chartCanvasEstatisticas') chartCanvasesEstatisticas!: QueryList<ElementRef>;
 
-  estatisticasDTO!: IEstatisticasDTO;
+  //estatisticasDTO!: IEstatisticasDTO;
+  //metasDTO!: IMetasDTO;
+
+  estatisticasDTO: IEstatisticasDTO = {
+    EscoresST: [{ MediaEscore: 1, NumeroPessoas: 5 },
+      { MediaEscore: 2, NumeroPessoas: 10 },
+      { MediaEscore: 3, NumeroPessoas: 15 },
+      { MediaEscore: 4, NumeroPessoas: 20 },
+      { MediaEscore: 5, NumeroPessoas: 25 }],
+    EscoresSP: [{ MediaEscore: 1, NumeroPessoas: 5 },
+      { MediaEscore: 2, NumeroPessoas: 10 },
+      { MediaEscore: 3, NumeroPessoas: 15 },
+      { MediaEscore: 4, NumeroPessoas: 20 },
+      { MediaEscore: 5, NumeroPessoas: 25 }],
+    EscoresRI: [{ MediaEscore: 1, NumeroPessoas: 5 },
+      { MediaEscore: 2, NumeroPessoas: 10 },
+      { MediaEscore: 3, NumeroPessoas: 15 },
+      { MediaEscore: 4, NumeroPessoas: 20 },
+      { MediaEscore: 5, NumeroPessoas: 25 }],
+    NiveisEstresse: new NiveisEstresse(),
+    TendenciasTemporais: []
+  };
 
   // TODO: Pegar esses dados da API mais tarde :D
   metasDTO: IMetasDTO = {
@@ -51,15 +72,6 @@ export class AdminComponent implements AfterViewInit {
       this.criarEstatisticas(canvas.nativeElement, index, this.estatisticasDTO);
     });
 
-
-
-
-
-
-
-
-
-
   }
 
   public metas: Object = [];
@@ -71,9 +83,6 @@ export class AdminComponent implements AfterViewInit {
 
   constructor(private avaliacaoService: AvaliacaoService) {
 
-    
- 
-
     this.cartaoMetas = [
       { title: 'Preenchimento Atual' },
       { title: 'Preenchimento por Mês' },
@@ -82,7 +91,7 @@ export class AdminComponent implements AfterViewInit {
     //this.metas.ColaboradorTotalAtual
 
     this.cartaoChart = [
-      { title2: 'Satisfação Geral' },
+      { title2: 'Satisfação Geral dos Colaboradores' },
       { title2: 'Níveis de Estresse' },
       { title2: 'Tendências Temporais' },
       { title2: 'Equilíbrio de Vida Pessoal/Profissional' },
@@ -94,14 +103,53 @@ export class AdminComponent implements AfterViewInit {
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      canvas.width = 200;
-      canvas.height = 200;
+      canvas.width = 515;
+      canvas.height = 235;
 
       switch (index) {
         case 0: 
-          const cAtual = metasDTO.ColaboradorTotalAtual;
-          const pAtual = metasDTO.PreenchimentoTotalAtual;
+        const cAtual = 200;//metasDTO.ColaboradorTotalAtual;
+        const pAtual = 180;//metasDTO.PreenchimentoTotalAtual;
+        console.log(`Colaborador Total Atual: ${cAtual}, Preenchimento Total Atual: ${pAtual}`);
 
+        const data = {
+          labels: ['Total Atual'],
+          datasets: [{
+            label: 'Preenchimento',
+            data: [pAtual],
+            backgroundColor: '#BBED94',
+            //categoryPercentage: 0.7,
+            barThickness: 55,
+            //barPercentage: 0.4,
+          }, {
+            label: 'Colaborador',
+            data: [cAtual],
+            backgroundColor: '#88BBCC',
+            barThickness: 55,
+          }]
+        };
+      
+        new Chart(ctx, {
+          type: 'bar',
+          options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                
+                stacked: true,
+
+              },
+              y: {
+                beginAtZero: true,
+                
+              },
+            },
+  
+          
+          },
+          data: data,
+        });
           break;
 
         case 1: //PMes
@@ -126,7 +174,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: pmesLabels,
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Quantidade de preenchimentos por mês',
                 data: pmesData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
@@ -155,7 +203,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: panoLabels,
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Quantidade de preenchimentos por ano',
                 data: panoData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
@@ -181,11 +229,12 @@ export class AdminComponent implements AfterViewInit {
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      canvas.width = 200;
-      canvas.height = 200;
+      canvas.width = 515;
+      canvas.height = 235;
 
       switch (index) {
         case 0: //SG
+        
           // criar lista Data e Labels para cada grafico, nessa lista tera labels 5.4.3.2.1. em data tera o n de pessoas que caiu em cada um desses numeros
 
           //const sgData = estatisticasDTO.ScoresST.map((Score: ScoreAvaliacao) => Score.MediaScore);
@@ -211,16 +260,16 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: sgLabels,
               datasets: [{
-                //label: 'My First Dataset',
+                label: 'Quantidade colaboradores',
                 data: sgData,
-                backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                backgroundColor: ['#C43030', '#ED944B', '#E8E766', '#5C93AD','#84BD57'],
                 hoverOffset: 4
               }]
             },
           });
           break;
-        case 1:
 
+        case 1: //NE
           const neData = [
             estatisticasDTO.NiveisEstresse.MediaGeral,
             estatisticasDTO.NiveisEstresse.MediaGST,
@@ -228,17 +277,23 @@ export class AdminComponent implements AfterViewInit {
             estatisticasDTO.NiveisEstresse.MediaGRI,
           ];
 
-
           new Chart(ctx, {
             type: 'bar',
             options: {
               responsive: false,
-              maintainAspectRatio: false
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true, 
+                  max: 5,
+                  reverse: true
+                }
+              }
             },
             data: {
-              labels: ['Geral', 'GST', 'GSP', 'GRI'],
+              labels: ['Geral', 'Satisfação no Trabalho', 'Satisfação Pessoal', 'Relações Interpessoais'],
               datasets: [{
-                label: 'Média de Estresse',
+                label: 'Média de estresse geral e por avaliação',
                 data: neData,
                 backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
@@ -259,7 +314,7 @@ export class AdminComponent implements AfterViewInit {
             data: {
               labels: ttLabels,
               datasets: [{
-                label: 'Média de Score',
+                label: 'Média de score ao longo do tempo',
                 data: ttData,
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 2,
@@ -283,9 +338,9 @@ export class AdminComponent implements AfterViewInit {
               maintainAspectRatio: false
             },
             data: {
-              labels: ['GST', 'GSP'],
+              labels: ['Satisfação no Trabalho', 'Satisfação Pessoal'],
               datasets: [{
-                label: 'My First Dataset',
+                label: 'Média de escore entre as duas avaliações',
                 data: evpData,
                 backgroundColor: ['rgb(54, 162, 235)', 'rgb(255, 205, 86)']
               }]
