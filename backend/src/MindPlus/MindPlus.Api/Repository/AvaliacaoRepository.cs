@@ -35,7 +35,7 @@ namespace MindPlus.Api.Repository
 
                 string sqlpreenchimentoMes = @$"
                 SELECT count(distinct USUARIO_Id)
-                FROM mp.avaliacao
+                FROM avaliacao
                 WHERE YEAR(`Data`) = {DateTime.Today.Year} AND
                 MONTH(`Data`) = {i}";
                 mes.Preenchimento = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlpreenchimentoMes);
@@ -45,7 +45,7 @@ namespace MindPlus.Api.Repository
 
             dto.PreenchimentosAno = new List<PreenchimentoAno>();
 
-            string sqlAnosComPreenchimento = "SELECT distinct year(`Data`) FROM mp.avaliacao";
+            string sqlAnosComPreenchimento = "SELECT distinct year(`Data`) FROM avaliacao";
             int[]? anosComPreenchimento = await GetConnection().QueryFirstOrDefaultAsync<int[]>(sqlAnosComPreenchimento);
 
             //for que roda a quantidade de anos
@@ -55,7 +55,7 @@ namespace MindPlus.Api.Repository
                 ano.Ano = anosComPreenchimento[i];
 
                 string sqlPreenchimentosAno = @$"SELECT count(Id)
-                                                FROM mp.avaliacao
+                                                FROM avaliacao
                                                 WHERE YEAR(`Data`) = {anosComPreenchimento[i]} 
                                                 AND Avaliacao = 1";
                 ano.Preenchimento = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlPreenchimentosAno);
@@ -117,7 +117,7 @@ namespace MindPlus.Api.Repository
                                             FROM avaliacao 
                                             WHERE MONTH(`Data`) = MONTH(NOW()) 
                                             AND YEAR(`Data`) = YEAR(NOW())
-                                            AND Score > {i + 0.1} AND Score < {i + 1}
+                                            AND Escore > {i + 0.1} AND Escore < {i + 1}
                                             AND Avaliacao = 3";
                 avaliacao.NumeroPessoas = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlNumeroPessoas);
 
@@ -126,20 +126,20 @@ namespace MindPlus.Api.Repository
             }
 
             string sqlMediaGST = @"
-            SELECT avg(Score)
-            FROM mp.avaliacao
+            SELECT avg(Escore)
+            FROM avaliacao
             WHERE Avaliacao = 1 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGST = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGST);
 
             string sqlMediaGSP = @"
-            SELECT avg(Score)
-            FROM mp.avaliacao
+            SELECT avg(Escore)
+            FROM avaliacao
             WHERE Avaliacao = 2 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGSP = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGSP);
 
             string sqlMediaGRI = @"
-            SELECT avg(Score)
-            FROM mp.avaliacao
+            SELECT avg(Escore)
+            FROM avaliacao
             WHERE Avaliacao = 3 AND MONTH(`Data`) = MONTH(NOW()) AND YEAR(`Data`) = YEAR(NOW());";
             dto.NiveisEstresse.MediaGRI = await GetConnection().QueryFirstOrDefaultAsync<int>(sqlMediaGRI);
             //MediaGeral de todos
@@ -154,7 +154,7 @@ namespace MindPlus.Api.Repository
                 mes.Mes = i;
 
                 string sqlTendenciasTemporais = @$"
-                SELECT avg(Score)
+                SELECT avg(Escore)
                 FROM mp.avaliacao
                 WHERE YEAR(`Data`) = {DateTime.Today.Year} AND
                 MONTH(`Data`) = {i}";
@@ -170,14 +170,14 @@ namespace MindPlus.Api.Repository
         public async Task CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
         {
             string sql = @"
-                        INSERT INTO AVALIACAO (Usuario_Id,
+                        INSERT INTO AVALIACAO (USUARIO_Id,
                                                Avaliacao,
                                                Data,
-                                               Score) 
-                                       VALUES (@Usuario_Id
+                                               Escore) 
+                                       VALUES (@USUARIO_Id
                                                @Avaliacao,
                                                @Data,
-                                               @Score)";
+                                               @Escore)";
             await Execute(sql, avaliacao);
         }
     }
