@@ -26,9 +26,6 @@ export class ColaboradorComponent {
       perguntaST30: [0],
       perguntaST31: [0],
       perguntaST32: [0],
-      perguntaST40: [0],
-      perguntaST41: [0],
-      perguntaST42: [0],
       perguntaSP10: [0],
       perguntaSP11: [0],
       perguntaSP12: [0],
@@ -38,9 +35,6 @@ export class ColaboradorComponent {
       perguntaSP30: [0],
       perguntaSP31: [0],
       perguntaSP32: [0],
-      perguntaSP40: [0],
-      perguntaSP41: [0],
-      perguntaSP42: [0],
       perguntaRI10: [0],
       perguntaRI11: [0],
       perguntaRI12: [0],
@@ -50,9 +44,6 @@ export class ColaboradorComponent {
       perguntaRI30: [0],
       perguntaRI31: [0],
       perguntaRI32: [0],
-      perguntaRI40: [0],
-      perguntaRI41: [0],
-      perguntaRI42: [0],
     });
   }
 
@@ -69,7 +60,7 @@ export class ColaboradorComponent {
   }
 
   salvarResultados() {
-    let pontuacoes: number =
+    let pontuacoes =
       this.avaliacaoFormGroup.controls['perguntaST10'].value
       + this.avaliacaoFormGroup.controls['perguntaST11'].value
       + this.avaliacaoFormGroup.controls['perguntaST12'].value
@@ -78,18 +69,18 @@ export class ColaboradorComponent {
       + this.avaliacaoFormGroup.controls['perguntaST22'].value
       + this.avaliacaoFormGroup.controls['perguntaST30'].value
       + this.avaliacaoFormGroup.controls['perguntaST31'].value
-      + this.avaliacaoFormGroup.controls['perguntaST32'].value
-      + this.avaliacaoFormGroup.controls['perguntaST40'].value
-      + this.avaliacaoFormGroup.controls['perguntaST41'].value
-      + this.avaliacaoFormGroup.controls['perguntaST42'].value;
+      + this.avaliacaoFormGroup.controls['perguntaST32'].value;
       
-    let score: number = pontuacoes / 12;
+    let score = pontuacoes / 9;
     console.log(score);
 
-    // this.avaliacoesService.salvarResultados(resultados).subscribe(response => {
-    //     console.log(response);
-    //   }
-    // );
+    const payload = {
+
+    }
+    this.avaliacoesService.salvarResultados(score).subscribe(response => {
+        console.log(response);
+      }
+    );
   }
 
   /* Satisfação no Trabalho */
@@ -111,13 +102,7 @@ export class ColaboradorComponent {
     "Você percebe estímulos à inovação e criatividade na cultura organizacional?",
   ]
 
-  perguntasST4 = [
-    "A empresa fornece feedback pessoal construtivo para promover o desenvolvimento profissional.",
-    "Como você avalia as oportunidades de avanço na sua carreira dentro da empresa?",
-    "Você se sente incentivado(a) a buscar aprendizado contínuo no seu ambiente de trabalho?"
-  ]
-
-  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3, this.perguntasST4]
+  perguntas1 = [this.perguntasST1, this.perguntasST2, this.perguntasST3]
 
   /* Satisfação Pessoal */
   perguntasSP1 = [
@@ -138,13 +123,7 @@ export class ColaboradorComponent {
     "A empresa oferece atividades que promovem o engajamento e a satisfação pessoal?"
   ];
 
-  perguntasSP4 = [
-    "Você se sente apoiado(a) emocionalmente pela equipe e liderança?",
-    "A empresa possui programas ou recursos para lidar com situações emocionais desafiadoras?",
-    "Existe uma cultura de apoio mútuo entre os colegas de trabalho?"
-  ];
-
-  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3, this.perguntasSP4];
+  perguntas2 = [this.perguntasSP1, this.perguntasSP2, this.perguntasSP3];
 
   /* Relações Interpessoais */
   perguntasRI1 = [
@@ -165,11 +144,5 @@ export class ColaboradorComponent {
     "Quais práticas você considera importantes para manter um ambiente inclusivo em suas relações?"
   ];
 
-  perguntasRI4 = [
-    "As interações diárias que você considera mais significativas para o seu bem-estar social são consistentemente positivas.",
-    "Sua contribuição para um ambiente positivo nas suas relações interpessoais é percebida por outros?",
-    "Como você lida com desafios de comunicação em seu círculo social?"
-  ];
-
-  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3, this.perguntasRI4];
+  perguntas3 = [this.perguntasRI1, this.perguntasRI2, this.perguntasRI3];
 }
