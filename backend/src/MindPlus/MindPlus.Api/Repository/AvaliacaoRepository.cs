@@ -169,7 +169,6 @@ namespace MindPlus.Api.Repository
 
         public async Task CadastrarAvaliacao(AvaliacaoCadastroDTO avaliacao)
         {
-            avaliacao.Data.ToString();
             string sql = @"
                         INSERT INTO AVALIACAO (Usuario_Id,
                                                Avaliacao,

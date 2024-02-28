@@ -5,6 +5,7 @@ import { AvaliacaoService } from 'src/app/services/avaliacoes/avaliacoes.service
 import { IAvaliacaoEntity } from 'src/app/interfaces/IAvaliacaoEntity';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-colaborador',
@@ -19,7 +20,8 @@ export class ColaboradorComponent {
     private http: HttpClient,
     private localStorage: LocalStorageService,
     private avaliacoesService: AvaliacaoService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    public datepipe: DatePipe) {
     this.avaliacaoFormGroup = this.formBuilder.group({
       perguntaST10: [3],
       perguntaST12: [3],
@@ -112,18 +114,14 @@ export class ColaboradorComponent {
         break; 
       } 
    } 
-
     let score = pontuacoes / 9;
-    console.log(score);
 
-    let _date = new Date();
     const payload: IAvaliacaoEntity = {
-      usuarioId: this.usuarioData.id,
+      usuario_id: this.usuarioData.id,
       avaliacao: idAvaliacao,
-      date: new Date().toISOString().slice(0, 10).replace('T', ' '),
+      date: this.datepipe.transform(new Date(), 'yyyy-MM-dd'),
       score: score
     }
-
     console.log(payload);
     
     this.avaliacoesService.salvarAvaliacao(payload).subscribe(response => {
