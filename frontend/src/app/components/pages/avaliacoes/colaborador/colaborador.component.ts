@@ -65,16 +65,53 @@ export class ColaboradorComponent {
   usuarioData = this.localStorage.get("usuarioData")
 
   salvarResultados(idAvaliacao: number) {
-    let pontuacoes =
-      this.avaliacaoFormGroup.controls['perguntaST10'].value
-      + this.avaliacaoFormGroup.controls['perguntaST11'].value
-      + this.avaliacaoFormGroup.controls['perguntaST12'].value
-      + this.avaliacaoFormGroup.controls['perguntaST20'].value
-      + this.avaliacaoFormGroup.controls['perguntaST21'].value
-      + this.avaliacaoFormGroup.controls['perguntaST22'].value
-      + this.avaliacaoFormGroup.controls['perguntaST30'].value
-      + this.avaliacaoFormGroup.controls['perguntaST31'].value
-      + this.avaliacaoFormGroup.controls['perguntaST32'].value;
+    
+    let pontuacoes = 0;
+    switch(this.currentTab) { 
+      case 1: { 
+        let pontuacoes =
+        this.avaliacaoFormGroup.controls['perguntaST10'].value
+        + this.avaliacaoFormGroup.controls['perguntaST11'].value
+        + this.avaliacaoFormGroup.controls['perguntaST12'].value
+        + this.avaliacaoFormGroup.controls['perguntaST20'].value
+        + this.avaliacaoFormGroup.controls['perguntaST21'].value
+        + this.avaliacaoFormGroup.controls['perguntaST22'].value
+        + this.avaliacaoFormGroup.controls['perguntaST30'].value
+        + this.avaliacaoFormGroup.controls['perguntaST31'].value
+        + this.avaliacaoFormGroup.controls['perguntaST32'].value;
+        break; 
+      } 
+      case 2: { 
+        let pontuacoes =
+        this.avaliacaoFormGroup.controls['perguntaSP10'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP11'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP12'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP20'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP21'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP22'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP30'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP31'].value
+        + this.avaliacaoFormGroup.controls['perguntaSP32'].value;
+        break;
+      } 
+      case 3: {
+        let pontuacoes =
+        this.avaliacaoFormGroup.controls['perguntaRI10'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI11'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI12'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI20'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI21'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI22'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI30'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI31'].value
+        + this.avaliacaoFormGroup.controls['perguntaRI32'].value;
+        break;
+      }
+      default: { 
+        let pontuacoes = 0
+        break; 
+      } 
+   } 
 
     let score = pontuacoes / 9;
     console.log(score);

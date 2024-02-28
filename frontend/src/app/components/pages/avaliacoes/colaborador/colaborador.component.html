@@ -29,7 +29,7 @@
     </nav>
     <div *ngFor="let pergunta of perguntasST1; let i = index">
       <p class="mt-5">{{ pergunta }}</p>
-      <form  [formGroup]="avaliacaoFormGroup" (ngSubmit)="salvarResultados(currentTab)">
+      <form [formGroup]="avaliacaoFormGroup" (ngSubmit)="salvarResultados(currentTab)">
         <input type="range" class="form-range range-concordancia" formControlName="perguntaST1{{i}}" min="1" max="5">
       </form>
       <div class="row descricao-concordancia">
