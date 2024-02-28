@@ -36,18 +36,12 @@ export class LoginComponent implements OnInit {
     if (usuarioLoginForm.valid) {
       this.usuarioService.autenticarLogin(usuarioLoginForm.value).subscribe(
           (response: IUsuarioLogin) => {
-            console.log('Login autenticado!');
-            console.log('Retorno da API: ', response);
-
             const bearerToken = 'Bearer ' + response.token;
             const usuario = response.usuario;
-            console.log('Dados do usuário:', usuario);
-
             this.localStorageService.set('bearerToken', bearerToken)
             this.localStorageService.set('usuarioData', usuario)
 
             if (bearerToken) {
-              console.log('Token: ', bearerToken);
               this.usuarioService.setUserToken(bearerToken);
               this.router.navigate(['/']);
             } else {
@@ -61,7 +55,7 @@ export class LoginComponent implements OnInit {
         );
     } else {
       alert('Todos os campos devem ser preenchidos.');
-      console.log('Todos os campos devem ser preenchidos.');
+      console.error('Todos os campos devem ser preenchidos.');
     }
   }
 }

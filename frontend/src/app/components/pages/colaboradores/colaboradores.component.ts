@@ -17,7 +17,6 @@ export class ColaboradoresComponent implements OnInit {
     this.usuarioService.listarUsuarios().subscribe(
       (response) => {
         this.usuarios = response
-        console.log(this.usuarios);
         this.usuariosFiltrados = this.usuarios;
         this.filtrarUsuarios();
       },

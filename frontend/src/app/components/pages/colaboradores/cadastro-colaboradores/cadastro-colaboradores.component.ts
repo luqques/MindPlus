@@ -58,8 +58,6 @@ export class CadastroColaboradoresComponent implements OnInit{
         status: 'ativo',
         funcao: this.usuarioFormGroup.controls["funcao"].value
       }
-
-      console.log(usuarioData);
     // }
   } 
 }

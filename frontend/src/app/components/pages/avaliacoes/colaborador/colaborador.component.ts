@@ -122,7 +122,6 @@ export class ColaboradorComponent {
       date: this.datepipe.transform(new Date(), 'yyyy-MM-dd'),
       score: score
     }
-    console.log(payload);
     
     this.avaliacoesService.salvarAvaliacao(payload).subscribe(response => {
         console.log(response);

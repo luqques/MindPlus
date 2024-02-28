@@ -64,10 +64,8 @@ export class PerfilComponent implements OnInit {
       }
       this.usuarioService.atualizarProprioPerfil(usuarioData).subscribe(
         response => {
-          console.log(response);
           this.isResponseOk = true;
           this.isResponseError = false;
-
         },
         error => {
           console.error(error);
