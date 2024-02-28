@@ -7,6 +7,9 @@
   flex-direction: column;
   align-items: center;
 }
+.text-box {
+  width: 900px;
+}
 .small-bar {
   display: flex;
   background-color: #185476;
@@ -36,7 +39,7 @@ h5 {
   display: flex;
   text-align: center;
   margin-top: 10px;
-  font-weight: 700;
+  font-weight: 300;
 }
  
 h2 {
@@ -76,8 +79,7 @@ h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #13384e;
   margin-top: -20px;
-  border-radius: 2px;
-  border-radius: 2px;
+  border-radius: 10px;
   border: transparent;
   margin-left: 35px;
   margin-right: 35px;
