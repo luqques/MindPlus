@@ -22,6 +22,7 @@ export class AtualizarColaboradorComponent {
     this.usuarioFormGroup = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', Validators.required],
+      senha: ['', Validators.required],
       telefone: ['', Validators.required],
       endereco: ['', Validators.required],
       funcao: ['', Validators.required],
@@ -57,7 +58,7 @@ export class AtualizarColaboradorComponent {
 
     const usuarioPayload: IUsuarioEntity = {
       id: this.id,
-      nome: this.usuarioFormGroup.controls["email"].value,
+      nome: this.usuarioFormGroup.controls["nome"].value,
       email: this.usuarioFormGroup.controls["email"].value,
       senha: this.usuarioFormGroup.controls["senha"].value,
       telefone: this.usuarioFormGroup.controls["telefone"].value,
