@@ -47,6 +47,17 @@
   </div>
 </div>
 
+<div class="container">
+  <div *ngIf="isResponseOk; else errorTemplate" class="alert alert-success fade-in-up mt-3" role="alert">
+      Colaborador removido com sucesso!
+  </div>
+  <ng-template #errorTemplate>
+      <div *ngIf="isResponseError" class="alert alert-danger mt-3 fade-in-up" role="alert">
+          Algo deu errado! Não foi possível remover o colaborador.
+      </div>
+  </ng-template>
+</div>
+
 <!-- Modal de confirmação da exclusão do usuário -->
 <div class="modal fade" id="modalConfirmacaoExclusao" tabindex="-1" aria-labelledby="modalConfirmacaoExclusaoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">

@@ -41,14 +41,23 @@ export class ColaboradoresComponent implements OnInit {
     }
   }
 
+  isResponseOk = false;
+  isResponseError = false;
+
   desativarUsuario(id: number) {
     this.usuarioService.desativarUsuario(id).subscribe(
       (response) => {
         console.log(response);
         this.filtrarUsuarios();
-      }, (error) => {
-        console.log("Erro ao desativar usuário: ", error);
+        this.ngOnInit();
+        this.isResponseOk = true;
+        this.isResponseError = false;
+      }, 
+      (error) => {
+        console.error("Erro ao desativar usuário: ", error);
         alert("Ocorreu algum erro ao desativar o usuário!");
+        this.isResponseOk = false;
+        this.isResponseError = true;
       }
     )
   }

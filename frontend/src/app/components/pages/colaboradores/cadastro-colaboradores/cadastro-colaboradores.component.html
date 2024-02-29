@@ -18,10 +18,9 @@
                 <label class="ms-3" for="endereco">Endereço</label>
             </div>
             <div class="pb-3">
-                <select class="form-select" id="funcao" formControlName="funcao" required>
-                    <option selected>Função...</option>
-                    <option value="1">Colaborador</option>
-                    <option value="2">Administrador</option>
+                <select class="form-select form-control" id="funcao" formControlName="funcao" required>
+                    <option value="colaborador">Colaborador</option>
+                    <option value="admin">Administrador</option>
                 </select>
             </div>
             <div class="form-floating pb-3 container-info">
@@ -33,6 +32,8 @@
             </div>
         </div>
     </form>
+</div>
+<div class="container">
     <div *ngIf="isResponseOk; else errorTemplate" class="alert alert-success fade-in-up mt-3" role="alert">
         Cadastro de colaborador realizado com sucesso!
     </div>

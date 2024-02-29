@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { IUsuarioLogin } from '../../interfaces/IUsuarioLogin';
 import { environment } from 'src/environments/environment';
 import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
+import { IUsuarioCadastroDto } from 'src/app/interfaces/IUsuarioCadastroDto';
 
 @Injectable({
   providedIn: 'root',
@@ -33,8 +34,7 @@ export class UsuarioService {
     return this.http.put<any>(`${this.apiUrl}/perfil`, payload, { 
       headers: { 
         'Content-Type': 'application/json',
-        Authorization: 
-          this.userTokenSubject.value
+        Authorization: this.userTokenSubject.value
       },
     });
   }
@@ -42,8 +42,7 @@ export class UsuarioService {
   public obterUsuarioPorId(id: number): Observable<IUsuarioEntity> {
     return this.http.get<IUsuarioEntity>(`${this.apiUrl}/${id}`, { 
       headers: { 
-        Authorization: 
-          this.userTokenSubject.value
+        Authorization: this.userTokenSubject.value
       },
     });
   }
@@ -51,17 +50,24 @@ export class UsuarioService {
   public listarUsuarios(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl, {
       headers: {
-        Authorization:
-          this.userTokenSubject.value
+        Authorization: this.userTokenSubject.value
       },
     });
   }
 
-  desativarUsuario(id: number) {
+  public desativarUsuario(id: number) {
     return this.http.delete<any>(`${this.apiUrl}?id=${id}`, {
       headers: {
-        Authorization:
-          this.userTokenSubject.value
+        Authorization: this.userTokenSubject.value
+      }
+    })
+  }
+
+  public cadastrarUsuario(payload: IUsuarioCadastroDto) {
+    return this.http.post<any>(this.apiUrl, payload, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: this.userTokenSubject.value
       }
     })
   }

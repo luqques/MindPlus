@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { IUsuarioCadastroDto } from 'src/app/interfaces/IUsuarioCadastroDto';
 import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
@@ -24,9 +25,10 @@ export class CadastroColaboradoresComponent implements OnInit{
     this.usuarioFormGroup = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', Validators.required],
+      senha: ['', Validators.required],
       telefone: ['', Validators.required],
       endereco: ['', Validators.required],
-      funcao: ['', Validators.required],
+      funcao: ['colaborador', Validators.required],
       status: ['ativo', Validators.required]
     });
   }
@@ -39,9 +41,8 @@ export class CadastroColaboradoresComponent implements OnInit{
   isResponseError = false;
 
   onSubmit() {
-    // if (this.usuarioFormGroup.valid) {
-      
-      const usuarioData: any = {
+    if (this.usuarioFormGroup.valid) {      
+      const payloadUsuario: IUsuarioCadastroDto = {
         nome: this.usuarioFormGroup.controls["nome"].value,
         email: this.usuarioFormGroup.controls["email"].value,
         senha: this.usuarioFormGroup.controls["senha"].value,
@@ -50,6 +51,21 @@ export class CadastroColaboradoresComponent implements OnInit{
         status: 'ativo',
         funcao: this.usuarioFormGroup.controls["funcao"].value
       }
-    // }
-  } 
+      this.usuarioService.cadastrarUsuario(payloadUsuario).subscribe(
+        (response) => {
+          console.log("Usuário cadastrado com sucesso!", response);
+          this.isResponseOk = true;
+          this.isResponseError = false;
+        },
+        (error) => {
+          console.error("Erro ao cadastrar usuário: ", error);
+          this.isResponseOk = false;
+          this.isResponseError = true;
+        }
+      )
+    } else {
+      this.isResponseOk = false;
+      this.isResponseError = true;
+    }
+  }
 }

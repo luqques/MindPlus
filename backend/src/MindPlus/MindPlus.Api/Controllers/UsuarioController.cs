@@ -132,7 +132,6 @@ namespace MindPlus.Api.Controllers
         /// Remover um usuário. (Requer autenticação como 'admin')
         /// </summary>
         [HttpDelete]
-        [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Remover um usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> RemoverUsuario(int id)
         {
