@@ -32,12 +32,13 @@
             <button type="submit" class="btn btn-primary mt-5 button-save">Salvar</button>
         </div>
     </form>
+
     <div *ngIf="isResponseOk; else errorTemplate" class="alert alert-success fade-in-up mt-3" role="alert">
-        Seu perfil foi atualizado com sucesso!
+        Colaborador atualizado com sucesso!
     </div>
     <ng-template #errorTemplate>
         <div *ngIf="isResponseError" class="alert alert-danger mt-3 fade-in-up" role="alert">
-            Algo deu errado! Não foi possível atualizar seus dados de perfil.
+            Algo deu errado! Não foi possível atualizar seus dados do colaborador.
         </div>
     </ng-template>
 </div>
