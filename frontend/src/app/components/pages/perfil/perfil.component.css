@@ -23,12 +23,14 @@
   }
 }
 
-.button-save {
+/* .button-save {
   background-color: #185376;
   border-color: #185376;
+  transition: .4s;
 }
 
 .button-save:hover {
   background-color: #214153;
   border-color: #214153;
-}
+  transition: .4s;
+} */

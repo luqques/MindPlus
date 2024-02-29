@@ -53,6 +53,9 @@ export class ColaboradorComponent {
     });
   }
 
+  isResponseOk = false;
+  isResponseError = false;
+  
   currentTab: number = 1;
   sections = [
     { id: 1, title: 'Satisfação no Trabalho' },
@@ -62,12 +65,13 @@ export class ColaboradorComponent {
 
   changeTab(tabId: number) {
     this.currentTab = tabId;
+    this.isResponseOk = false;
+    this.isResponseError = false;
   }
 
   usuarioData = this.localStorage.get("usuarioData")
 
   salvarResultados(idAvaliacao: number) {
-    
     let pontuacoes = 0;
     switch(idAvaliacao) { 
       case 1: { 
@@ -123,8 +127,16 @@ export class ColaboradorComponent {
       score: score
     }
     
-    this.avaliacoesService.salvarAvaliacao(payload).subscribe(response => {
-        console.log(response);
+    this.avaliacoesService.salvarAvaliacao(payload).subscribe(
+      (response) => {
+        console.log('Avaliação salva com sucesso! ', response);
+        this.isResponseOk = true;
+        this.isResponseError = false;
+      },
+      (error) => {
+        console.error('Ocorreu algum erro no momento de salvar a avaliação: ', error);
+        this.isResponseOk = false;
+        this.isResponseError = true;
       }
     );
   }

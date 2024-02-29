@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'estatisticas', component: AdminComponent },
   { path: 'avaliacao', component: ColaboradorComponent },
   { path: 'colaboradores', component: ColaboradoresComponent },
-  { path: 'cadastroColaborador', component: CadastroColaboradoresComponent },
+  { path: 'cadastro-colaborador', component: CadastroColaboradoresComponent }
 ];
 
 @NgModule({

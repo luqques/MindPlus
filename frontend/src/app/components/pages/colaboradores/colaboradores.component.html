@@ -6,7 +6,7 @@
         <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="filtrarUsuarios()">Filtrar</button>
       </div>
       <div class="d-grid gap-2 mb-3 mx-2 w-100">
-        <button class="btn btn-primary p-2 flex-grow-1" type="button" routerLink="/cadastroColaborador">
+        <button class="btn btn-primary p-2 flex-grow-1 button-save" type="button" routerLink="/cadastro-colaborador">
           <i class="bi bi-plus"></i>Cadastrar colaborador
         </button>
       </div>
@@ -72,7 +72,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="desativarUsuario(usuarioSelecionado.id)">Sim</button>
+        <button type="button" class="btn btn-primary button-save" data-bs-dismiss="modal" (click)="desativarUsuario(usuarioSelecionado.id)">Sim</button>
       </div>
     </div>
   </div>

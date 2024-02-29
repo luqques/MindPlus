@@ -20,16 +20,16 @@
         </div>
         <div class="row">
             <div class="col form-floating pl-2 container-info">
-                <input type="text" class="form-control" id="funcao" formControlName="funcao" required>
+                <input type="text" class="form-control" id="funcao" formControlName="funcao" readonly required>
                 <label class="ms-3" for="funcao">Função</label>
             </div>
             <div class="col form-floating pl-2 container-info">
-                <input type="text" class="form-control" id="status" formControlName="status" required>
+                <input type="text" class="form-control" id="status" formControlName="status" readonly required>
                 <label class="ms-3" for="status">Status</label>
             </div>
         </div> 
-        <div>
-            <button type="submit" class="btn btn-primary button-save">Salvar</button>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary mt-5 button-save">Salvar</button>
         </div>
     </form>
     <div *ngIf="isResponseOk; else errorTemplate" class="alert alert-success fade-in-up mt-3" role="alert">

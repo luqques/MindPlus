@@ -209,10 +209,20 @@
         <div class="col">Concordo totalmente</div>
       </div>
     </div> 
-
   </table>
 
-  <div class="text-center">
-    <button type="submit" class="btn btn-primary mt-4" (click)="salvarResultados(currentTab)">Salvar</button>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button type="submit" class="btn btn-primary mt-5 button-save" (click)="salvarResultados(currentTab)">Salvar</button>
   </div>
+</div>
+
+<div class="container">
+  <div *ngIf="isResponseOk; else errorTemplate" class="alert alert-success fade-in-up mt-3" role="alert">
+      Avaliação realizado com sucesso!
+  </div>
+  <ng-template #errorTemplate>
+      <div *ngIf="isResponseError" class="alert alert-danger mt-3 fade-in-up" role="alert">
+          Algo deu errado! Não foi possível salvar a avaliação.
+      </div>
+  </ng-template>
 </div>

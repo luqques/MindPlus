@@ -1,4 +1,7 @@
 <div class="container rounded-4 shadow p-4 bg-white mx-auto my-5">
+    <div class="mb-3">
+        <h2>Cadastrar Colaborador</h2>
+    </div>
     <form [formGroup]="usuarioFormGroup" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="form-floating pb-3 container-info">
@@ -27,7 +30,7 @@
                 <input type="text" class="form-control" id="senha" formControlName="senha" required>
                 <label class="ms-3" for="senha">Senha temporária</label>
             </div>
-            <div class="text-center">
+            <div class="d-grid gap-2 col-6 mx-auto">
                 <button type="submit" class="btn btn-primary button-save">Cadastrar</button>
             </div>
         </div>
