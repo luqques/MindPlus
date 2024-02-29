@@ -22,7 +22,6 @@ namespace MindPlus.Api.Controllers
         /// Cadastrar uma empresa.
         /// </summary>
         [HttpPost]
-        [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Cadastrar uma empresa", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> CadastrarEmpresa(EmpresaDto empresa)
         {
@@ -41,7 +40,6 @@ namespace MindPlus.Api.Controllers
         /// Visualizar uma empresa.
         /// </summary>
         [HttpGet("{id:int}")]
-        //[Authorize]
         [SwaggerOperation(Summary = "Visualizar empresa", Description = "Visualiza uma empresa de acordo com o Id passado por parâmetro.")]
         public async Task<IActionResult> ObterEmpresaPorId(int id)
         {

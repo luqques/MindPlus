@@ -5,7 +5,6 @@ export interface IUsuarioEntity {
     senha: string,
     telefone: string,
     endereco: string,
-    empresaId: number,
     status: string,
     funcao: string    
 }

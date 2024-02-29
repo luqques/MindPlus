@@ -43,7 +43,6 @@ namespace MindPlus.Api.Controllers
         /// Visualizar todos os usuários.
         /// </summary>
         [HttpGet]
-        //[Authorize]
         [SwaggerOperation(Summary = "Visualizar todos os usuários ativos", Description = "Lista todos os usuários ativos do sistema.")]
         public async Task<IActionResult> VisualizarUsuariosAtivos()
         {
@@ -78,7 +77,6 @@ namespace MindPlus.Api.Controllers
         /// Cadastrar um novo usuário. (Requer autenticação como 'admin')
         /// </summary>
         [HttpPost]
-        [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Cadastrar um novo usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> CadastrarUsuario(UsuarioCadastroDto usuario)
         {
@@ -97,7 +95,6 @@ namespace MindPlus.Api.Controllers
         /// Atualizar informações de um usuário. (Requer autenticação como 'admin')
         /// </summary>
         [HttpPut]
-        [Authorize(Roles = "admin")]
         [SwaggerOperation(Summary = "Atualizar informações de um usuário", Description = "Requer autenticação como 'admin'.")]
         public async Task<IActionResult> AtualizarUsuario([FromBody] UsuarioEntity usuario)
         {
@@ -117,7 +114,6 @@ namespace MindPlus.Api.Controllers
         /// </summary>
         [HttpPut]
         [Route("perfil")]
-        [Authorize]
         [SwaggerOperation(Summary = "Atualizar informações do próprio perfil", Description = "Requer autenticação.")]
         public async Task<IActionResult> AtualizarProprioPerfil([FromBody] UsuarioAtualizacaoDto usuario)
         {

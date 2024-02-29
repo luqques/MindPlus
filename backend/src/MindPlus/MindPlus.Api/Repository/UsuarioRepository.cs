@@ -17,7 +17,6 @@ namespace MindPlus.Api.Repository
                             Senha = @Senha,
                             Telefone = @Telefone,
                             Endereco = @Endereco,
-                            EmpresaId = @EmpresaId,
                             Status = @Status,
                             Funcao = @Funcao
                         WHERE Id = @Id
@@ -28,8 +27,8 @@ namespace MindPlus.Api.Repository
         public async Task CadastrarUsuario(UsuarioCadastroDto usuario)
         {
             string sql = @"
-                    INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, EmpresaId, Status, Funcao)
-                        VALUES (@Nome, @Email, @Senha, @Telefone, @Endereco, @EmpresaId, @Status, @Funcao)
+                    INSERT INTO USUARIO (Nome, Email, Senha, Telefone, Endereco, Status, Funcao)
+                        VALUES (@Nome, @Email, @Senha, @Telefone, @Endereco, @Status, @Funcao)
             ";
             await Execute(sql, usuario);
         }

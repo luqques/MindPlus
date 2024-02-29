@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IUsuarioEntity } from 'src/app/interfaces/IUsuarioEntity';
-import { EmpresaService } from 'src/app/services/empresa/empresa.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
@@ -20,7 +19,6 @@ export class PerfilComponent implements OnInit {
   constructor(
     private localStorageService: LocalStorageService,
     private usuarioService: UsuarioService,
-    private empresaService: EmpresaService, 
     private formBuilder: FormBuilder
     ) {
     this.usuarioFormGroup = this.formBuilder.group(
@@ -31,7 +29,6 @@ export class PerfilComponent implements OnInit {
         senha: '',
         telefone: ['', Validators.required],
         endereco: ['', Validators.required],
-        empresaNome: ['', Validators.required],
         status: ['', Validators.required],
         funcao: ['', Validators.required],
       }
@@ -44,10 +41,6 @@ export class PerfilComponent implements OnInit {
     this.usuarioService.obterUsuarioPorId(this.usuarioData.id).subscribe(usuarioEntityResponse => {
       this.usuarioFormGroup.patchValue(usuarioEntityResponse);
     });
-
-    this.empresaService.obterEmpresaPorId(this.usuarioData.empresaId).subscribe(empresaEntityResponse => {
-      this.usuarioFormGroup.patchValue({empresaNome: empresaEntityResponse.nome});
-    })
   }
 
   isResponseOk = false;
