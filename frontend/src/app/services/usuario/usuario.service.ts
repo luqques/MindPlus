@@ -10,6 +10,7 @@ import { IUsuarioCadastroDto } from 'src/app/interfaces/IUsuarioCadastroDto';
   providedIn: 'root',
 })
 export class UsuarioService {
+
   constructor(private http: HttpClient) {}
 
   private baseApiUrl = environment.baseApiUrl;
@@ -70,5 +71,14 @@ export class UsuarioService {
         Authorization: this.userTokenSubject.value
       }
     })
+  }
+
+  public atualizarUsuario(payload: IUsuarioEntity):Observable<any> {
+    return this.http.put<any>(this.apiUrl, payload, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: this.userTokenSubject.value
+      }
+    });
   }
 }

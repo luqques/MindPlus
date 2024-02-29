@@ -2,7 +2,7 @@
     <form [formGroup]="usuarioFormGroup" (ngSubmit)="submit()">
         <div class="usuario-foto">
             <img src="../../assets/images/user-picture.jpg" alt="user-pic" />
-            <p name="nome" id="nome">{{ usuarioFormGroup.get("nome")?.value }}</p>
+            <p class="mt-2" name="nome" id="nome">{{ usuarioFormGroup.get("nome")?.value }}</p>
         </div>
         <div class="row">
             <div class="col form-floating pl-2 container-info">
