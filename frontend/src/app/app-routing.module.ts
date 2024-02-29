@@ -7,6 +7,7 @@ import { AdminComponent } from './components/pages/avaliacoes/admin/admin.compon
 import { ColaboradorComponent } from './components/pages/avaliacoes/colaborador/colaborador.component';
 import { ColaboradoresComponent } from './components/pages/colaboradores/colaboradores.component';
 import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
+import { AtualizarColaboradorComponent } from './components/pages/colaboradores/atualizar-colaborador/atualizar-colaborador.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'estatisticas', component: AdminComponent },
   { path: 'avaliacao', component: ColaboradorComponent },
   { path: 'colaboradores', component: ColaboradoresComponent },
-  { path: 'cadastro-colaborador', component: CadastroColaboradoresComponent }
+  { path: 'cadastro-colaborador', component: CadastroColaboradoresComponent },
+  { path: 'atualizar-colaborador/:id', component: AtualizarColaboradorComponent }
 ];
 
 @NgModule({

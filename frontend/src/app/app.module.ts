@@ -15,6 +15,7 @@ import { ColaboradoresComponent } from './components/pages/colaboradores/colabor
 import { CadastroColaboradoresComponent } from './components/pages/colaboradores/cadastro-colaboradores/cadastro-colaboradores.component';
 import { DatePipe } from '@angular/common'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AtualizarColaboradorComponent } from './components/pages/colaboradores/atualizar-colaborador/atualizar-colaborador.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ColaboradorComponent,
         ColaboradoresComponent,
         CadastroColaboradoresComponent,
+        AtualizarColaboradorComponent,
     ],
     providers: [DatePipe],
     bootstrap: [AppComponent],

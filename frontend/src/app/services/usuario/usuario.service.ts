@@ -39,7 +39,7 @@ export class UsuarioService {
     });
   }
 
-  public obterUsuarioPorId(id: number): Observable<IUsuarioEntity> {
+  public obterUsuarioPorId(id: any): Observable<IUsuarioEntity> {
     return this.http.get<IUsuarioEntity>(`${this.apiUrl}/${id}`, { 
       headers: { 
         Authorization: this.userTokenSubject.value
