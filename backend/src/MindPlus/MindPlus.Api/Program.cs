@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.Entity;
 using MindPlus.Api.Infrastructure;
-using MindPlus.Api.Repository;
+using MindPlus.Domain.Interfaces;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,8 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddTransient<IAvaliacaoRepository, AvaliacaoRepository>();
+builder.Services.AddTransient<IUsuarioCommandStore, UsuarioCommandStore>();
+//builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
 builder.Services.AddCors();
 

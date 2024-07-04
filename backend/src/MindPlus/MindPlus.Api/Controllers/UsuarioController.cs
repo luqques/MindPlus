@@ -1,17 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MindPlus.Api.Contracts.Repository;
-using MindPlus.Api.Dto.Usuario;
+﻿using Microsoft.AspNetCore.Mvc;
 using MindPlus.Api.Entity.Usuario;
-using MindPlus.Api.Infrastructure;
-using Org.BouncyCastle.Utilities;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace MindPlus.Api.Controllers
 {
     [ApiController]
     [Route("usuario")]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : Controller
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
@@ -19,7 +14,6 @@ namespace MindPlus.Api.Controllers
         {
             _usuarioRepository = usuarioRepository;
         }
-
 
         /// <summary>
         /// Autenticar um usuário.
